@@ -35,7 +35,7 @@ Route::group(['middleware' => 'admin'], function() {
 
   Route::get('admin/dashboard', 'DashboardController@index')->name('dashboard');
   Route::resource('admin/user', 'StudentController');
-  Route::resource('admin/product/', 'ProductController');
+  Route::resource('admin/product', 'ProductController');
   Route::resource('admin/category', 'CategoryController');
   Route::get('admin/product_gallery/{id}', 'ProductController@product_gallery');
   Route::post('admin/add_gallery/', 'ProductController@add_gallery');
