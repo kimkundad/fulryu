@@ -26,11 +26,8 @@ class HomeController extends Controller
     {
       $cat = DB::table('products')->select(
             'products.*',
-            'products.id as id_p',
-            'products.created_at as create',
-            'categories.*'
+            'products.id as id_p'
             )
-            ->leftjoin('categories', 'categories.id',  'products.pro_category')
             ->where('products.pro_status', 1)
             ->get();
 
@@ -40,7 +37,39 @@ class HomeController extends Controller
         return view('welcome', $data);
     }
 
-    public function product(){
-      return view('product');
+    public function product($id){
+
+      $img_all = DB::table('galleries')->select(
+          'galleries.*'
+          )
+          ->where('pro_id', $id)
+          ->get();
+
+          $data['img_all'] = $img_all;
+
+      $related = DB::table('products')->select(
+            'products.*',
+            'products.id as id_p'
+            )
+            ->where('products.pro_status', 1)
+            ->get();
+
+
+      $data['related'] = $related;
+
+      $cat = DB::table('products')->select(
+            'products.*',
+            'products.id as id_p',
+            'products.created_at as create',
+            'categories.*'
+            )
+            ->leftjoin('categories', 'categories.id',  'products.pro_category')
+            ->where('products.id', $id)
+            ->first();
+
+
+      $data['objs'] = $cat;
+
+      return view('product', $data);
     }
 }
