@@ -37,13 +37,13 @@
 	        <div class="custom-container">
 	            <div class="row">
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="#"><img src="home/assets/img/banner/img1_home2.jpg" alt=""></a>
+                        <a class="banner-image" href="{{url('category/1')}}"><img src="{{url('assets/image/category_img/'.$cat1->image_cat)}}" alt=""></a>
 	                </div>
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="#"><img src="home/assets/img/banner/img2_home2.jpg" alt=""></a>
+                        <a class="banner-image" href="{{url('category/2')}}"><img src="{{url('assets/image/category_img/'.$cat2->image_cat)}}" alt=""></a>
 	                </div>
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="#"><img src="home/assets/img/banner/img3_home2.jpg" alt=""></a>
+                        <a class="banner-image" href="{{url('category/3')}}"><img src="{{url('assets/image/category_img/'.$cat3->image_cat)}}" alt=""></a>
 	                </div>
 	            </div>
 	        </div>
@@ -95,7 +95,7 @@
                                         ?>
 
                                     </div>
-                                    <h4><a href="{{url('/')}}">{{$u->pro_name}}</a></h4>
+                                    <h4><a href="{{url('product/'.$u->id_p)}}">{{$u->pro_name}}</a></h4>
                                     <div class="product-price"><span>฿{{number_format($u->pro_price)}}</span></div>
                                 </div>
 	                        </div>
@@ -119,13 +119,13 @@
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="{{url('/')}}"><img src="home/assets/img/img1_Static3.jpg" alt=""></a>
+                        <a class="banner-image" href="{{url('category/4')}}"><img src="{{url('assets/image/category_img/'.$cat4->image_cat)}}" alt=""></a>
 	                </div>
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="{{url('/')}}"><img src="home/assets/img/img2_Static3.jpg" alt=""></a>
+                        <a class="banner-image" href="{{url('category/5')}}"><img src="{{url('assets/image/category_img/'.$cat5->image_cat)}}" alt=""></a>
 	                </div>
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="{{url('/')}}"><img src="home/assets/img/img3_Static3.jpg" alt=""></a>
+                        <a class="banner-image" href="{{url('category/6')}}"><img src="{{url('assets/image/category_img/'.$cat6->image_cat)}}" alt=""></a>
 	                </div>
 	            </div>
 	        </div>
@@ -143,24 +143,41 @@
 	                    <div class="single-product-widget">
 	                        <div class="product-widget-title">
 
-	                            <h4>Random products</h4>
+	                            <h4>{{$cat1->name_cat}}</h4>
 	                        </div>
+
+													@if($cat1->options)
+													@foreach($cat1->options as $u)
 	                        <div class="product-widget-item">
 	                            <div class="product-wid-img">
-	                                <a href="{{url('/')}}"><img src="{{url('home/assets/img/44-small_default.jpg')}}" alt=""></a>
+	                                <a href="{{url('product/'.$u->id)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" alt=""></a>
 	                            </div>
                                 <div class="product-text">
-                                    <h4><a href="{{url('/')}}">Push It Messenger Bag</a></h4>
+                                    <h4><a href="{{url('/')}}">{{$u->pro_name}}</a></h4>
                                     <div class="product-rating">
+																				<?php
+														            for($i=1;$i <= $u->pro_rating;$i++){
+														            ?>
                                         <i class="fa fa-star color"></i>
-                                        <i class="fa fa-star color"></i>
-                                        <i class="fa fa-star color"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+																				<?php
+														            }
+
+														            $total = 5;
+														            $total -= $u->pro_rating;
+
+														            for($i=1;$i <= $total;$i++){
+														            ?>
+																				<i class="fa fa-star"></i>
+																				<?php
+														            }
+														            ?>
+
                                     </div>
-                                    <div class="product-price"><span>$50.00</span></div>
+                                    <div class="product-price"><span>฿{{$u->pro_price}}.00</span></div>
                                 </div>
 	                        </div>
+													@endforeach
+													@endif
 
 	                    </div>
 	                </div>
@@ -168,24 +185,40 @@
                     <div class="single-product-widget">
                         <div class="product-widget-title">
 
-                            <h4>Random products</h4>
+                            <h4>{{$cat2->name_cat}}</h4>
                         </div>
-                        <div class="product-widget-item">
-                            <div class="product-wid-img">
-                                <a href="{{url('/')}}"><img src="{{url('home/assets/img/49-small_default.jpg')}}" alt=""></a>
-                            </div>
-                              <div class="product-text">
-                                  <h4><a href="{{url('/')}}">Push It Messenger Bag</a></h4>
-                                  <div class="product-rating">
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                  </div>
-                                  <div class="product-price"><span>$50.00</span></div>
-                              </div>
-                        </div>
+												@if($cat2->options)
+												@foreach($cat2->options as $u)
+												<div class="product-widget-item">
+														<div class="product-wid-img">
+																<a href="{{url('product/'.$u->id)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" alt=""></a>
+														</div>
+															<div class="product-text">
+																	<h4><a href="{{url('/')}}">{{$u->pro_name}}</a></h4>
+																	<div class="product-rating">
+																			<?php
+																			for($i=1;$i <= $u->pro_rating;$i++){
+																			?>
+																			<i class="fa fa-star color"></i>
+																			<?php
+																			}
+
+																			$total = 5;
+																			$total -= $u->pro_rating;
+
+																			for($i=1;$i <= $total;$i++){
+																			?>
+																			<i class="fa fa-star"></i>
+																			<?php
+																			}
+																			?>
+
+																	</div>
+																	<div class="product-price"><span>฿{{$u->pro_price}}.00</span></div>
+															</div>
+												</div>
+												@endforeach
+												@endif
 
                     </div>
 	                </div>
@@ -193,24 +226,40 @@
                     <div class="single-product-widget">
                         <div class="product-widget-title">
 
-                            <h4>Random products</h4>
+                            <h4>{{$cat3->name_cat}}</h4>
                         </div>
-                        <div class="product-widget-item">
-                            <div class="product-wid-img">
-                                <a href="{{url('/')}}"><img src="{{url('home/assets/img/39-small_default.jpg')}}" alt=""></a>
-                            </div>
-                              <div class="product-text">
-                                  <h4><a href="{{url('/')}}">Push It Messenger Bag</a></h4>
-                                  <div class="product-rating">
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                  </div>
-                                  <div class="product-price"><span>$50.00</span></div>
-                              </div>
-                        </div>
+												@if($cat3->options)
+												@foreach($cat3->options as $u)
+												<div class="product-widget-item">
+														<div class="product-wid-img">
+																<a href="{{url('product/'.$u->id)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" alt=""></a>
+														</div>
+															<div class="product-text">
+																	<h4><a href="{{url('/')}}">{{$u->pro_name}}</a></h4>
+																	<div class="product-rating">
+																			<?php
+																			for($i=1;$i <= $u->pro_rating;$i++){
+																			?>
+																			<i class="fa fa-star color"></i>
+																			<?php
+																			}
+
+																			$total = 5;
+																			$total -= $u->pro_rating;
+
+																			for($i=1;$i <= $total;$i++){
+																			?>
+																			<i class="fa fa-star"></i>
+																			<?php
+																			}
+																			?>
+
+																	</div>
+																	<div class="product-price"><span>฿{{$u->pro_price}}.00</span></div>
+															</div>
+												</div>
+												@endforeach
+												@endif
 
                     </div>
 	                </div>
@@ -218,24 +267,40 @@
                     <div class="single-product-widget">
                         <div class="product-widget-title">
 
-                            <h4>Random products</h4>
+                            <h4>{{$cat4->name_cat}}</h4>
                         </div>
-                        <div class="product-widget-item">
-                            <div class="product-wid-img">
-                                <a href="{{url('/')}}"><img src="{{url('home/assets/img/97-small_default.jpg')}}" alt=""></a>
-                            </div>
-                              <div class="product-text">
-                                  <h4><a href="{{url('/')}}">Push It Messenger Bag</a></h4>
-                                  <div class="product-rating">
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star color"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                  </div>
-                                  <div class="product-price"><span>$50.00</span></div>
-                              </div>
-                        </div>
+												@if($cat4->options)
+												@foreach($cat4->options as $u)
+												<div class="product-widget-item">
+														<div class="product-wid-img">
+																<a href="{{url('product/'.$u->id)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" alt=""></a>
+														</div>
+															<div class="product-text">
+																	<h4><a href="{{url('/')}}">{{$u->pro_name}}</a></h4>
+																	<div class="product-rating">
+																			<?php
+																			for($i=1;$i <= $u->pro_rating;$i++){
+																			?>
+																			<i class="fa fa-star color"></i>
+																			<?php
+																			}
+
+																			$total = 5;
+																			$total -= $u->pro_rating;
+
+																			for($i=1;$i <= $total;$i++){
+																			?>
+																			<i class="fa fa-star"></i>
+																			<?php
+																			}
+																			?>
+
+																	</div>
+																	<div class="product-price"><span>฿{{$u->pro_price}}.00</span></div>
+															</div>
+												</div>
+												@endforeach
+												@endif
 
                     </div>
 	                </div>

@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('pro_category')->nullable();
             $table->string('pro_code')->nullable();
             $table->integer('pro_price')->nullable();
+            $table->float('pro_weight', 8, 2)->default('0');
             $table->string('pro_image')->nullable();
             $table->integer('views')->default('0');
             $table->integer('pro_status')->default('0');

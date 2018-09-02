@@ -7,10 +7,10 @@
 
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     1. Template default css (css/bundle.css)
     2. Header Area
         2.1 Header Top
@@ -36,7 +36,7 @@
     20. About Page
     21. Contact Page
     22. Blog Details Page
-    
+
 -----------------------------------------------------------------------------------*/
 /*----------------------------------------*/
 /*  2. Header Area
@@ -313,7 +313,7 @@
 .main-menu > nav > ul > li:hover > ul {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; 
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     visibility: visible;
     opacity: 1
 }
@@ -1621,6 +1621,20 @@ h1.page-title {font-size: 40px; line-height: 44px; margin: 0 0 20px; text-transf
   text-transform: uppercase;
 }
 .all-cart-buttons button:hover, .buttons-set .button:hover, .amount-totals .button:hover {background: #bda87f}
+.buttons {
+  background: #252531 none repeat scroll 0 0;
+  border: 0 none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13.3px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 39px;
+  padding: 0 27px;
+  text-transform: uppercase;
+}
+.all-cart-buttons a:hover, .buttons-set .button:hover, .amount-totals .button:hover {background: #bda87f}
 .all-cart-buttons button:last-child, .all-cart-buttons button:nth-child(2) {float: right; margin-left: 5px;}
 .all-cart-buttons .button:hover, .buttons-set .button:hover, .amount-totals .button:hover {
     background: #bda87f none repeat scroll 0 0;
@@ -1700,7 +1714,7 @@ h3.login-title {
 .checkout-area .c-btn:hover, .login-btn:hover, .login-reister-area .c-btn:hover {
     background: #E03550 none repeat scroll 0 0;
     color: #ffffff;
-} 
+}
 .login-form input {
     border: 1px solid #e1e1e1;
     border-radius: 0;
@@ -2158,7 +2172,7 @@ h3.login-title {
 .contact-area #contact-form textarea {height: 159px; padding: 10px 20px; margin-bottom: 35px}
 .contact-area #contact-form input::-moz-placeholder, .contact-area #contact-form textarea::-moz-placeholder {
     color: #888;
-} 
+}
 .contact-area #contact-form input::-webkit-input-placeholder, .contact-area #contact-form textarea::-webkit-input-placeholder {
     color: #888;
 }
@@ -2286,14 +2300,14 @@ h3.login-title {
     padding: 0 20px;
     border-color: #e4e4e4;
 }
-.new-comment-post input::-moz-placeholder, .new-comment-post textarea::-moz-placeholder {color: #666;} 
+.new-comment-post input::-moz-placeholder, .new-comment-post textarea::-moz-placeholder {color: #666;}
 .new-comment-post input::-webkit-input-placeholder, .new-comment-post textarea::-webkit-input-placeholder {
     color: #666;
 }
 .new-comment-post textarea {height: 160px; margin-bottom: 40px; padding: 10px 20px;}
 .new-comment-post .default-btn {border-radius: 0; padding: 0 51px;}
 .search-box > input {border-color: #e5e5e5; color: #666; font-size: 13px; height: 34px; padding: 0 20px;}
-.search-box > input::-moz-placeholder{color: #666;} 
+.search-box > input::-moz-placeholder{color: #666;}
 .search-box > input::-webkit-input-placeholder{color: #666;}
 .search-box {position: relative;}
 .search-box > button {

@@ -35,9 +35,12 @@ class LoginController extends Controller
             //dd($request->user()->is_admin);
         }
 
-
+        if(Session::has('status_user') == 1){
+            return redirect(url('shipping'));
+          }else{
             return $this->authenticated($request, $this->guard()->user())
                       ?: redirect()->intended($this->redirectPath());
+          }
 
 
       /*  return $this->authenticated($request, $this->guard()->user())

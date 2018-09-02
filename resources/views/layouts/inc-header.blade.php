@@ -13,11 +13,10 @@
                                 <ul>
                                     <li class="active"><a href="{{url('/')}}">Home</a>
                                     </li>
-                                    <li class="active"><a href="{{url('/')}}">Category</a>
+
+                                    <li class="active"><a href="{{url('/about')}}">About</a>
                                     </li>
-                                    <li class="active"><a href="{{url('/')}}">About</a>
-                                    </li>
-                                    <li class="active"><a href="{{url('/')}}">Contact</a>
+                                    <li class="active"><a href="{{url('/contact')}}">Contact</a>
                                     </li>
 
                                 </ul>
@@ -37,7 +36,7 @@
                                 @if (Auth::guest())
                                 <a href="{{url('login')}}"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> Login</a>
                                 @else
-                                <a href="#"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> {{ Auth::user()->name }}</a>
+                                <a href="#"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> {{ substr(Auth::user()->name,0,8) }}</a>
                                 <ul>
                                       <li><a href="#">My Account</a></li>
                                       <li><a href="#">My Wishlist</a></li>
@@ -65,14 +64,80 @@
                                     </li>
                                 </ul> -->
                             </div>
+                            <?php
+                              $set_num_date = count(Session::get('cart'));
+                             ?>
                             <div class="cart-box-wrapper">
                                 <a class="cart-info" href="{{url('/')}}">
                                     <img src="{{url('home/assets/img/icon/cart-2.png')}}" alt="">
-                                    <span>0</span>
+                                    <span>{{$set_num_date}}</span>
                                 </a>
-
-                        <!--
                                 <div class="cart-dropdown">
+                                <?php
+                                if(!Session::get('cart')){
+
+                                ?>
+
+
+
+                                  <p style="padding-left:20px;margin-bottom: 0rem;">
+
+                                  Cart empty
+                                </p>
+
+
+
+
+                                <?php
+                                  }else{
+                                    $total = 0;
+                                    $total_item = 0;
+                                    $i = 1 ;
+
+                                    foreach(Session::get('cart') as $u){
+
+                                      $total_item += $u['data'][1]['sum_item'];
+                                      $total += $u['data'][2]['sum_price'];
+                                 ?>
+
+                                 <div class="cart-dropdown-item">
+                                     <div class="cart-p-image">
+                                         <a href="cart.html"><img src="{{url('assets/image/product/'.$u['data']['image'])}}" style="height:70px;" alt=""></a>
+                                     </div>
+                                     <div class="cart-p-text">
+                                         <a href="cart.html" class="cart-p-name">{{$u['data']['name']}}</a>
+                                         <span>฿{{$u['data']['price']}}.00</span>
+                                         <div class="cart-p-qty">
+
+                                             <a href="{{url('del_cart/'.$u['data']['id'])}}"><i class="icon icon-Delete"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+
+
+                                 <?php
+                                  $i++;
+                                    }
+                                   ?>
+
+                                   <div class="cart-item-a-wrapper">
+                                       <div class="cart-item-amount">
+                                           <span class="cart-number"><span>{{$total_item}}</span> items</span>
+                                           <div class="cart-amount">
+                                               <h5>Cart Subtotal :</h5>
+                                               <h4>฿{{$total}}.00</h4>
+                                           </div>
+                                       </div>
+                                       <a href="{{url('/cart')}}" class="grey-button">Go to Checkout</a>
+                                   </div>
+
+                                   <?php
+                                      }
+                                     ?>
+
+                                     </div>
+
+                            <!--    <div class="cart-dropdown">
                                     <button class="close"><i class="fa fa-close"></i></button>
                                     <div class="cart-item-a-wrapper">
                                         <div class="cart-item-amount">
@@ -86,39 +151,38 @@
                                     </div>
                                     <div class="cart-dropdown-item">
                                         <div class="cart-p-image">
-                                            <a href="cart.html"><img src="home/assets/img/cart/s-1.jpg" alt=""></a>
+                                            <a href="cart.html"><img src="{{url('home/assets/img/cart/s-1.jpg')}}" alt=""></a>
                                         </div>
                                         <div class="cart-p-text">
                                             <a href="cart.html" class="cart-p-name">Crown Summit Backpack</a>
                                             <span>$38.00</span>
                                             <div class="cart-p-qty">
-                                                <label>Qty</label>
-                                                <input type="text" placeholder="1">
+
                                                 <button><i class="icon icon-Delete"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="cart-dropdown-item">
                                         <div class="cart-p-image">
-                                            <a href="cart.html"><img src="home/assets/img/cart/s-2.jpg" alt=""></a>
+                                            <a href="cart.html"><img src="{{url('home/assets/img/cart/s-2.jpg')}}" alt=""></a>
                                         </div>
                                         <div class="cart-p-text">
                                             <a href="cart.html" class="cart-p-name">Strive Shoulder Pack</a>
                                             <span>$32.00</span>
                                             <div class="cart-p-qty">
-                                                <label>Qty</label>
-                                                <input type="text" placeholder="1">
+
                                                 <button><i class="icon icon-Delete"></i></button>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="cart-btn-wrapper">
                                         <a href="cart.html" class="grey-button">View and edit cart</a>
                                     </div>
-                                </div>
+                                </div> -->
 
 
-                              -->
+
                             </div>
                         </div>
                     </div>

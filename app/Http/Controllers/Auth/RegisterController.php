@@ -64,6 +64,12 @@ class RegisterController extends Controller
      protected function create(array $data)
      {
 
+       if(Session::has('status_user') == 1){
+         $this->redirectTo = '/checkout';
+        }else{
+          $this->redirectTo = '/';
+        }
+
          $ran = array("1483537975.png","1483556517.png","1483556686.png");
          return User::create([
          'name' => $data['name'],

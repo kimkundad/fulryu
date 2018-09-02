@@ -53,9 +53,14 @@ class SocialAuthController extends Controller
             : $this->loginOrCreateAccount($user, $driver);
     }
 
+
     protected function sendSuccessResponse()
     {
+      if(Session::has('status_user') == 1){
+       return redirect()->to('/checkout');
+    }else{
       return redirect()->intended('/');
+    }
 
     }
     protected function sendFailedResponse($msg = null)

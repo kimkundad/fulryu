@@ -1,0 +1,173 @@
+@extends('layouts.template')
+
+@section('title')
+
+@stop
+
+@section('stylesheet')
+
+<style>
+.buttons {
+  background: #252531 none repeat scroll 0 0;
+  border: 0 none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13.3px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 39px;
+  padding: 0 27px;
+  text-transform: uppercase;
+}
+.buttons:hover {
+  background: #bda87f;
+  color: #ffffff;
+}
+</style>
+
+@stop('stylesheet')
+@section('content')
+
+
+<!-- Breadcrumb Area Start -->
+        <div class="breadcrumb-area bg-dark">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End -->
+        <!-- Cart Main Area Start -->
+        <div class="cart-main-area ptb-80">
+            <div class="container">
+
+                    <div class="cart-table table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="p-image"></th>
+                                    <th class="p-name">Product Name</th>
+                                    <th class="p-amount">Unit Price</th>
+                                    <th class="p-quantity">Qty</th>
+                                    <th class="p-total">SubTotal</th>
+                                    <th class="p-edit">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <?php
+                              if(!Session::get('cart')){
+
+                                $total = 0;
+                                $total_item = 0;
+                                $i = 1 ;
+
+                              ?>
+
+                              <?php
+                                }else{
+                                  $total = 0;
+                                  $total_item = 0;
+                                  $i = 1 ;
+                                  $total_sum = 0;
+
+                                  foreach(Session::get('cart') as $u){
+                                    $total += $u['data'][2]['sum_price'];
+                                    $total_sum = $u['data']['price']*$u['data'][1]['sum_item'];
+                                    $total_item += $u['data'][1]['sum_item'];
+                               ?>
+
+
+
+                                <tr>
+
+                                  <form id="myform-{{$u['data']['id']}}" name="myform-{{$u['data']['id']}}" action="{{ url('update_cart/') }}" method="POST" >
+                                    {{ csrf_field() }}
+                                    <td class="p-image">
+                                        <a href="product-details.html"><img alt="" src="{{url('assets/image/product/'.$u['data']['image'])}}"></a>
+                                    </td>
+                                    <td class="p-name"><a href="product-details.html">{{$u['data']['name']}}</a></td>
+                                    <td class="p-amount">฿{{$u['data']['price']}}.00</td>
+                                    <td class="p-quantity"><input maxlength="12" type="text" value="{{$u['data'][1]['sum_item']}}" name="qty">
+                                    <input type="hidden" value="{{$u['data']['id']}}" name="pro_id">
+                                  </td>
+                                    <td class="p-total"><span>฿{{$total_sum}}.00</span></td>
+                                    <td class="edit">
+                                      <a href="{{url('/')}}"><img src="{{url('home/assets/img/icon/delte.png')}}" style="margin-right:8px;" alt="Delete Item" title="Delete Item"></a>
+                                      <a href="#" onclick="document.getElementById('myform-{{$u['data']['id']}}').submit(); return false;"><img src="{{url('home/assets/img/icon/32303.svg')}}" alt="Update Cart" style="height:20px;" title="Update Cart"></a>
+                                    </td>
+                                    </form>
+                                </tr>
+
+                                <?php
+                                 $i++;
+                                   }
+                                  ?>
+
+                                  <?php
+                                     }
+                                    ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="all-cart-buttons">
+                        <a class="buttons" href="{{url('/')}}"><span>Continue Shopping</span></a>
+                        <a class="buttons" href="{{url('/clear_cart')}}"><span>CLEAR CART</span></a>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="ht-shipping-content">
+                                <h3>RELATED PRODUCTS</h3>
+                                <p>Base on your selection, you may be interested in the following items:</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="ht-shipping-content">
+                                <h3>Discount Code</h3>
+                                <p>Enter your coupon code if you have one</p>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="postal-code">
+                                            <input type="text" placeholder="">
+                                        </div>
+                                        <div class="buttons-set">
+                                            <button class="button" type="button"><span>Apply Coupon</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="ht-shipping-content">
+                                <h3>Total</h3>
+                                <div class="amount-totals">
+                                    <p class="total">Discount <span>0.00</span></p>
+                                    <p class="total">Grandtotal <span>฿{{$total}}.00</span></p>
+                                    <a class="buttons" href="{{url('/checkout')}}"><span>Procced to checkout</span></a>
+                                    <div class="clearfix"></div>
+                                    <p class="floatright">Checkout with multiples address</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+        <!-- Cart Main Area End -->
+
+
+
+@endsection
+
+@section('scripts')
+
+@stop('scripts')

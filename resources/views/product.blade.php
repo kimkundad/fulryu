@@ -7,7 +7,41 @@
 @section('stylesheet')
 
 <link rel="stylesheet" href="{{url('home/assets/css/slick.css')}}">
+<style>
 
+.qty-cart-add > form > input {
+    border: 1px solid #c2c2c2;
+    border-radius: 20px;
+    color: #444444;
+    font-size: 14px;
+    height: 100%;
+    padding: 0 10px;
+    text-align: center;
+    width: 52px;
+}
+.qty-cart-add > form > a:hover {
+    background: #444444 none repeat scroll 0 0;
+}
+.qty-cart-add > form > a {
+    background: #bda87f none repeat scroll 0 0;
+    border-radius: 29px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 40px;
+    margin-left: 15px;
+        padding: 10px 41px;
+    text-transform: uppercase;
+}
+.qty-cart-add > form > label {
+    -ms-flex-item-align: center;
+    align-self: center;
+    color: #444444;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 13px 0 0;
+    text-transform: capitalize;
+}
+</style>
 @stop('stylesheet')
 @section('content')
 
@@ -18,7 +52,7 @@
                 <nav aria-label="breadcrumb">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Product Details</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{$objs->pro_name}}</li>
                     </ul>
                 </nav>
             </div>
@@ -78,14 +112,20 @@
                             <span class="p-d-price">฿{{number_format($objs->pro_price)}}.00</span>
                             <span class="model-stock">In stock <span><span>รหัสสินค้า</span>{{$objs->pro_code}}</span></span>
                             <div class="qty-cart-add">
-                                <label for="qty">qty</label>
-                                <input type="number" placeholder="1" >
-                                <a href="#">Add to cart</a>
+
+                                <form action="{{url('add_cart/')}}" id="my_form" method="POST">
+                                  {{ csrf_field() }}
+                                  <label for="qty">qty</label>
+                                  <input type="text" name="qty" value="1" placeholder="1" >
+                                  <input type="hidden" name="pro_id" value="{{$objs->id_p}}" >
+                                  <a href="javascript:$('#my_form').submit();" >Add to cart</a>
+                                  </form>
+
                             </div>
                             <div class="p-d-buttons">
                                 <a href="#">Add to wish list</a>
-                                <a href="#">Add to compare</a>
 
+                              
                             </div>
                             <p>
                               {{$objs->pro_title}}

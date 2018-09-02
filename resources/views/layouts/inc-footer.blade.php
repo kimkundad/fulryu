@@ -21,10 +21,9 @@
                             <div class="single-footer-widget">
                                 <h4>ABOUT US</h4>
                                 <ul class="footer-widget-list">
-                                    <li><a href="#">Site Map</a></li>
-                                    <li><a href="#">Specials</a></li>
+
                                     <li><a href="#">Delivery Information</a></li>
-                                    <li><a href="#">Order History</a></li>
+
                                     <li><a href="#">Privacy Policy</a></li>
                                 </ul>
                             </div>
@@ -33,11 +32,11 @@
                             <div class="single-footer-widget">
                                 <h4>INFORMATION</h4>
                                 <ul class="footer-widget-list">
-                                    <li><a href="account.html">My Account</a></li>
-                                    <li><a href="#">Gift Cards</a></li>
+                                    <li><a href="#">My Account</a></li>
+
                                     <li><a href="#">Return Policy</a></li>
-                                    <li><a href="#">Your Orders</a></li>
-                                    <li><a href="#">Subway</a></li>
+
+
                                 </ul>
                             </div>
                         </div>
@@ -45,11 +44,7 @@
                             <div class="single-footer-widget">
                                 <h4>my account</h4>
                                 <ul class="footer-widget-list">
-                                    <li><a href="account.html">My Account</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="account.html">Login</a></li>
-                                    <li><a href="#">Order status</a></li>
-                                    <li><a href="#">Site Map</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -88,7 +83,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="payment-image">
-                                <img src="home/assets/img/payment.png" alt="">
+                                <img src="{{url('home/assets/img/payment.png')}}" alt="">
                             </div>
                         </div>
                     </div>
