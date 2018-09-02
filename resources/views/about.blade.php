@@ -77,8 +77,8 @@
                         <div class="single-team">
                             <div class="team-image"><img src="{{url('assets/image/maxresdefault.jpg')}}" alt=""></div>
                             <div class="team-hover">
-                                <h4>John F. Burden</h4>
-                                <span class="block">Executive</span>
+                                <h4>สราวุธ เฮ้งสวัสดิ์ (เอ๋)</h4>
+                                <span class="block">นิ้วกลม</span>
                                 <div class="team-links">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-rss"></i></a>
@@ -93,8 +93,8 @@
                         <div class="single-team">
                             <div class="team-image"><img src="{{url('assets/image/maxresdefault2.jpg')}}" alt=""></div>
                             <div class="team-hover">
-                                <h4>John F. Burden</h4>
-                                <span class="block">Executive</span>
+                                <h4>สราวุธ เฮ้งสวัสดิ์ (เอ๋)</h4>
+                                <span class="block">นิ้วกลม</span>
                                 <div class="team-links">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-rss"></i></a>
@@ -109,8 +109,8 @@
                         <div class="single-team">
                             <div class="team-image"><img src="{{url('assets/image/maxresdefault3.jpg')}}" alt=""></div>
                             <div class="team-hover">
-                                <h4>John F. Burden</h4>
-                                <span class="block">Executive</span>
+                                <h4>สราวุธ เฮ้งสวัสดิ์ (เอ๋)</h4>
+                                <span class="block">นิ้วกลม</span>
                                 <div class="team-links">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-rss"></i></a>
