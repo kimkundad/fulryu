@@ -361,8 +361,8 @@ class HomeController extends Controller
           $data_toview['data'] = $package;
           $data_toview['datatime'] = date("d-m-Y H:i:s");
 
-            $email_sender   = 'masterphotonetworkonline@gmail.com';
-            $email_pass     = 'Master206';
+            $email_sender   = 'fulryumail@gmail.com';
+            $email_pass     = 'aeychingking';
 
         /*    $email_sender   = 'info@acmeinvestor.com';
             $email_pass     = 'Iaminfoacmeinvestor';  */
