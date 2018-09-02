@@ -13,10 +13,13 @@
                                 <ul>
                                     <li class="active"><a href="{{url('/')}}">Home</a>
                                     </li>
-
+                                    <li class="active"><a href="#">Shop</a>
+                                    </li>
                                     <li class="active"><a href="{{url('/about')}}">About</a>
                                     </li>
                                     <li class="active"><a href="{{url('/contact')}}">Contact</a>
+                                    </li>
+                                    <li class="active"><a href="#">Blog</a>
                                     </li>
 
                                 </ul>
