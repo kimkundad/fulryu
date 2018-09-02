@@ -125,7 +125,7 @@
                             <div class="p-d-buttons">
                                 <a href="#">Add to wish list</a>
 
-                              
+
                             </div>
                             <p>
                               {{$objs->pro_title}}
@@ -153,7 +153,7 @@
                         <div class="tab-pane fade scroll-area" id="tab2" role="tabpanel">
                             <div class="tab-items">
 
-                              <div class="fb-comments" data-href="https://www.fulryu.com/product/{{$objs->id_p}}" data-numposts="5"></div>
+                              <div class="fb-comments" data-href="https://www.fulryu.com/product/{{$objs->id_p}}" data-width="100%" data-numposts="5"></div>
 
                             </div>
                         </div>
