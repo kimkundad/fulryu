@@ -12,8 +12,20 @@
     margin-top: 39px;
 
 }
-
-
+.product-widget-title > h4 {
+    color: #252531;
+    font-size: 20px!important;
+    font-weight: 500;
+}
+.product-widget-title {
+    margin-bottom: 20px;
+}
+.product-widget-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0px 0 18px;
+}
 </style>
 
 @stop('stylesheet')
