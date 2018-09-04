@@ -84,6 +84,9 @@
                                   <div class="form-group">
                                     <label class="col-md-3 control-label" for="exampleInputEmail1">รูปภาพ*</label>
                                     <div class="col-md-8">
+                                      <p class="text-danger">
+                                        ขนาดที่พอดี กว้าง 870 สูง 255 px
+                                      </p>
                                     <div class="fileupload fileupload-new" data-provides="fileupload">
                                               <div class="input-append">
                                                 <div class="uneditable-input">
