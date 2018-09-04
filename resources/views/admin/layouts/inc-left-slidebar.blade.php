@@ -66,6 +66,28 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 									</li>
 
 
+                  <li {{ (Request::is('admin/coupon*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/coupon/')}}"  >
+											<i class="fa fa-usd" aria-hidden="true"></i>
+											<span>Coupon</span>
+										</a>
+									</li>
+
+                  <li {{ (Request::is('admin/slide*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/slide/')}}"  >
+											<i class="fa fa-camera" aria-hidden="true"></i>
+											<span>Slide Show</span>
+										</a>
+									</li>
+
+                  <li {{ (Request::is('admin/subscribe*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/subscribe/')}}"  >
+											<i class="fa fa-asterisk" aria-hidden="true"></i>
+											<span>Subscribe</span>
+										</a>
+									</li>
+
+
                   <li {{ (Request::is('admin/contact_admin*') ? 'class=nav-expanded' : '') }} >
 										<a href="{{url('admin/contact_admin/')}}"  >
 											<i class="fa fa-envelope-o" aria-hidden="true"></i>

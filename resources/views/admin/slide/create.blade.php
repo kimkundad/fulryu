@@ -58,94 +58,57 @@
 
           									<div id="edit" class="tab-pane active">
 
+                              <div class="col-md-12" style="margin-bottom:20px;">
+                                <img src="{{url('assets/image/fulryupublic.jpg')}}" class="img-responsive" />
+                              </div>
+
 
                               <form  method="POST" action="{{$url}}" enctype="multipart/form-data">
                                           {{ method_field($method) }}
                                           {{ csrf_field() }}
 
-          											<h4 class="mb-xlg">เพิ่ม สินค้าใหม่</h4>
+          											<h4 class="mb-xlg">เพิ่ม slide show</h4>
 
           											<fieldset>
                                   <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">ชื่อสินค้า*</label>
+          													<label class="col-md-3 control-label" for="profileFirstName">Text 1*</label>
           													<div class="col-md-8">
-          														<input type="text" class="form-control" name="pro_name" value="{{ old('pro_name')}}">
+          														<input type="text" class="form-control" name="text_1" value="{{ old('text_1')}}" placeholder="living room">
           														</div>
           												</div>
 
                                   <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">รหัสสินค้า*</label>
+          													<label class="col-md-3 control-label" for="profileFirstName">Text 2*</label>
           													<div class="col-md-8">
-          														<input type="text" class="form-control" name="pro_code" value="{{ old('pro_code')}}" placeholder="AE-1254">
+          														<input type="text" class="form-control" name="text_2" value="{{ old('text_2')}}" placeholder="REST CUSHION">
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">Text 3*</label>
+          													<div class="col-md-8">
+                                      <textarea name="text_3" class="form-control" placeholder="The design of the Rest fabric began from the use of leftover materials..">{{ old('text_3')}}</textarea>
+
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">Text Btn*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="text_btn" value="{{ old('text_btn')}}" placeholder="Shop no*">
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">Url Btn*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="url_btn" value="{{ old('url_btn')}}" placeholder="www.fulryu/public/">
           														</div>
           												</div>
 
 
                                   <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่*</label>
-          													<div class="col-md-8">
-          														<select name="pro_category" class="form-control mb-md" required>
-
-                                        <option value="">-- เลือกหมวดหมู่ --</option>
-  								                        @foreach($category as $categorys)
-  													                 <option value="{{$categorys->id}}">{{$categorys->name_cat}}</option>
-  													              @endforeach
-  								                    </select>
-          								            </select>
-          													</div>
-          												</div>
-
-
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileAddress">ประเภทสินค้า*</label>
-          													<div class="col-md-8">
-          														<select name="pro_status_show" class="form-control mb-md" required>
-
-                                        <option value="1">สินค้าทั่วไป</option>
-                                        <option value="2">NEW ARRIVALS!</option>
-                                        <option value="3">LIMITED OFFER</option>
-                                        <option value="4">RECOMMENDED EXCLUSIVE</option>
-
-
-  								                    </select>
-          								            </select>
-          													</div>
-          												</div>
-
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileAddress">ระดับดาว*</label>
-          													<div class="col-md-8">
-          														<select name="pro_rating" class="form-control mb-md" required>
-
-                                        <option value="1">1 ดาว</option>
-                                        <option value="2">2 ดาว</option>
-                                        <option value="3">3 ดาว</option>
-                                        <option value="4">4 ดาว</option>
-                                        <option value="5">5 ดาว</option>
-
-  								                    </select>
-          								            </select>
-          													</div>
-          												</div>
-
-
-
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">ราคา*</label>
-          													<div class="col-md-8">
-          														<input type="text" class="form-control" name="pro_price" value="{{ old('pro_price')}}">
-          														</div>
-          												</div>
-
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">คำอธิบาย*</label>
-          													<div class="col-md-8">
-          														<textarea class="form-control" name="pro_title" rows="5">{{ old('pro_title') }}</textarea>
-          														</div>
-          												</div>
-
-                                  <div class="form-group">
-                                    <label class="col-md-3 control-label" for="exampleInputEmail1">รูปหลักสินค้า*</label>
+                                    <label class="col-md-3 control-label" for="exampleInputEmail1">รูปภาพ*</label>
                                     <div class="col-md-8">
                                     <div class="fileupload fileupload-new" data-provides="fileupload">
                                               <div class="input-append">
@@ -164,21 +127,8 @@
                                             </div>
                                   </div>
 
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">รายละเอียดสินค้า*</label>
-          													<div class="col-md-8">
-          														<textarea class="form-control" name="pro_name_detail" rows="6">{{ old('pro_name_detail') }}</textarea>
-          														</div>
-          												</div>
 
-
-
-
-
-
-
-
-
+                                  <br>
 
 
 

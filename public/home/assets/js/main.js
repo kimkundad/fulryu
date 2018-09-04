@@ -16,7 +16,7 @@
     07. Slick Slider
     08. Newletter Modal On Load
     09. Scroll Down
- 
+
 ======================================
 [ End table content ]
 ======================================*/
@@ -26,18 +26,18 @@
 
 /*------------------------------------
     01. Sticky Menu
--------------------------------------- */  
+-------------------------------------- */
     var windows = $(window);
     var stick = $(".header-sticky");
-	windows.on('scroll',function() {    
+	windows.on('scroll',function() {
 		var scroll = windows.scrollTop();
 		if (scroll < 245) {
 			stick.removeClass("sticky");
 		}else{
 			stick.addClass("sticky");
 		}
-	}); 
-    
+	});
+
 /*------------------------------------
     02. jQuery MeanMenu
 -------------------------------------- */
@@ -45,7 +45,7 @@
         meanScreenWidth: "991",
         meanMenuContainer: ".mobile-menu-area .mobile-menu",
     });
-    
+
 /*----------------------------------------
     03. Owl Carousel
 ---------------------------------------- */
@@ -57,6 +57,9 @@
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         smartSpeed: 2500,
+        autoplay:true,
+        autoplayTimeout:4000,
+        autoplayHoverPause:true,
         items:1,
         nav:false,
         dots: true
@@ -167,7 +170,7 @@
                 items:3
             },
             1200:{
-                items:4
+                items:3
             }
         }
     });
@@ -210,30 +213,30 @@
     });
 /*------------------------------------------
     04. ScrollUp
-------------------------------------------- */	
+------------------------------------------- */
 	$.scrollUp({
         scrollText: '<i class="fa fa-chevron-up"></i>',
         easingType: 'linear',
         scrollSpeed: 900,
         animation: 'fade'
-    });  
-    
+    });
+
 /*------------------------------------------
     05. Wow js
--------------------------------------------- */    
+-------------------------------------------- */
     new WOW().init();
-    
+
 /*------------------------------------------
     06. Isotope
--------------------------------------------- */  
+-------------------------------------------- */
     $('.grid').isotope({
         itemSelector: '.grid-item',
         percentPosition: true,
         masonry: {
             columnWidth: '.grid-item'
         }
-    });    
-        
+    });
+
 /*----------------------------------------
 	07. Slick Slider
 ------------------------------------------*/
@@ -255,21 +258,21 @@
         slidesToShow: 1,
         asNavFor: '.product-thumbnail-slider',
     });
-    
+
 /*-----------------------------------------
     08. Newletter Modal On Load
------------------------------------------ */ 
+----------------------------------------- */
     var win = $(window);
     win.on('load', function() {
         $('#newslettermodal').modal('show');
-    });	
-    
+    });
+
 /*------------------------------------
     09. Scroll Down
--------------------------------------- */  
+-------------------------------------- */
     $('.scroll-down').on('click', function() {
         $('html, body').animate({scrollTop: $('.scroll-area').offset().top - 100 }, 'slow');
         return false;
     });
-    
-})(jQuery);	
+
+})(jQuery);

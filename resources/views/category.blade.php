@@ -1,10 +1,16 @@
 @extends('layouts.template')
 
 @section('title')
-
+{{$category->name_cat}}
 @stop
 
 @section('stylesheet')
+
+<style>
+.product-text {
+    padding-top: 20px;
+}
+</style>
 
 @stop('stylesheet')
 @section('content')
@@ -17,7 +23,7 @@
                 <nav aria-label="breadcrumb">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{$category->name_cat}}</li>
                     </ul>
                 </nav>
             </div>
@@ -28,8 +34,10 @@
             <div class="container">
                 <div class="row">
                     <div class="order-xl-2 order-lg-2 col-xl-9 col-lg-8">
-
-                        <h1 class="page-title"> </h1>
+                      <div class="shop-banner">
+                          <img src="{{url('assets/image/category_img/'.$category->image_cat)}}" alt="{{$category->name_cat}}">
+                      </div>
+                        <h1 class="page-title"> {{$category->name_cat}} </h1>
                         <div class="ht-product-tab">
                             <div class="nav" role="tablist">
                                 <a class="active" href="#grid" data-toggle="tab" role="tab" aria-selected="true" aria-controls="grid"><i class="fa fa-th"></i></a>
@@ -45,7 +53,7 @@
                                 </div>
                                 <div class="shop-items">
                                     <a href="#"><i class="fa fa-long-arrow-up"></i></a>
-                                    <span>Items 1-12 of 14</span>
+                                    <span>Items {{$category_count}}</span>
                                 </div>
                             </div>
                         </div>
@@ -53,33 +61,48 @@
                             <div class="tab-pane active show fade text-center" id="grid" role="tabpanel">
                                 <div class="row">
 
-
-                              <!--      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                  @if($product)
+                                     @foreach($product as $u)
+                                   <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                         <div class="product-item">
                                             <div class="product-image-hover">
-                                                <a href="product-details.html">
-                                                    <img class="primary-image" src="assets/img/product/1.jpg" alt="">
-                                                    <img class="hover-image" src="assets/img/product/2.jpg" alt="">
+                                                <a href="{{url('product/'.$u->id)}}">
+                                                    <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                                 </a>
-                                                <div class="product-hover">
+                                            <!--    <div class="product-hover">
                                                     <button><i class="icon icon-FullShoppingCart"></i></button>
                                                     <a href="wishlist.htnl"><i class="icon icon-Heart"></i></a>
                                                     <a href="wishlist.htnl"><i class="icon icon-Files"></i></a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="product-text">
                                                 <div class="product-rating">
-                                                    <i class="fa fa-star color"></i>
-                                                    <i class="fa fa-star color"></i>
-                                                    <i class="fa fa-star color"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
+                                                  <?php
+                                                  for($i=1;$i <= $u->pro_rating;$i++){
+                                                  ?>
+                                                  <i class="fa fa-star color"></i>
+                                                  <?php
+                                                  }
+                                                  ?>
+                                                  <?php
+                                                  $total = 5;
+                                                  $total -= $u->pro_rating;
+
+                                                  for($i=1;$i <= $total;$i++){
+                                                  ?>
+                                                  <i class="fa fa-star"></i>
+                                                  <?php
+                                                  }
+                                                  ?>
                                                 </div>
-                                                <h4><a href="product-details.html">Joust Duffle Bag</a></h4>
-                                                <div class="product-price"><span>$34.00</span></div>
+                                                <h4><a href="product-details.html">{{$u->pro_name}}</a></h4>
+                                                <div class="product-price"><span>฿{{$u->pro_price}}</span></div>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
+
+                                    @endforeach
+                                 @endif
 
 
 
@@ -88,33 +111,49 @@
                             </div>
                             <div class="tab-pane fade" id="list" role="tabpanel">
 
-
-                          <!--       <div class="product-item">
+                              @if($product)
+                                 @foreach($product as $u)
+                                 <div class="product-item">
                                     <div class="product-image-hover">
-                                        <a href="product-details.html">
-                                            <img class="primary-image" src="assets/img/product/1.jpg" alt="">
-                                            <img class="hover-image" src="assets/img/product/2.jpg" alt="">
+                                        <a href="{{url('product/'.$u->id)}}">
+                                            <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
+
                                         </a>
-                                        <div class="product-hover">
+                                    <!--    <div class="product-hover">
                                             <button><i class="icon icon-FullShoppingCart"></i></button>
                                             <a href="wishlist.htnl"><i class="icon icon-Heart"></i></a>
                                             <a href="wishlist.htnl"><i class="icon icon-Files"></i></a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="product-text">
                                         <div class="product-rating">
-                                            <i class="fa fa-star color"></i>
-                                            <i class="fa fa-star color"></i>
-                                            <i class="fa fa-star color"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                          <?php
+                                          for($i=1;$i <= $u->pro_rating;$i++){
+                                          ?>
+                                          <i class="fa fa-star color"></i>
+                                          <?php
+                                          }
+                                          ?>
+                                          <?php
+                                          $total = 5;
+                                          $total -= $u->pro_rating;
+
+                                          for($i=1;$i <= $total;$i++){
+                                          ?>
+                                          <i class="fa fa-star"></i>
+                                          <?php
+                                          }
+                                          ?>
                                         </div>
-                                        <h4><a href="product-details.html">Joust Duffle Bag</a></h4>
-                                        <div class="product-price"><span>$34.00</span></div>
-                                        <p>The sporty Joust Duffle Bag can't be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare, it's ideal for athletes with places to go.</p>
-                                        <a href="product-details.html">Learn More</a>
+                                        <h4><a href="product-details.html">{{$u->pro_name}}</a></h4>
+                                        <div class="product-price"><span>฿{{$u->pro_price}}</span></div>
+                                        <p>{{$u->pro_title}}</p>
+                                        <a href="{{url('product/'.$u->id)}}">Learn More</a>
                                     </div>
-                                </div> -->
+                                </div>
+
+                                @endforeach
+                             @endif
 
 
 
@@ -131,41 +170,30 @@
                         </div>
                         <div class="pagination-wrapper">
                             <nav aria-label="navigation">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-                                </ul>
+
+                                {{$product->links()}}
                             </nav>
-                            <div class="shop-results"><span>Show</span>
-                                <select name="number" id="b-number">
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="14">15</option>
-                                </select>
-                                <span>per page</span>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4">
                         <div class="sidebar-widget widget-style-1 panel-group" id="widget-parent" aria-multiselectable="true" role="tablist">
                             <h4>Shop By</h4>
                             <div class="panel widget-option">
-                                <a data-toggle="collapse" href="#category" data-parent="#widget-parent">Category</a>
+                              <!--  <a data-toggle="collapse" href="#category" data-parent="#widget-parent">Category</a>
                                 <div class="collapse show" id="category">
                                     <div class="collapse-content">
 
-                                      <!--  <div class="single-widget-opt">
+                                        <div class="single-widget-opt">
                                             <input type="checkbox" id="tables">
                                             <label for="tables">Dining tables <span>(4)</span></label>
-                                        </div> -->
+                                        </div>
 
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
-                            <div class="panel widget-option">
+                          <!--  <div class="panel widget-option">
                                 <a class="collapsed" data-toggle="collapse" href="#price" data-parent="#widget-parent">Price</a>
                                 <div class="collapse" id="price">
                                     <div class="collapse-content">
@@ -195,22 +223,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+
                         </div>
-                        <div class="sidebar-widget widget-style-1">
-                            <h4>Compare Products</h4>
-                            <p>You have no items to compare.</p>
-                        </div>
-                        <div class="sidebar-widget widget-style-1">
-                            <h4>My Wish List</h4>
-                            <p>You have no items in your wish list.</p>
-                        </div>
+
+
+
+
 
 
 
                         <div class="sidebar-widget">
                             <a href="product-details.html" class="banner-image">
-                                <img src="assets/img/banner/18.jpg" alt="">
+                              <!--   <img src="{{url('assets/image/advertising-s2.jpg')}}" alt=""> -->
                             </a>
                         </div>
                     </div>

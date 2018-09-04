@@ -160,8 +160,18 @@
                                                         </p>
                                                         @endif
 
-                                                        <input type="hidden" name="total_money" value="{{$total_price}}" required>
+                                                        <?php
+                                                        $discount = 0;
+                                                        if(Session::get('coupon') == null){
+                                                          $discount = 0;
+                                                        }else{
+                                                          $discount = Session::get('coupon.price');
+                                                        }
+                                                        ?>
+
+                                                        <input type="hidden" name="total_money" value="{{$total_price-Session::get('coupon.price')}}" required>
                                                         <input type="hidden" name="shipping_price" value="{{$price_s}}" required>
+                                                        <input type="hidden" name="discount" value="{{$discount}}" required>
                                                         <input type="hidden" name="sum_weight" value="{{$sum_weight}}" required>
                                                     </div>
 
@@ -219,8 +229,14 @@
                                                               <td>฿{{$price_s}}</td>
                                                           </tr>
                                                           <tr>
+                                                              <td colspan="3" class="text-left">Discount    </td>
+                                                              <td>
+                                                                {{$discount}}
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
                                                               <td colspan="3" class="text-left"><strong>Grand Total</strong></td>
-                                                              <td><strong>฿{{$total_price}}</strong></td>
+                                                              <td><strong>฿{{$total_price-Session::get('coupon.price')}}</strong></td>
                                                           </tr>
                                                       </tbody>
                                                   </table>

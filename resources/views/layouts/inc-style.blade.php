@@ -12,3 +12,8 @@
         <link rel="stylesheet" href="{{url('home/assets/css/style.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/responsive.css')}}">
         <script src="{{url('home/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+        <style>
+        .header-two-area .logo {
+            padding: 10px 0px 0px 0px;
+        }
+        </style>

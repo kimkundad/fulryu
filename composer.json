@@ -10,8 +10,8 @@
         "intervention/image": "dev-master",
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
-        "milon/barcode": "^5.3",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "milon/barcode": "^5.3"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

@@ -8,6 +8,8 @@ use Session;
 use Auth;
 use App\order;
 use App\order_detail;
+use App\coupon_user;
+use App\subscribe;
 use Mail;
 use Swift_Transport;
 use Swift_Message;
@@ -32,91 +34,65 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $obj4 = DB::table('categories')->select(
-            'categories.*'
-            )
-            ->where('id', 4)
-            ->first();
-
-            $options = DB::table('products')
-              ->where('pro_category', 4)
-              ->limit(6)
-              ->get();
-            $obj4->options = $options;
-
-      $obj5 = DB::table('categories')->select(
-            'categories.*'
-            )
-            ->where('id', 5)
-            ->first();
-
-      $obj6 = DB::table('categories')->select(
-            'categories.*'
-            )
-            ->where('id', 6)
-            ->first();
-
-
 
       $obj1 = DB::table('categories')->select(
             'categories.*'
             )
-            ->where('id', 1)
-            ->first();
+            ->get();
 
-
+            foreach($obj1 as $u){
               $options = DB::table('products')
-                ->where('pro_category', 1)
-                ->limit(6)
+                ->where('pro_category', $u->id)
+                ->limit(2)
                 ->get();
-              $obj1->options = $options;
-
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
 
             //  dd($obj1);
-
-      $obj2 = DB::table('categories')->select(
-            'categories.*'
-            )
-            ->where('id', 2)
-            ->first();
-
-            $options = DB::table('products')
-              ->where('pro_category', 2)
-              ->limit(6)
-              ->get();
-            $obj2->options = $options;
-
-      $obj3 = DB::table('categories')->select(
-            'categories.*'
-            )
-            ->where('id', 3)
-            ->first();
-
-
-            $options = DB::table('products')
-              ->where('pro_category', 3)
-              ->limit(6)
-              ->get();
-            $obj3->options = $options;
-
 
       $cat = DB::table('products')->select(
             'products.*',
             'products.id as id_p'
             )
+            ->where('products.pro_status_show', 3)
             ->where('products.pro_status', 1)
+            ->limit(8)
             ->get();
 
-      $data['cat1'] = $obj1;
-      $data['cat2'] = $obj2;
-      $data['cat3'] = $obj3;
-      $data['cat4'] = $obj4;
-      $data['cat5'] = $obj5;
-      $data['cat6'] = $obj6;
+            $cat_new = DB::table('products')->select(
+                  'products.*',
+                  'products.id as id_p'
+                  )
+                  ->where('products.pro_status_show', 2)
+                  ->where('products.pro_status', 1)
+                  ->limit(8)
+                  ->get();
+
+                  $cat_rec = DB::table('products')->select(
+                        'products.*',
+                        'products.id as id_p'
+                        )
+                        ->where('products.pro_status_show', 4)
+                        ->where('products.pro_status', 1)
+                        ->limit(8)
+                        ->get();
+
 
       $data['objs'] = $cat;
+      $data['objs_new'] = $cat_new;
+      $data['objs_rec'] = $cat_rec;
 
-        return view('welcome', $data);
+
+      $slide = DB::table('slide_shows')->select(
+            'slide_shows.*'
+            )
+            ->where('slide_status', 1)
+            ->get();
+      $data['slide'] = $slide;
+
+
+      return view('welcome', $data);
     }
 
     public function del_cart($id){
@@ -131,25 +107,222 @@ class HomeController extends Controller
       return redirect()->back()->with('success', 'เพิ่มสินค้าสำเร็จ');
     }
 
+    public function post_subscribe(Request $request){
+
+      $this->validate($request, [
+           'email' => 'required'
+       ]);
+
+       $count_sub = DB::table('subscribes')->select(
+             'subscribes.*'
+             )
+             ->where('email', $request['email'])
+             ->count();
+
+       if($count_sub == 0){
+
+         $package = new subscribe();
+         $package->email = $request['email'];
+         $package->save();
+
+         $response = array(
+             'status' => 'success',
+             'msg' => 'ขอบคุณที่ Subscribe เว็บไซต์ของเรา',
+         );
+
+       }else{
+
+         $response = array(
+             'status' => 'success',
+             'msg' => 'Email ของคุณอยู่ในระบบแล้ว',
+         );
+
+       }
+
+
+
+
+
+
+return response()->json($response);
+
+
+
+
+    }
+
+    public function post_coupon(Request $request){
+
+
+
+      $get_coupon_count = DB::table('coupons')
+          ->select(
+          'coupons.*'
+          )
+          ->where('c_code', $request->coupon)
+          ->count();
+
+          $get_coupon = DB::table('coupons')
+              ->select(
+              'coupons.*'
+              )
+              ->where('c_code', $request->coupon)
+              ->first();
+
+
+
+          if($get_coupon_count > 0){
+
+
+            if($request->max_price >= $get_coupon->c_price_product){
+
+
+              $get_coupons = DB::table('coupons')
+                  ->select(
+                  'coupons.*'
+                  )
+                  ->where('c_code', $request->coupon)
+                  ->first();
+
+              Session::put('coupon', ['code' => $get_coupon->c_code, 'id' => $get_coupon->id, 'price' => $get_coupon->c_price]);
+
+              $response = array(
+                  'status' => 'success',
+                  'msg' => 'คุณสามารถใช้ Coupon นี้ได้',
+              );
+
+
+            }else{
+
+              $response = array(
+                  'status' => 'error',
+                  'msg' => 'คุณไม่สามารถใช้ Coupon นี้ได้ ยอดสั่งซื้อ ไม่ตรงกับที่ระบุไว้',
+              );
+
+            }
+
+
+
+          }else{
+
+            $response = array(
+                'status' => 'error',
+                'msg' => 'คุณไม่สามารถใช้ Coupon นี้ได้',
+            );
+
+          }
+
+
+    //  dd($get_coupon_count);
+
+
+
+      return response()->json($response);
+    }
+
 
     public function category($id){
 
-      return view('category');
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
+      $category_count = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->where('id', $id)
+            ->count();
+
+      $category = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->where('id', $id)
+            ->first();
+
+              $product = DB::table('products')
+                ->where('pro_category', $category->id)
+                ->limit(2)
+                ->paginate(16);
+
+      $data['category_count'] = $category_count;
+      $data['category'] = $category;
+      $data['product'] = $product;
+
+
+
+
+      return view('category', $data);
     }
 
     public function about(){
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
 
-      return view('about');
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
+
+
+      return view('about', $data);
+    //  return response()->file($urlpath);
     }
 
     public function contact(){
 
-      return view('contact');
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
+      return view('contact', $data);
     }
 
 
 
     public function cart(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
+    //session()->forget(['coupon']);
 
       $set_num_date = count(Session::get('cart'));
       if($set_num_date == 0){
@@ -158,7 +331,7 @@ class HomeController extends Controller
         Session::put('status_user', 1);
       }
 
-      return view('cart');
+      return view('cart', $data);
     }
 
     public function checkout(){
@@ -256,6 +429,20 @@ class HomeController extends Controller
 
       }
 
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
 
       return view('checkout', $data);
     }
@@ -272,6 +459,7 @@ class HomeController extends Controller
            'zip_code' => 'required',
            'country' => 'required',
            'phone' => 'required',
+           'discount' => 'required',
            'total_money' => 'required'
        ]);
 
@@ -308,12 +496,26 @@ class HomeController extends Controller
        $package->zip_code = $request['zip_code'];
        $package->country = $request['country'];
        $package->phone = $request['phone'];
+       $package->discount = $request['discount'];
        $package->total_money = $request['total_money'];
        $package->order_weight = $request['sum_weight'];
        $package->shipping_price = $request['shipping_price'];
        $package->save();
 
        $the_id = $package->id;
+
+       if(Session::get('coupon') != null){
+
+         $obj = new coupon_user();
+         $obj->c_id = Session::get('coupon.id');
+         $obj->user_id = Auth::user()->id;
+         $obj->order_id = $the_id;
+         $obj->save();
+
+       }
+
+
+
 
        foreach(Session::get('cart') as $u){
 
@@ -463,6 +665,22 @@ class HomeController extends Controller
       $data['order'] = $obj;
       $data['id_order'] = $id;
       session()->forget(['cart']);
+      session()->forget(['coupon']);
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
       return view('payment', $data);
     }
 
@@ -496,7 +714,21 @@ class HomeController extends Controller
 
         Session::put('cart.'.$obj->id, ['data' => $item]);
 
-       return view('cart');
+        $obj1 = DB::table('categories')->select(
+              'categories.*'
+              )
+              ->get();
+
+              foreach($obj1 as $u){
+                $options = DB::table('products')
+                  ->where('pro_category', $u->id)
+                  ->limit(2)
+                  ->get();
+                $u->options = $options;
+              }
+        $data['cat1'] = $obj1;
+
+       return view('cart', $data);
 
     }
 
@@ -520,7 +752,21 @@ class HomeController extends Controller
        session()->put('cart.'.$id.'.data.2', ['sum_price' => $total_money_ses]);
        session()->put('cart.'.$id.'.data.1', ['sum_item' => $qty]);
 
-      return view('cart');
+       $obj1 = DB::table('categories')->select(
+             'categories.*'
+             )
+             ->get();
+
+             foreach($obj1 as $u){
+               $options = DB::table('products')
+                 ->where('pro_category', $u->id)
+                 ->limit(2)
+                 ->get();
+               $u->options = $options;
+             }
+       $data['cat1'] = $obj1;
+
+      return view('cart', $data);
     }
 
     public function product($id){
@@ -533,26 +779,41 @@ class HomeController extends Controller
 
           $data['img_all'] = $img_all;
 
-      $related = DB::table('products')->select(
-            'products.*',
-            'products.id as id_p'
-            )
-            ->where('products.pro_status', 1)
-            ->get();
-
-
-      $data['related'] = $related;
-
       $cat = DB::table('products')->select(
             'products.*',
             'products.id as id_p',
             'products.created_at as create',
-            'categories.*'
+            'categories.*',
+            'categories.id as id_c'
             )
             ->leftjoin('categories', 'categories.id',  'products.pro_category')
             ->where('products.id', $id)
             ->first();
 
+
+            $related = DB::table('products')->select(
+                  'products.*',
+                  'products.id as id_p'
+                  )
+                  ->where('products.pro_category', $cat->id_c)
+                  ->where('products.pro_status', 1)
+                  ->get();
+
+
+            $data['related'] = $related;
+            $obj1 = DB::table('categories')->select(
+                  'categories.*'
+                  )
+                  ->get();
+
+                  foreach($obj1 as $u){
+                    $options = DB::table('products')
+                      ->where('pro_category', $u->id)
+                      ->limit(2)
+                      ->get();
+                    $u->options = $options;
+                  }
+            $data['cat1'] = $obj1;
 
       $data['objs'] = $cat;
 

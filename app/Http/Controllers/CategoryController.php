@@ -79,7 +79,7 @@ class CategoryController extends Controller
 
           $destinationPath = asset('assets/category_img/');
           $img = Image::make($image->getRealPath());
-          $img->resize(800, 533, function ($constraint) {
+          $img->resize(870, 255, function ($constraint) {
           $constraint->aspectRatio();
         })->save('assets/image/category_img/'.$input['imagename']);
 
@@ -158,7 +158,7 @@ class CategoryController extends Controller
 
             $destinationPath = asset('assets/category_img/');
             $img = Image::make($image->getRealPath());
-            $img->resize(800, 533, function ($constraint) {
+            $img->resize(870, 255, function ($constraint) {
             $constraint->aspectRatio();
           })->save('assets/image/category_img/'.$input['imagename']);
 

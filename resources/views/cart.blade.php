@@ -133,14 +133,18 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="postal-code">
-                                            <input type="text" placeholder="">
+                                          <div class="writeinfo" style="    font-size: 16px;"></div>
+                                            <input type="text" name="coupon" class="coupon" value="{{ old('coupon') }}" placeholder="">
+                                            <input type="hidden" name="max_price" class="max_price" value="{{$total}}" placeholder="">
                                         </div>
                                         <div class="buttons-set">
-                                            <button class="button" type="button"><span>Apply Coupon</span></button>
+                                            <button class="postbutton button" type="button"><span>Apply Coupon</span></button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
 
 
 
@@ -150,11 +154,17 @@
                             <div class="ht-shipping-content">
                                 <h3>Total</h3>
                                 <div class="amount-totals">
-                                    <p class="total">Discount <span>0.00</span></p>
-                                    <p class="total">Grandtotal <span>฿{{$total}}.00</span></p>
+                                    <p class="total">Discount <span>
+                                      @if(Session::get('coupon') == null)
+                                      ฿0.00
+                                      @else
+                                      ฿{{Session::get('coupon.price')}}
+                                      @endif
+                                    </span></p>
+                                    <p class="total">Grandtotal <span>฿{{$total-Session::get('coupon.price')}}.00</span></p>
                                     <a class="buttons" href="{{url('/checkout')}}"><span>Procced to checkout</span></a>
                                     <div class="clearfix"></div>
-                                    <p class="floatright">Checkout with multiples address</p>
+
                                 </div>
                             </div>
                         </div>
@@ -169,5 +179,37 @@
 @endsection
 
 @section('scripts')
+
+<script>
+        $(document).ready(function(){
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            $(".postbutton").click(function(){
+                $.ajax({
+                    /* the route pointing to the post function */
+                    url: '{{url('post_coupon')}}',
+                    type: 'POST',
+                    /* send the csrf-token and the input to the controller */
+                    data: {_token: CSRF_TOKEN, coupon:$(".coupon").val(), max_price:$(".max_price").val()},
+                    dataType: 'JSON',
+                    /* remind that 'data' is the response of the AjaxController */
+                    success: function (data) {
+                        $(".writeinfo").append(data.msg);
+
+                        if(data.status == 'success'){
+
+                          setTimeout(function() {
+                                 location.reload();
+                          }, 2000);
+
+                        }
+
+                        setTimeout(function() {
+                             $(".writeinfo").empty()
+                        }, 3000);
+                    }
+                });
+            });
+       });
+    </script>
 
 @stop('scripts')

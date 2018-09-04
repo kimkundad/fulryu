@@ -180,6 +180,10 @@
                                                             <td>฿{{$order->shipping_price}}</td>
                                                         </tr>
                                                         <tr>
+                                                            <td colspan="3" class="alignright">Discount    </td>
+                                                            <td>฿{{$order->discount}}</td>
+                                                        </tr>
+                                                        <tr>
                                                             <td colspan="3" class="alignright"><strong>Grand Total</strong></td>
                                                             <td><strong>฿{{$order->total_money}}</strong></td>
                                                         </tr>

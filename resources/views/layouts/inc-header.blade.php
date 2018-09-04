@@ -4,17 +4,22 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}" style="height:44px" alt="Artfurniture"></a>
+                            <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}" style="height:64px" alt="Artfurniture"></a>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-3 d-none d-md-block d-lg-block d-xl-block">
                         <div class="main-menu display-none">
                             <nav>
                                 <ul>
-                                    <li class="active"><a href="{{url('/')}}">Home</a>
+
+                                  @if($cat1)
+                                    @foreach($cat1 as $j)
+                                    <li class="active"><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a>
                                     </li>
-                                    <li class="active"><a href="#">Shop</a>
-                                    </li>
+                                    @endforeach
+                                  @endif
+
+
                                     <li class="active"><a href="{{url('/about')}}">About</a>
                                     </li>
                                     <li class="active"><a href="{{url('/contact')}}">Contact</a>

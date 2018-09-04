@@ -39,18 +39,18 @@
                     </div>
                     <div class="col-md-6">
                         <h4>GET IN TOUCH</h4>
-                        <form id="contact-form" action="mail.php" method="post">
+                        <form id="contact-form"  method="post">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" name="name" id="name" placeholder="Your Name*">
+                                    <input type="text" name="name"  placeholder="Your Name*">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="email" id="email" placeholder="Mail*">
+                                    <input type="text" name="email"  placeholder="Mail*">
                                 </div>
                             </div>
-                            <input type="text" name="subject" id="subject" placeholder="Subject*">
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Type Your Message......."></textarea>
-                            <button type="submit" class="default-btn submit-btn">SEND</button>
+
+                            <textarea name="message"  cols="30" rows="10" placeholder="Type Your Message......."></textarea>
+                          <!--  <button type="submit" class="default-btn submit-btn">SEND</button> -->
                             <p class="form-message"></p>
                         </form>
                     </div>
@@ -63,7 +63,7 @@
                                     <i class="fa fa-map-marker"></i>
                                 </span>
                                 <div class="adrs-text">
-                                    <span>Alcatraz Island Photo Albf<br>Dhaka , New York</span>
+                                    <span>222/390 Soi Ruammitpattana yaak 5 Tarang <br /> Bangkhaen BKK 10220</span>
                                 </div>
                             </div>
                             <div class="single-contact-adrs text-center">
@@ -71,7 +71,7 @@
                                     <i class="fa fa-phone"></i>
                                 </span>
                                 <div class="adrs-text">
-                                    <span>+54 215 2545 0254 123<br>+54 325 3652 3254</span>
+                                    <span>+(66)639911075</span>
                                 </div>
                             </div>
                             <div class="single-contact-adrs text-center">
@@ -79,7 +79,7 @@
                                     <i class="fa fa-globe"></i>
                                 </span>
                                 <div class="adrs-text">
-                                    <span>Emil : yourmail@gmail.com<br>Web : www.yourmail.com</span>
+                                    <span>Emil : fulryumail@gmail.com<br>Web : www.fulryu.com</span>
                                 </div>
                             </div>
                         </div>

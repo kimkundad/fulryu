@@ -1,7 +1,7 @@
 /* large desktop :1366px. */
-@media (min-width: 1200px) and (max-width: 1400px) { 
+@media (min-width: 1200px) and (max-width: 1400px) {
     .single-slide {height: 496px}
-    .slider-two-area .single-slide {height: 478px;}
+    .slider-two-area .single-slide {height: 300px;}
     .slider-three-area .single-slide {height: 417px;}
     .slider-four-area .single-slide {height: 466px;}
 }
@@ -15,7 +15,7 @@
     .single-information {display: block; text-align: center}
     .s-info-img > img {padding-bottom: 15px;}
     .footer-bottom span {font-size: 13px;}
-    .main-menu > nav > ul > li.megamenu > ul > li {width: 140px} 
+    .main-menu > nav > ul > li.megamenu > ul > li {width: 140px}
     .header-three-area .header-top {padding: 0;}
     .email-image span span {display: none;}
     .header-three-area .header-search {width: 340px;}
@@ -25,15 +25,15 @@
     .slider-four-area .single-slide {height: 500px;}
     .cart-main-area .cart-table table .p-amount {width: 15%;}
     .single-panel:first-child {padding-right: 15px;}
-    .single-widget-opt > label:hover {padding-left: 3px;} 
+    .single-widget-opt > label:hover {padding-left: 3px;}
     .header-two-area .main-menu > nav > ul > li:last-child {margin-right: 0;}
     #list .product-text {padding-left: 0;}
     #mc_embed_signup_scroll > button {border-radius: 30px; margin-top: 13px; position: inherit;}
     .mc-form {margin-top: 22px;}
 }
- 
+
 /* Tablet desktop :768px. */
-@media (min-width: 768px) and (max-width: 991px) { 
+@media (min-width: 768px) and (max-width: 991px) {
     .header-submenu > li > a {padding: 0 12px;}
     .account-wishlist > a {padding: 0 12px;}
     .header-search {width: 205px;}
@@ -75,7 +75,7 @@
     .ht-banner-content {padding: 0;}
     .about-skill-test {padding: 0 0 30px;}
     .team-hover {padding: 29px 0 28px;}
-    .my-account-area .col-lg-6:first-child form {margin-bottom: 40px; overflow: hidden;} 
+    .my-account-area .col-lg-6:first-child form {margin-bottom: 40px; overflow: hidden;}
     .single-widget:last-child {margin: 0;}
     .single-widget .tags li {margin-bottom: 0;}
     .single-widget:first-child {margin-top: 50px;}
@@ -110,7 +110,7 @@
     }
     .banner-area.style-1 .ht-banner-content {flex-wrap: wrap;}
 }
- 
+
 /* small mobile :320px. */
 @media (max-width: 767px) {
     .header-top-links {display: block; justify-content: flex-start;}
@@ -214,7 +214,7 @@
     .slider-three-area .single-slide h1 {font-size: 24px; line-height: 23px;}
     .slider-three-area .single-slide h2 {font-size: 21px; line-height: 18px; margin-bottom: 16px;}
     .slider-three-area .banner-btn {margin: 18px 0 70px; padding: 4px 18px;}
-    .banner-container {margin-top: -43px; padding: 15px 15px 30px;}  
+    .banner-container {margin-top: -43px; padding: 15px 15px 30px;}
     .header-three-area .cart-dropdown {left: -15px;}
     .slider-three-area .carousel-style-dot .owl-dots {bottom: 56px;}
     .pt-70 {padding-top: 40px;}
@@ -333,7 +333,7 @@
     .col-lg-3:last-child .product-widget-item:last-child {padding-bottom: 0;}
     .form-action p.lost_password {padding-left: 6px;}
     .my-account-area .form-action > button {margin-right: 5px;}
-    .my-account-area .form-action label {float: left;} 
+    .my-account-area .form-action label {float: left;}
     .single-widget .recent-text > h5 {padding-top: 0;}
     .cart-main-area select.country, .postal-code > input {width: 100%;}
     .google-map-area {margin-bottom: 50px;}
@@ -346,7 +346,7 @@
     .header-two-area .cart-dropdown::after {left: 32px;}
     .header-area .header-top {padding-top: 10px;}
     .header-three-area .header-search input {padding: 0 40px 0 16px;}
-    .header-three-area .header-search button {font-size: 17px; line-height: 40px; width: 44px;}  
+    .header-three-area .header-search button {font-size: 17px; line-height: 40px; width: 44px;}
     .header-three-area .cart-dropdown {left: auto; right: -55px;}
     .header-three-area .cart-dropdown::after {right: 66px;}
     .newsletter-content > p {margin-bottom: 10px;}
@@ -357,7 +357,7 @@
     .grid-item:last-of-type .banner-image {margin: 0;}
     .banner-container.banner-style-2 .col-md-6:first-child .banner-image {margin-bottom: 15px;}
 }
- 
+
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .account-wishlist {float: left;}

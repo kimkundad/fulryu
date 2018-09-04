@@ -29,8 +29,8 @@ Route::get('clear_cart', 'HomeController@clear_cart')->name('clear_cart');
 Route::get('about', 'HomeController@about')->name('about');
 Route::get('contact', 'HomeController@contact')->name('contact');
 Route::post('update_cart', 'HomeController@update_cart')->name('update_cart');
-
-
+Route::post('/post_coupon','HomeController@post_coupon');
+Route::post('/post_subscribe','HomeController@post_subscribe');
 
 // Social Auth del_cart
 
@@ -58,6 +58,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('api/api_post_status', 'ProductController@api_post_status');
   Route::resource('admin/order', 'OrderController');
   Route::post('api/api_order_status', 'OrderController@api_order_status');
+  Route::resource('admin/coupon', 'CouponController');
+  Route::resource('admin/slide', 'SlideController');
+  Route::resource('admin/subscribe', 'SubscribeController');
+  Route::post('api/api_slide_status', 'SlideController@api_slide_status');
 
 
   });

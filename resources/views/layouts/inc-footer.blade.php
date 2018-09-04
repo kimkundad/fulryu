@@ -9,11 +9,10 @@
                                     <a href="#"><img src="{{url('assets/image/logo-website.png')}}" style="height:44px" alt=""></a>
                                 </div>
                                 <div class="single-footer-text">
-                                    <span>Addresss: No 123 - Furtinure Street, USA.</span>
-                                    <span>Phone 01: +(800) 123 456 78</span>
-                                    <span>Phone 02: +(100) 123 456 789</span>
-                                    <span>Fax : (800) 123 456 789</span>
-                                    <span>Email:Contact@hastech.com</span>
+                                    <span>Addresss: 222/390 Soi Ruammitpattana yaak 5 Tarang Bangkhaen BKK 10220</span>
+                                    <span>Phone 01: +(66)639911075</span>
+
+                                    <span>Email: fulryumail@gmail.com</span>
                                 </div>
                             </div>
                         </div>
@@ -53,14 +52,18 @@
                                 <h4>sign up newsletter</h4>
                                 <p>Be the first to hear about new trending and offers and see how youve helped</p>
                                 <div class="newsletter-form mc_embed_signup">
-                                    <form action="{{url('/')}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
                                         <div id="mc_embed_signup_scroll" class="mc-form">
-                                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email address" required>
+                                            <input type="email" name="EMAIL" class="email_sub email" id="mce-EMAIL" placeholder="Enter your email address" required>
                                             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                            <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                            <button id="mc-embedded-subscribe" type="submit" name="subscribe">Subscribe</button>
+
+                                            <button id="mc-embedded-subscribe" type="submit" class="post_sub" name="subscribe">Subscribe</button>
                                         </div>
-                                    </form>
+																				<br />
+																				<p class="writeinfo2 text-center">
+
+																				</p>
+
                                 </div>
                             </div>
                         </div>
@@ -71,7 +74,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
-                            <span>Copyright &copy; 2018 <a href="#">HasTech</a>. All rights reserved.</span>
+                            <span>Copyright &copy; 2019 <a href="#">Fulryu Team</a>. All rights reserved.</span>
                         </div>
                         <div class="col-lg-4 col-md-2">
                             <div class="social-link">

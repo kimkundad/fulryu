@@ -62,9 +62,9 @@
 
                       <th>ชื่อสินค้า</th>
                       <th>หมวดหมู่</th>
-
+                      <th>ประเภท</th>
                       <th>ราคา</th>
-                      <th>สถานะ</th>
+                      <th>ปิด / แสดง</th>
                       <th>จัดการ</th>
                     </tr>
                   </thead>
@@ -75,6 +75,17 @@
 
                       <td>{{$u->pro_name}}</td>
                       <td>{{$u->name_cat}}</td>
+                      <td>
+                        @if( $u->pro_status_show == 1)
+                        สินค้าทั่วไป
+                        @elseif($u->pro_status_show == 2)
+                        NEW ARRIVALS!
+                        @elseif($u->pro_status_show == 3)
+                        LIMITED OFFER
+                        @else
+                        RECOMMENDED EXCLUSIVE
+                        @endif
+                        </td>
                       <td>{{$u->pro_price}}</td>
 
                       <td>

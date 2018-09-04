@@ -69,6 +69,7 @@ class ProductController extends Controller
              'pro_rating' => 'required',
              'pro_price' => 'required',
              'pro_code' => 'required',
+             'pro_status_show' => 'required',
              'pro_name_detail' => 'required'
          ]);
 
@@ -89,6 +90,7 @@ class ProductController extends Controller
        $package->pro_price = $request['pro_price'];
        $package->pro_code = $request['pro_code'];
        $package->pro_rating = $request['pro_rating'];
+       $package->pro_status_show = $request['pro_status_show'];
        $package->pro_image = $input['imagename'];
        $package->pro_status = 1;
        $package->save();
@@ -202,6 +204,7 @@ class ProductController extends Controller
              'pro_rating' => 'required',
              'pro_price' => 'required',
              'pro_code' => 'required',
+             'pro_status_show' => 'required',
              'pro_name_detail' => 'required'
          ]);
 
@@ -214,6 +217,7 @@ class ProductController extends Controller
           $package->pro_name_detail = $request['pro_name_detail'];
           $package->pro_category = $request['pro_category'];
           $package->pro_price = $request['pro_price'];
+          $package->pro_status_show = $request['pro_status_show'];
           $package->pro_code = $request['pro_code'];
           $package->pro_rating = $request['pro_rating'];
           $package->save();
@@ -247,6 +251,7 @@ class ProductController extends Controller
           $package->pro_category = $request['pro_category'];
           $package->pro_price = $request['pro_price'];
           $package->pro_code = $request['pro_code'];
+          $package->pro_status_show = $request['pro_status_show'];
           $package->pro_rating = $request['pro_rating'];
           $package->pro_image = $input['imagename'];
           $package->save();

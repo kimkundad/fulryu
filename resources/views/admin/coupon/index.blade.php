@@ -46,7 +46,12 @@
 
               <div class="panel-body">
 
-              <br>
+                <div class="col-md-12 " style="padding-left: 1px;">
+
+                  <a class="btn btn-primary " href="{{url('admin/coupon/create')}}" >
+                      <i class="fa fa-plus"></i> เพิ่ม Coupon</a>
+                </div>
+                <br><br>
 
 
 
@@ -54,45 +59,32 @@
                 <table class="table table-responsive-lg table-striped table-sm mb-0" id="datatable-default">
                   <thead>
                     <tr>
-                      <th>เลขสั่งซื้อ</th>
-                      <th>ชื่อผู้สั่ง</th>
-                      <th>เบอร์โทร</th>
-                      <th>ยอดเงิน</th>
-
-                      <th>สถานะ</th>
-                      <th>status</th>
-                      <th>วันที่สั่ง</th>
+                      <th>#</th>
+                      <th>Coupon</th>
+                      <th>จำนวน</th>
+                      <th>ส่วนลด</th>
+                      <th>ใช้ไป</th>
                       <th>จัดการ</th>
                     </tr>
                   </thead>
                   <tbody>
              @if($objs)
                 @foreach($objs as $u)
-                    <tr id="{{$u->id}}">
-                      <td >{{$u->id}}</td>
-                      <td>{{$u->fname}} {{$u->lname}}</td>
-                      <td >{{$u->phone}}</td>
-                      <td>{{number_format($u->total_money)}} บาท</td>
-                      <th>รอการตรวจสอบ</th>
-                      <td>
-                        <div class="switch switch-sm switch-success">
-                          <input type="checkbox" name="switch" data-plugin-ios-switch
-                          @if($u->order_status == 1)
-                          checked="checked"
-                          @endif
-                          />
-                        </div>
-                      </td>
-                      <td>{{$u->created_at}}</td>
+                    <tr>
+                      <td>{{$s}}</td>
+                      <td>{{$u->c_code}}</td>
+                      <td>{{$u->c_max}}</td>
+                      <td>{{$u->c_price}}</td>
+                      <td>{{$u->options}}</td>
                       <td>
 
                         <div class="btn-group flex-wrap">
   												<button type="button" class="mb-1 mt-1 mr-1 btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">จัดการ <span class="caret"></span></button>
   												<div class="dropdown-menu" role="menu">
 
-  													<a class="dropdown-item text-1" href="{{url('admin/order/'.$u->id.'/edit')}}">แก้ไข</a>
+  													<a class="dropdown-item text-1" href="{{url('admin/coupon/'.$u->id.'/edit')}}">แก้ไข</a>
   												<!--	<a class="dropdown-item text-1 text-danger" href="">ลบ</a> -->
-                          <form  action="{{url('admin/order/'.$u->id)}}" method="post" onsubmit="return(confirm('Do you want Delete'))">
+                          <form  action="{{url('admin/coupon/'.$u->id)}}" method="post" onsubmit="return(confirm('Do you want Delete'))">
                               <input type="hidden" name="_method" value="DELETE">
                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <button type="submit" title="ลบบทความ" class="dropdown-item text-1 text-danger"><i class="fa fa-times "></i> ลบ</button>
@@ -102,7 +94,7 @@
   											</div>
 
                       </td>
-                    </tr>
+                    </tr {{$s++}}>
                  @endforeach
               @endif
 
@@ -121,37 +113,6 @@
 
 @section('scripts')
 <script src="{{asset('/assets/javascripts/tables/examples.datatables.default.js')}}"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-  $("input:checkbox").change(function() {
-    var user_id = $(this).closest('tr').attr('id');
-
-    $.ajax({
-            type:'POST',
-            url:'{{url('api/api_order_status')}}',
-            headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
-            data: { "user_id" : user_id },
-            success: function(data){
-              if(data.data.success){
-
-
-                var stack_topleft = {"dir1": "down", "dir2": "right", "push": "top"};
-                      var notice = new PNotify({
-                            title: 'ทำรายการสำเร็จ',
-                            text: 'คุณเปลี่ยนการแสดงผล สำเร็จเรียบร้อยแล้วค่ะ',
-                            type: 'success',
-                            addclass: 'stack-topright'
-                          });
-
-
-
-              }
-            }
-        });
-    });
-});
-</script>
 
 @if ($message = Session::get('add_success'))
 <script type="text/javascript">
