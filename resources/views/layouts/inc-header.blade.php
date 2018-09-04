@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}" style="height:64px" alt="Artfurniture"></a>
+                            <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" style="height:64px" alt="Artfurniture"></a>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-3 d-none d-md-block d-lg-block d-xl-block">
