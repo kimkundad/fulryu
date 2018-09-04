@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Socialite;
 use Session;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class LoginController extends Controller
@@ -24,6 +25,25 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    public function showLoginForm()
+    {
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+        $data['cat1'] = $obj1;
+
+        return view('auth.login', $data);
+    }
 
     protected function sendLoginResponse(Request $request)
     {
