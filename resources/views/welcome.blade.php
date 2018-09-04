@@ -38,141 +38,36 @@
 	        </div>
 	    </div>
 	    <!-- Slider Two Area End -->
+
+
 	    <!-- Banner Area Start -->
-	 <!--    -->
-	    <!-- Banner Area End -->
 
-
-	    <!-- Product Area Start -->
-	    <div class="product-area text-center pt-90 ">
+      <div class="banner-area style-1 pt-30">
 	        <div class="container">
-	            <div class="section-title">
-
-	                <h2><span>LIMITED OFFER</span></h2>
-	            </div>
-	        </div>
-	        <div class="container">
-	            <div class="custom-row">
-	                <div class="product-carousel-two owl-carousel carousel-style-one">
-
-
-              @if($objs)
-                @foreach($objs as $u)
-	                    <div class="custom-col">
-	                        <div class="product-item">
-	                           <!-- <span class="hot-sale black">sale</span> -->
-                                <div class="product-image-hover">
-                                    <a href="{{url('product/'.$u->id_p)}}">
-                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
-                                        <img class="hover-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
-                                    </a>
-
-                                </div>
-                                <div class="product-text">
-                                    <div class="product-rating">
-                                        <?php
-                                        for($i=1;$i <= $u->pro_rating;$i++){
-                                        ?>
-                                        <i class="fa fa-star color"></i>
-                                        <?php
-                                        }
-                                        ?>
-                                        <?php
-                                        $total = 5;
-                                        $total -= $u->pro_rating;
-
-                                        for($i=1;$i <= $total;$i++){
-                                        ?>
-                                        <i class="fa fa-star"></i>
-                                        <?php
-                                        }
-                                        ?>
-
-                                    </div>
-                                    <h4><a href="{{url('product/'.$u->id_p)}}">{{$u->pro_name}}</a></h4>
-                                    <!--  <div class="product-price"><span>฿{{number_format($u->pro_price)}}</span></div> -->
-                                </div>
-	                        </div>
-	                    </div>
-                      @endforeach
-             @endif
-
-
-
-
-
+	            <div class="row">
+	                <div class="col-lg-4 col-md-6">
+                        <a class="banner-image" href="#"><img src="{{url('assets/image/maxresdefault.jpg')}}" alt=""></a>
+	                </div>
+	                <div class="col-lg-4 col-md-6">
+                        <a class="banner-image" href="#"><img src="{{url('assets/image/maxresdefault2.jpg')}}" alt=""></a>
+	                </div>
+	                <div class="col-lg-4 col-md-6">
+                        <a class="banner-image" href="#"><img src="{{url('assets/image/maxresdefault3.jpg')}}" alt=""></a>
 	                </div>
 	            </div>
 	        </div>
 	    </div>
-	    <!-- Product Area End -->
 
 
-
-
-      <!-- Product Area Start -->
-     <div class="product-area text-center pt-90 ">
-         <div class="container">
-             <div class="section-title">
-
-                 <h2><span>NEW ARRIVALS!</span></h2>
-             </div>
-         </div>
-         <div class="container">
-             <div class="custom-row">
-                 <div class="product-carousel-two owl-carousel carousel-style-one">
-
-
-              @if($objs_new)
-                @foreach($objs_new as $u)
-                     <div class="custom-col">
-                         <div class="product-item">
-                             <!-- <span class="hot-sale black">sale</span> -->
-                                <div class="product-image-hover">
-                                    <a href="{{url('product/'.$u->id_p)}}">
-                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
-                                        <img class="hover-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
-                                    </a>
-
-                                </div>
-                                <div class="product-text">
-                                    <div class="product-rating">
-                                        <?php
-                                        for($i=1;$i <= $u->pro_rating;$i++){
-                                        ?>
-                                        <i class="fa fa-star color"></i>
-                                        <?php
-                                        }
-                                        ?>
-                                        <?php
-                                        $total = 5;
-                                        $total -= $u->pro_rating;
-
-                                        for($i=1;$i <= $total;$i++){
-                                        ?>
-                                        <i class="fa fa-star"></i>
-                                        <?php
-                                        }
-                                        ?>
-
-                                    </div>
-                                    <h4><a href="{{url('product/'.$u->id_p)}}">{{$u->pro_name}}</a></h4>
-                                  <!--  <div class="product-price"><span>฿{{number_format($u->pro_price)}}</span></div> -->
-                                </div>
-                         </div>
-                     </div>
-                      @endforeach
-             @endif
+	 <!--    -->
+	    <!-- Banner Area End -->
 
 
 
 
 
-                 </div>
-             </div>
-         </div>
-     </div>
-     <!-- Product Area End -->
+
+
 
 
 
@@ -183,7 +78,7 @@
         <div class="container">
             <div class="section-title">
 
-                <h2><span>RECOMMENDED EXCLUSIVE!</span></h2>
+                <h2><span>RECOMMENDED ITEM!</span></h2>
             </div>
         </div>
         <div class="container">
@@ -203,32 +98,10 @@
                                    </a>
 
                                </div>
-                               <div class="product-text">
-                                   <div class="product-rating">
-                                       <?php
-                                       for($i=1;$i <= $u->pro_rating;$i++){
-                                       ?>
-                                       <i class="fa fa-star color"></i>
-                                       <?php
-                                       }
-                                       ?>
-                                       <?php
-                                       $total = 5;
-                                       $total -= $u->pro_rating;
 
-                                       for($i=1;$i <= $total;$i++){
-                                       ?>
-                                       <i class="fa fa-star"></i>
-                                       <?php
-                                       }
-                                       ?>
-
-                                   </div>
-                                   <h4><a href="{{url('product/'.$u->id_p)}}">{{$u->pro_name}}</a></h4>
-                                  <!--  <div class="product-price"><span>฿{{number_format($u->pro_price)}}</span></div> -->
                                </div>
                         </div>
-                    </div>
+
                      @endforeach
             @endif
 
@@ -241,6 +114,38 @@
         </div>
     </div>
     <!-- Product Area End -->
+
+
+
+    <!-- Banner Area Start -->
+    <div class="product-area text-center pt-90 ">
+    <div class="container">
+        <div class="section-title">
+
+            <h2><span>NEW ITEM!</span></h2>
+        </div>
+    </div>
+
+    <div class="banner-area style-1 ">
+
+        <div class="container">
+            <div class="row">
+              @if($objs_new)
+                @foreach($objs_new as $u)
+                <div class="col-lg-4 col-md-6">
+                      <a class="banner-image" href="{{url('product/'.$u->id_p)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" alt=""></a>
+                </div>
+                @endforeach
+       @endif
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+ <!--    -->
+    <!-- Banner Area End -->
 
 
 

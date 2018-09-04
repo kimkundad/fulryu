@@ -51,14 +51,8 @@ class HomeController extends Controller
 
             //  dd($obj1);
 
-      $cat = DB::table('products')->select(
-            'products.*',
-            'products.id as id_p'
-            )
-            ->where('products.pro_status_show', 3)
-            ->where('products.pro_status', 1)
-            ->limit(8)
-            ->get();
+
+
 
             $cat_new = DB::table('products')->select(
                   'products.*',
@@ -66,7 +60,7 @@ class HomeController extends Controller
                   )
                   ->where('products.pro_status_show', 2)
                   ->where('products.pro_status', 1)
-                  ->limit(8)
+                  ->limit(3)
                   ->get();
 
                   $cat_rec = DB::table('products')->select(
@@ -79,7 +73,7 @@ class HomeController extends Controller
                         ->get();
 
 
-      $data['objs'] = $cat;
+
       $data['objs_new'] = $cat_new;
       $data['objs_rec'] = $cat_rec;
 

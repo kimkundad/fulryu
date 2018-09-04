@@ -79,11 +79,11 @@
                         @if( $u->pro_status_show == 1)
                         สินค้าทั่วไป
                         @elseif($u->pro_status_show == 2)
-                        NEW ARRIVALS!
+                        NEW ITEM!
                         @elseif($u->pro_status_show == 3)
                         LIMITED OFFER
                         @else
-                        RECOMMENDED EXCLUSIVE
+                        RECOMMENDED ITEM
                         @endif
                         </td>
                       <td>{{$u->pro_price}}</td>

@@ -117,7 +117,7 @@
                                         @if( $objs->pro_status_show == 2)
                                         selected='selected'
                                         @endif
-                                        >NEW ARRIVALS!</option>
+                                        >NEW ITEM!</option>
                                         <option value="3"
                                         @if( $objs->pro_status_show == 3)
                                         selected='selected'
@@ -127,7 +127,7 @@
                                         @if( $objs->pro_status_show == 4)
                                         selected='selected'
                                         @endif
-                                        >RECOMMENDED EXCLUSIVE</option>
+                                        >RECOMMENDED ITEM</option>
 
 
   								                    </select>

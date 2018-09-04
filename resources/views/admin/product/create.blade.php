@@ -102,9 +102,9 @@
           														<select name="pro_status_show" class="form-control mb-md" required>
 
                                         <option value="1">สินค้าทั่วไป</option>
-                                        <option value="2">NEW ARRIVALS!</option>
+                                        <option value="2">NEW ITEM!</option>
                                         <option value="3">LIMITED OFFER</option>
-                                        <option value="4">RECOMMENDED EXCLUSIVE</option>
+                                        <option value="4">RECOMMENDED ITEM</option>
 
 
   								                    </select>
