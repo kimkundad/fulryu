@@ -172,7 +172,7 @@
 													@foreach($j->options as $u)
 	                        <div class="product-widget-item">
 	                            <div class="product-wid-img">
-	                                <a href="{{url('product/'.$u->id)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" alt=""></a>
+	                                <a href="{{url('product/'.$u->id)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" style="height: 76px;" alt=""></a>
 	                            </div>
                                 <div class="product-text">
                                     <h4><a href="{{url('/')}}">{{$u->pro_name}}</a></h4>
