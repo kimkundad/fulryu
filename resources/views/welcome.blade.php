@@ -42,8 +42,8 @@
 
 	    <!-- Banner Area Start -->
 
-      <div class="banner-area style-1 pt-30">
-	        <div class="container">
+      <div class="banner-area mt-30 style-1">
+	        <div class="custom-container">
 	            <div class="row">
 	                <div class="col-lg-4 col-md-6">
                         <a class="banner-image" href="#"><img src="{{url('assets/image/maxresdefault.jpg')}}" alt=""></a>
