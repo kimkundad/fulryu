@@ -24,7 +24,7 @@
                                     </li>
                                     <li class="active"><a href="{{url('/contact')}}">Contact</a>
                                     </li>
-                                    <li class="active"><a href="#">Blog</a>
+                                    <li class="active"><a href="{{url('get_blog')}}">Blog</a>
                                     </li>
 
                                 </ul>

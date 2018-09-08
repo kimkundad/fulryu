@@ -23,6 +23,9 @@ Route::get('/product/{id}', 'HomeController@product')->name('product');
 Route::get('/cart', 'HomeController@cart')->name('cart');
 Route::post('add_cart', 'HomeController@add_cart')->name('add_cart');
 Route::get('del_cart/{id}', 'HomeController@del_cart')->name('del_cart');
+Route::get('blog/{id}', 'HomeController@blog')->name('blog');
+Route::get('category_blog/{id}', 'HomeController@category_blog')->name('category_blog');
+Route::get('get_blog', 'HomeController@get_blog')->name('blog');
 
 Route::get('category/{id}', 'HomeController@category')->name('category');
 Route::get('clear_cart', 'HomeController@clear_cart')->name('clear_cart');
@@ -62,6 +65,8 @@ Route::group(['middleware' => 'admin'], function() {
   Route::resource('admin/slide', 'SlideController');
   Route::resource('admin/subscribe', 'SubscribeController');
   Route::post('api/api_slide_status', 'SlideController@api_slide_status');
-
+  Route::resource('admin/b_category', 'BlogCatController');
+  Route::resource('admin/blog', 'BlogController');
+  Route::post('api/api_blog_status', 'BlogController@api_blog_status');
 
   });

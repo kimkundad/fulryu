@@ -80,6 +80,20 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										</a>
 									</li>
 
+                  <li {{ (Request::is('admin/b_category*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/b_category/')}}"  >
+											<i class="fa fa-tasks" aria-hidden="true"></i>
+											<span>หมวดหมู่ blog</span>
+										</a>
+									</li>
+
+                  <li {{ (Request::is('admin/blog*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/blog/')}}"  >
+											<i class="fa fa-leaf" aria-hidden="true"></i>
+											<span>blog</span>
+										</a>
+									</li>
+
                   <li {{ (Request::is('admin/subscribe*') ? 'class=nav-expanded' : '') }} >
 										<a href="{{url('admin/subscribe/')}}"  >
 											<i class="fa fa-asterisk" aria-hidden="true"></i>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
 use Auth;
+use App\blog;
 use App\order;
 use App\order_detail;
 use App\coupon_user;
@@ -47,10 +48,16 @@ class HomeController extends Controller
                 ->get();
               $u->options = $options;
             }
-      $data['cat1'] = $obj1;
+            $data['cat1'] = $obj1;
 
             //  dd($obj1);
 
+            $blog_new = DB::table('blogs')->select(
+                  'blogs.*'
+                  )
+                  ->where('blogs.blog_status', 1)
+                  ->limit(3)
+                  ->get();
 
 
 
@@ -76,6 +83,7 @@ class HomeController extends Controller
 
       $data['objs_new'] = $cat_new;
       $data['objs_rec'] = $cat_rec;
+      $data['blog_new'] = $blog_new;
 
 
       $slide = DB::table('slide_shows')->select(
@@ -87,6 +95,123 @@ class HomeController extends Controller
 
 
       return view('welcome', $data);
+    }
+
+
+    public function get_blog(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
+      $blog = DB::table('blogs')
+      ->select(
+      'blogs.*'
+      )
+      ->orderBy('id', 'desc')
+      ->paginate(9);
+
+      $data['blog'] = $blog;
+
+      return view('get_blog', $data);
+    }
+
+    public function category_blog($id){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
+      $blog = DB::table('blogs')
+      ->select(
+      'blogs.*'
+      )
+      ->where('blog_cat', $id)
+      ->orderBy('id', 'desc')
+      ->paginate(9);
+
+      $data['blog'] = $blog;
+
+
+      return view('category_blog', $data);
+    }
+
+
+    public function blog($id){
+
+      $package = blog::find($id);
+      $package->blog_view += 1;
+      $package->save();
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+
+
+
+
+      $blog_cat = DB::table('category_blogs')
+            ->get();
+      foreach($blog_cat as $u){
+
+        $blog_get = DB::table('blogs')->select(
+              'blogs.*'
+              )
+              ->where('blog_cat', $u->id)
+              ->count();
+        $u->count_blog = $blog_get;
+      }
+
+      $blog_new = DB::table('blogs')->select(
+            'blogs.*'
+            )
+            ->where('blogs.id', $id)
+            ->first();
+
+
+      $home_list = DB::table('blogs')
+      ->select(
+      'blogs.*'
+      )
+      ->where('id', '!=', $id)
+      ->orderBy('created_at', 'desc')
+      ->limit(6)
+      ->get();
+      $data['home_list'] = $home_list;
+
+      $data['blog_cat'] = $blog_cat;
+      $data['blog_new'] = $blog_new;
+      return view('blog_detail', $data);
     }
 
     public function del_cart($id){

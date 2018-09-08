@@ -57,16 +57,13 @@
       <div class="banner-area mt-30 style-1">
 	        <div class="custom-container">
 	            <div class="row">
+                @if($blog_new)
+                  @foreach($blog_new as $u)
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="#"><img src="{{url('assets/image/maxresdefault.jpg')}}" alt=""></a>
+                        <a class="banner-image" href="{{url('blog/'.$u->id)}}"><img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt=""></a>
 	                </div>
-	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="#"><img src="{{url('assets/image/maxresdefault2.jpg')}}" alt=""></a>
-	                </div>
-	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="#"><img src="{{url('assets/image/maxresdefault3.jpg')}}" alt=""></a>
-	                </div>
-	            </div>
+                  @endforeach
+  	            @endif
 	        </div>
 	    </div>
 
