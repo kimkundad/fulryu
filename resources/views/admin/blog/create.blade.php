@@ -140,7 +140,7 @@
 
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">รูป บทความ <span class="text-danger">1624 x 750 px หรือแนวนอนขนาดใกล้เคียง</span></label>
+                  <label for="exampleInputEmail1">รูป บทความ <span class="text-danger">1024 x 683 px หรือแนวนอนขนาดใกล้เคียง</span></label>
                   <div class="fileupload fileupload-new" data-provides="fileupload">
 														<div class="input-append">
 															<div class="uneditable-input">

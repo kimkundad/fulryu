@@ -145,7 +145,7 @@
           												</div>
 
                                   <div class="form-group">
-                                    <label class="col-md-3 control-label" for="exampleInputEmail1">รูปหลักสินค้า*</label>
+                                    <label class="col-md-3 control-label" for="exampleInputEmail1">รูปหลักสินค้า* <span class="text-danger">600 x 600 px หรือแนวนอนขนาดใกล้เคียง</span></label>
                                     <div class="col-md-8">
                                     <div class="fileupload fileupload-new" data-provides="fileupload">
                                               <div class="input-append">
