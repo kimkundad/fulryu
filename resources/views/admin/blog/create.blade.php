@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<link href="{{url('assets/text/dist/summernote.css')}}?v2" rel="stylesheet">
 @section('admin.content')
 <style>
 .note-editor.note-frame .note-editing-area .note-editable{
@@ -195,14 +195,26 @@
 
 @section('scripts')
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
-<script>
+<script src="{{URL::asset('assets/text/dist/summernote.js?v4')}}"></script>
+<script type="text/javascript">
 $(document).ready(function() {
+  $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
   $('#summernote').summernote({
+
+    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+    disableDragAndDrop: true,            // set editor height
     placeholder: 'เนื้อหาบทความ',
-    minHeight: 300
+    minHeight: 300,
+    focus: true                // set focus to editable area after initializing summernote
   });
 });
+var postForm = function() {
+var content = $('textarea[name="blog_detail"]').html($('#summernote').code());
+}
 </script>
 
 

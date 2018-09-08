@@ -68,5 +68,6 @@ Route::group(['middleware' => 'admin'], function() {
   Route::resource('admin/b_category', 'BlogCatController');
   Route::resource('admin/blog', 'BlogController');
   Route::post('api/api_blog_status', 'BlogController@api_blog_status');
+  Route::post('admin/file/posts', 'BlogController@imagess');
 
   });

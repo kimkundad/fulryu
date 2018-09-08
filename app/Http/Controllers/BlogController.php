@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\blog;
 use App\product;
 use App\blog_product;
+use Validator;
+use Response;
+use Redirect;
 use App\category_blog;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
@@ -76,33 +79,7 @@ class BlogController extends Controller
              'blog_detail' => 'required'
          ]);
 
-         $detail=$request->blog_detail;
 
-         //dd($detail);
-          $dom = new \domdocument('1.0', 'UTF-8');
-          libxml_use_internal_errors(true);
-          $dom->loadHtml($detail);
-
-          $images = $dom->getelementsbytagname('img');
-          //dd(sizeof($images));
-          if (sizeof($images) > 1) {
-          foreach($images as $k => $img){
-              $data = $img->getattribute('src');
-
-              list($type, $data) = explode(';', $data);
-              list(, $data)      = explode(',', $data);
-
-              $data = base64_decode($data);
-              $image_name= time().$k.'.png';
-              $path = '/assets/tech_img/'. $image_name;
-
-              file_put_contents($path, $data);
-
-              $img->removeattribute('src');
-              $img->setattribute('src', $path);
-          }
-        }
-         $detail = utf8_decode($dom->saveHTML($dom));
 
 
         $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
@@ -120,7 +97,7 @@ class BlogController extends Controller
        $package->blog_type = $request['blog_type'];
        $package->blog_url = $request['blog_url'];
        $package->blog_img = $input['imagename'];
-       $package->blog_detail = $detail;
+       $package->blog_detail = $request['blog_detail'];
        $package->save();
 
        $the_id = $package->id;
@@ -215,35 +192,6 @@ class BlogController extends Controller
              'blog_detail' => 'required'
          ]);
 
-         $detail=$request->blog_detail;
-
-         //dd($detail);
-          $dom = new \domdocument('1.0', 'UTF-8');
-          libxml_use_internal_errors(true);
-          $dom->loadHtml($detail);
-
-          $images = $dom->getelementsbytagname('img');
-          //dd(sizeof($images));
-          if (sizeof($images) > 1) {
-          foreach($images as $k => $img){
-              $data = $img->getattribute('src');
-
-              list($type, $data) = explode(';', $data);
-              list(, $data)      = explode(',', $data);
-
-              $data = base64_decode($data);
-              $image_name= time().$k.'.png';
-              $path = '/assets/tech_img/'. $image_name;
-
-              file_put_contents($path, $data);
-
-              $img->removeattribute('src');
-              $img->setattribute('src', $path);
-          }
-        }
-         $detail = utf8_decode($dom->saveHTML($dom));
-
-
          if($image == NULL){
 
 
@@ -252,7 +200,7 @@ class BlogController extends Controller
            $package->blog_cat = $request['blog_cat'];
            $package->blog_type = $request['blog_type'];
            $package->blog_url = $request['blog_url'];
-           $package->blog_detail = $detail;
+           $package->blog_detail = $request['blog_detail'];
            $package->save();
 
 
@@ -287,7 +235,7 @@ class BlogController extends Controller
            $package->blog_type = $request['blog_type'];
            $package->blog_url = $request['blog_url'];
            $package->blog_img = $input['imagename'];
-           $package->blog_detail = $detail;
+           $package->blog_detail = $request['blog_detail'];
            $package->save();
 
 
@@ -312,6 +260,32 @@ class BlogController extends Controller
 
           return redirect(url('admin/blog/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
     }
+
+
+    public function imagess(Request $request) {
+
+        $data = array('image' => $request->file('files'));
+        $rules = array(
+            'image' => 'required|max:8048',
+            );
+
+        $validator = Validator::make($data,$rules);
+
+        if($validator->fails()) {
+            return Response::json($validator->errors()->first('image'), 400);
+        }
+
+        $file = $request->file('files');
+        $destinationPath = 'assets/image/blog'; // upload path
+        $extension = $file->getClientOriginalExtension(); // getting image extension
+        $fileName = sha1(time().time()).".{$extension}";
+        $file->move($destinationPath, $fileName); // uploading file to given path
+
+        return $fileName;
+
+    }
+
+
 
 
     public function api_blog_status(Request $request){
