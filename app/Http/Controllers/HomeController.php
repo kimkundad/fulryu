@@ -177,7 +177,11 @@ class HomeController extends Controller
             }
       $data['cat1'] = $obj1;
 
-
+      $product_count = DB::table('blog_products')->select(
+            'blog_products.*'
+            )
+            ->where('blog_id', $id)
+            ->count();
 
 
       $product = DB::table('blog_products')->select(
@@ -223,6 +227,7 @@ class HomeController extends Controller
       ->limit(6)
       ->get();
       //dd($product);
+      $data['product_count'] = $product_count
       $data['home_list'] = $home_list;
       $data['product'] = $product;
       $data['blog_cat'] = $blog_cat;
