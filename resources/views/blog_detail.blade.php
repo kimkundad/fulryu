@@ -98,6 +98,72 @@
 
 
 
+                         <br /><br />
+
+
+                         <div class="ht-product-shop tab-content">
+                           <h5>สินค้าที่เกี่ยวข้อง</h5>
+                           <br />
+                             <div class="tab-pane active show fade text-center" id="grid" role="tabpanel">
+                                 <div class="row">
+
+                                   @if($product)
+                                      @foreach($product as $u)
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                         <div class="product-item">
+                                             <div class="product-image-hover">
+                                                 <a href="{{url('product/'.$u->option_pro->id)}}">
+                                                     <img class="primary-image" src="{{url('assets/image/product/'.$u->option_pro->pro_image)}}" alt="">
+                                                 </a>
+                                             <!--    <div class="product-hover">
+                                                     <button><i class="icon icon-FullShoppingCart"></i></button>
+                                                     <a href="wishlist.htnl"><i class="icon icon-Heart"></i></a>
+                                                     <a href="wishlist.htnl"><i class="icon icon-Files"></i></a>
+                                                 </div> -->
+                                             </div>
+                                             <div class="product-text">
+                                                 <div class="product-rating">
+                                                   <?php
+                                                   for($i=1;$i <= $u->option_pro->pro_rating;$i++){
+                                                   ?>
+                                                   <i class="fa fa-star color"></i>
+                                                   <?php
+                                                   }
+                                                   ?>
+                                                   <?php
+                                                   $total = 5;
+                                                   $total -= $u->option_pro->pro_rating;
+
+                                                   for($i=1;$i <= $total;$i++){
+                                                   ?>
+                                                   <i class="fa fa-star"></i>
+                                                   <?php
+                                                   }
+                                                   ?>
+                                                 </div>
+                                                 <h4><a href="product-details.html">{{$u->option_pro->pro_name}}</a></h4>
+                                                 <div class="product-price"><span>฿{{$u->option_pro->pro_price}}</span></div>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     @endforeach
+                                  @endif
+
+
+
+
+                                 </div>
+                             </div>
+
+                         </div>
+
+                         <br /><br /><br />
+
+
+
+
+
 
 
                     </div>

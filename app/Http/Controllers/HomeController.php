@@ -180,6 +180,21 @@ class HomeController extends Controller
 
 
 
+      $product = DB::table('blog_products')->select(
+            'blog_products.*'
+            )
+            ->where('blog_id', $id)
+            ->get();
+      foreach($product as $p){
+
+        $option_pro = DB::table('products')->select(
+              'products.*'
+              )
+              ->where('id', $p->product_id)
+              ->first();
+      $p->option_pro = $option_pro;
+      }
+
       $blog_cat = DB::table('category_blogs')
             ->get();
       foreach($blog_cat as $u){
@@ -207,8 +222,9 @@ class HomeController extends Controller
       ->orderBy('created_at', 'desc')
       ->limit(6)
       ->get();
+      //dd($product);
       $data['home_list'] = $home_list;
-
+      $data['product'] = $product;
       $data['blog_cat'] = $blog_cat;
       $data['blog_new'] = $blog_new;
       return view('blog_detail', $data);
