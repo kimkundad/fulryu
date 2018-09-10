@@ -102,12 +102,13 @@
 
 
                          <div class="ht-product-shop tab-content">
+                           @if($product)
                            <h5>สินค้าที่เกี่ยวข้อง</h5>
                            <br />
                              <div class="tab-pane active show fade text-center" id="grid" role="tabpanel">
                                  <div class="row">
 
-                                   @if($product)
+
                                       @foreach($product as $u)
                                     <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                          <div class="product-item">
@@ -148,14 +149,14 @@
                                      </div>
 
                                      @endforeach
-                                  @endif
+
 
 
 
 
                                  </div>
                              </div>
-
+                             @endif
                          </div>
 
                          <br /><br /><br />
