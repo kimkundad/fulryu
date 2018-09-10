@@ -227,7 +227,7 @@ class HomeController extends Controller
       ->limit(6)
       ->get();
       //dd($product);
-      $data['product_count'] = $product_count
+      $data['product_count'] = $product_count;
       $data['home_list'] = $home_list;
       $data['product'] = $product;
       $data['blog_cat'] = $blog_cat;
