@@ -12,20 +12,26 @@
                             <nav>
                                 <ul>
 
-                                  @if($cat1)
-                                    @foreach($cat1 as $j)
-                                    <li class="active"><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a>
-                                    </li>
-                                    @endforeach
-                                  @endif
+                                  <li class="active"><a href="{{url('/')}}">Home</a>
+                                  </li>
 
+                                  <li><a href="shop.html">Product</a>
+                                      <ul>
+                                        @if($cat1)
+                                          @foreach($cat1 as $j)
+                                          <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
+                                          @endforeach
+                                        @endif
+                                      </ul>
+                                  </li>
+                                  <li class="active"><a href="{{url('get_blog')}}">Blog</a>
+                                  </li>
 
                                     <li class="active"><a href="{{url('/about')}}">About</a>
                                     </li>
                                     <li class="active"><a href="{{url('/contact')}}">Contact</a>
                                     </li>
-                                    <li class="active"><a href="{{url('get_blog')}}">Blog</a>
-                                    </li>
+
 
                                 </ul>
                             </nav>
