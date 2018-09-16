@@ -10,6 +10,12 @@ All Blog
 .product-text {
     padding-top: 20px;
 }
+.tour_title{
+  height:60px; background: #979799; padding: 12px 15px 10px 15px; color: #fff;
+}
+.text_title{
+  color: #fff; font-size:14px;     font-weight: 500;
+}
 </style>
 
 @stop('stylesheet')
@@ -44,10 +50,9 @@ All Blog
                                     <span>{{date('d', strtotime($u->created_at))}} <span>{{date('M', strtotime($u->created_at))}}</span></span>
                                 </a>
                             </div>
-                            <div class="blog-text">
-                                <h5><a href="{{url('blog/'.$u->id)}}">{{$u->blog_title}}</a></h5>
-                                <a href="{{url('blog/'.$u->id)}}">Read More</a>
-                            </div>
+                            <div class="tour_title" >
+  							                 <h3 class="text_title">{{$u->blog_title}}</h3>
+  						              </div>
                         </div>
                     </div>
                 @endforeach
