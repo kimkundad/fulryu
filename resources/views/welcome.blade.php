@@ -115,6 +115,9 @@
                                    <a href="{{url('product/'.$u->id_p)}}">
                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <img class="hover-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
+                                       <div class="tour_title" >
+             							                 <h3 class="text_title">{{$u->pro_title}}</h3>
+             						              </div>
                                    </a>
 
                                </div>
@@ -153,7 +156,12 @@
               @if($objs_new)
                 @foreach($objs_new as $u)
                 <div class="col-lg-4 col-md-6">
-                      <a class="banner-image" href="{{url('product/'.$u->id_p)}}"><img src="{{url('assets/image/product/'.$u->pro_image)}}" alt=""></a>
+                      <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
+                        <img src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
+                        <div class="tour_title" >
+                            <h3 class="text_title">{{$u->pro_title}}</h3>
+                       </div>
+                      </a>
                 </div>
                 @endforeach
        @endif
