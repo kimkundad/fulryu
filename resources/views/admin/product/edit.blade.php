@@ -98,7 +98,7 @@
                                                >{{$categorys->name_cat}}</option>
   													              @endforeach
   								                    </select>
-          								            </select>
+
           													</div>
           												</div>
 

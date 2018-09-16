@@ -74,6 +74,7 @@ class BlogController extends Controller
         $this->validate($request, [
              'image' => 'required|max:8048',
              'blog_title' => 'required',
+             'blog_header' => 'required',
              'blog_cat' => 'required',
              'blog_type' => 'required',
              'blog_detail' => 'required'
@@ -93,6 +94,7 @@ class BlogController extends Controller
 
        $package = new blog();
        $package->blog_title = $request['blog_title'];
+       $package->blog_header = $request['blog_header'];
        $package->blog_cat = $request['blog_cat'];
        $package->blog_type = $request['blog_type'];
        $package->blog_url = $request['blog_url'];
@@ -187,6 +189,7 @@ class BlogController extends Controller
         $image = $request->file('image');
         $this->validate($request, [
              'blog_title' => 'required',
+             'blog_header' => 'required',
              'blog_cat' => 'required',
              'blog_type' => 'required',
              'blog_detail' => 'required'
@@ -197,6 +200,7 @@ class BlogController extends Controller
 
            $package = blog::find($id);
            $package->blog_title = $request['blog_title'];
+           $package->blog_header = $request['blog_header'];
            $package->blog_cat = $request['blog_cat'];
            $package->blog_type = $request['blog_type'];
            $package->blog_url = $request['blog_url'];
@@ -231,6 +235,7 @@ class BlogController extends Controller
 
            $package = blog::find($id);
            $package->blog_title = $request['blog_title'];
+           $package->blog_header = $request['blog_header'];
            $package->blog_cat = $request['blog_cat'];
            $package->blog_type = $request['blog_type'];
            $package->blog_url = $request['blog_url'];

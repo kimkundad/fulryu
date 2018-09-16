@@ -26,6 +26,12 @@
     display: flex;
     padding: 0px 0 18px;
 }
+.tour_title{
+  height:60px; background: #979799; padding: 12px 15px 10px 15px; color: #fff;
+}
+.text_title{
+  color: #fff; font-size:14px;     font-weight: 500;
+}
 </style>
 
 @stop('stylesheet')
@@ -60,7 +66,12 @@
                 @if($blog_new)
                   @foreach($blog_new as $u)
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="{{url('blog/'.$u->id)}}"><img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt=""></a>
+                        <a class="banner-image" href="{{url('blog/'.$u->id)}}">
+                          <img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="">
+                          <div class="tour_title" >
+							                 <h3 class="text_title">{{$u->blog_header}}</h3>
+						              </div>
+                        </a>
 	                </div>
                   @endforeach
   	            @endif

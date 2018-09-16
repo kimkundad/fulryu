@@ -57,6 +57,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="ht-product-shop tab-content">
                             <div class="tab-pane active show fade text-center" id="grid" role="tabpanel">
                                 <div class="row">
@@ -168,6 +169,11 @@
 
                             </div>
                         </div>
+
+
+
+
+
                         <div class="pagination-wrapper">
                             <nav aria-label="navigation">
 

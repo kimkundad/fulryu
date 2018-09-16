@@ -97,6 +97,13 @@
 
 
                 <div class="form-group">
+                  <label for="exampleInputEmail1">คำอธิบาย บทความ</label>
+                  <input type="text" class="form-control" name="blog_header" placeholder="คำอธิบาย บทความ"  value="{{ $blog->blog_header }}" required>
+
+                </div>
+
+
+                <div class="form-group">
                   <label >เลือกหมวดหมู่ บทความ</label>
                     <select name="blog_cat" class="form-control mb-md" required="required">
                       @if($objs)

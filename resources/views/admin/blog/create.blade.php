@@ -91,6 +91,12 @@
 
                 </div>
 
+                <div class="form-group">
+                  <label for="exampleInputEmail1">คำอธิบาย บทความ</label>
+                  <input type="text" class="form-control" name="blog_header" placeholder="ใส่ คำอธิบายบทความ"  value="{{ old('blog_header') }}" required>
+
+                </div>
+
 
                 <div class="form-group">
                   <label >เลือกหมวดหมู่ บทความ</label>
