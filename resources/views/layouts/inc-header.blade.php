@@ -12,7 +12,7 @@
                             <nav>
                                 <ul>
 
-                                  <li class="active"><a href="{{url('/')}}">Home</a>
+                                  <li ><a href="{{url('/')}}">Home</a>
                                   </li>
 
                                   <li><a >Product</a>
@@ -24,12 +24,12 @@
                                         @endif
                                       </ul>
                                   </li>
-                                  <li class="active"><a href="{{url('get_blog')}}">Blog</a>
+                                  <li ><a href="{{url('get_blog')}}">Blog</a>
                                   </li>
 
-                                    <li class="active"><a href="{{url('/about')}}">About</a>
+                                    <li ><a href="{{url('/about')}}">About</a>
                                     </li>
-                                    <li class="active"><a href="{{url('/contact')}}">Contact</a>
+                                    <li ><a href="{{url('/contact')}}">Contact</a>
                                     </li>
 
 
@@ -206,14 +206,26 @@
                     <div class="mobile-menu">
                         <nav id="mobile-menu-active">
                             <ul class="menu-overflow">
-                                <li><a href="{{url('/')}}">HOME</a>
-
+                                
+                                <li ><a href="{{url('/')}}">Home</a>
                                 </li>
-                                <li><a href="#">Category</a></li>
-                                <li><a href="#">About Us</a></li>
 
-                                <li><a href="#">Account</a></li>
-                                <li><a href="">Contact</a></li>
+                                <li><a >Product</a>
+                                    <ul>
+                                      @if($cat1)
+                                        @foreach($cat1 as $j)
+                                        <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
+                                        @endforeach
+                                      @endif
+                                    </ul>
+                                </li>
+                                <li ><a href="{{url('get_blog')}}">Blog</a>
+                                </li>
+
+                                  <li ><a href="{{url('/about')}}">About</a>
+                                  </li>
+                                  <li ><a href="{{url('/contact')}}">Contact</a>
+                                  </li>
                             </ul>
                         </nav>
                     </div>
