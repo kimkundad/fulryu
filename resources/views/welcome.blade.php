@@ -116,7 +116,7 @@
                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <img class="hover-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <div class="tour_title" >
-             							                 <h3 class="text_title">{{$u->pro_title}}</h3>
+             							                 <h3 class="text_title">{{substr($u->pro_title, 0, 170)}}</h3>
              						              </div>
                                    </a>
 
@@ -159,7 +159,7 @@
                       <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                         <img src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                         <div class="tour_title" >
-                            <h3 class="text_title">{{$u->pro_title}}</h3>
+                            <h3 class="text_title">{{substr($u->pro_title, 0, 170)}}</h3>
                        </div>
                       </a>
                 </div>
