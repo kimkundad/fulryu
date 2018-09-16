@@ -15,7 +15,7 @@
                                   <li class="active"><a href="{{url('/')}}">Home</a>
                                   </li>
 
-                                  <li><a href="shop.html">Product</a>
+                                  <li><a >Product</a>
                                       <ul>
                                         @if($cat1)
                                           @foreach($cat1 as $j)
