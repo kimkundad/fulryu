@@ -69,7 +69,7 @@
                         <a class="banner-image" href="{{url('blog/'.$u->id)}}">
                           <img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="">
                           <div class="tour_title" >
-							                 <h3 class="text_title">{{$u->blog_header}}</h3>
+							                 <h3 class="text_title">{{$u->blog_title}}</h3>
 						              </div>
                         </a>
 	                </div>
