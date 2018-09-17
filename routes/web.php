@@ -39,6 +39,8 @@ Route::post('/post_coupon','HomeController@post_coupon');
 Route::post('/post_subscribe','HomeController@post_subscribe');
 
 
+Route::get('/term_of_service', 'HomeController@term_of_service');
+Route::get('/return_policy', 'HomeController@return_policy');
 Route::get('/privacy_policy', 'HomeController@privacy_policy');
 Route::get('/delivery_information', 'HomeController@delivery_information');
 

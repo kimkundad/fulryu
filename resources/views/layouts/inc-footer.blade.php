@@ -10,7 +10,7 @@
                                 </div>
                                 <div class="single-footer-text">
                                     <span>Addresss: 222/390 Soi Ruammitpattana yaak 5 Tarang Bangkhaen BKK 10220</span>
-                                    <span>Phone 01: +(66)639911075</span>
+                                    <span>Phone: +(66)639911075</span>
 
                                     <span>Email: fulryumail@gmail.com</span>
                                 </div>
@@ -36,9 +36,9 @@
                             <div class="single-footer-widget">
                                 <h4>INFORMATION</h4>
                                 <ul class="footer-widget-list">
-                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="{{url('term_of_service')}}">Terms of Service</a></li>
 
-                                    <li><a href="#">Return Policy</a></li>
+                                    <li><a href="{{url('return_policy')}}">Return Policy</a></li>
 
 
                                 </ul>
@@ -48,6 +48,15 @@
                             <div class="single-footer-widget">
                                 <h4>my account</h4>
                                 <ul class="footer-widget-list">
+
+																	@if (Auth::guest())
+																	<li><a href="{{url('login')}}">Register</a></li>
+																	<li><a href="{{url('login')}}">Login</a></li>
+																	@else
+
+																		<li><a href="#">My Account</a></li>
+																		<li><a href="{{url('logout')}}">Sign Out</a></li>
+																	@endif
 
                                 </ul>
                             </div>
