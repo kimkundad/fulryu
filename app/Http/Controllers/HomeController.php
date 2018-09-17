@@ -263,7 +263,7 @@ class HomeController extends Controller
               $u->options = $options;
             }
       $data['cat1'] = $obj1;
-      
+
       return view('contact_success', $data);
     }
 
@@ -277,7 +277,7 @@ class HomeController extends Controller
             'g-recaptcha-response' => 'required'
         ]);
         $token = $request->input('g-recaptcha-response');
-
+        dd($token);
         if ($token) {
 
 
