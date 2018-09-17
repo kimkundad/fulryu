@@ -24,4 +24,18 @@
         .blog-details-text > p{
           font-family: 'Prompt', sans-serif !important;
         }
+        .bg-dark {
+            background-color: #979799!important;
+        }
+        .breadcrumb-item.active {
+    color: #fff;
+    padding: 0 8.5px;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    color: #fff;
+    content: ">";
+}
         </style>

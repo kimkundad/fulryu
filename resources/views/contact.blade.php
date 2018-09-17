@@ -39,18 +39,41 @@
                     </div>
                     <div class="col-md-6">
                         <h4>GET IN TOUCH</h4>
-                        <form id="contact-form"  method="post">
+                        <form action="{{url('/contact')}}" id="contact-form"  method="post">
+                          {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" name="name"  placeholder="Your Name*">
+                                    @if ($errors->has('name'))
+                                  <span class="help-block">
+                                      <strong>Please enter your name</strong>
+                                  </span>
+                                  @endif
                                 </div>
                                 <div class="col-md-6">
                                     <input type="text" name="email"  placeholder="Mail*">
+                                    @if ($errors->has('email'))
+                                  <span class="help-block">
+                                      <strong>Please enter your email address</strong>
+                                  </span>
+                                  @endif
                                 </div>
                             </div>
 
-                            <textarea name="message"  cols="30" rows="10" placeholder="Type Your Message......."></textarea>
-                          <!--  <button type="submit" class="default-btn submit-btn">SEND</button> -->
+                            <textarea name="message"  cols="30" rows="10" name="detail" placeholder="Type Your Message......."></textarea>
+                            @if ($errors->has('message'))
+                                  <span class="help-block">
+                                      <strong>Please enter your message!</strong>
+                                  </span>
+                              @endif
+                            <div class="g-recaptcha" data-sitekey="6LfYpXAUAAAAADHUnng4xf7L4T2HI58XnpmNYfoI"></div>
+                            @if ($errors->has('g-recaptcha-response'))
+                                  <span class="help-block">
+                                      <strong>Robot?!</strong>
+                                  </span>
+                              @endif
+                            <br />
+                            <button type="submit" class="default-btn submit-btn">SEND</button>
                             <p class="form-message"></p>
                         </form>
                     </div>
@@ -94,9 +117,9 @@
 @endsection
 
 @section('scripts')
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMlLa3XrAmtemtf97Z2YpXwPLlimRK7Pk"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9EQg4yj-fplDQ4q4RX9X61Vu4HSa6yYI"></script>
         <script>
             google.maps.event.addDomListener(window, 'load', init);
             function init() {

@@ -26,6 +26,9 @@ Route::get('del_cart/{id}', 'HomeController@del_cart')->name('del_cart');
 Route::get('blog/{id}', 'HomeController@blog')->name('blog');
 Route::get('category_blog/{id}', 'HomeController@category_blog')->name('category_blog');
 Route::get('get_blog', 'HomeController@get_blog')->name('blog');
+Route::post('/add_contact', 'HomeController@contact');
+
+Route::get('/contact_success', 'HomeController@contact_success');
 
 Route::get('category/{id}', 'HomeController@category')->name('category');
 Route::get('clear_cart', 'HomeController@clear_cart')->name('clear_cart');

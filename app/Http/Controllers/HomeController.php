@@ -15,6 +15,7 @@ use Mail;
 use Swift_Transport;
 use Swift_Message;
 use Swift_Mailer;
+use App\comtact;
 
 class HomeController extends Controller
 {
@@ -245,6 +246,123 @@ class HomeController extends Controller
     public function clear_cart(){
       session()->forget(['cart']);
       return redirect()->back()->with('success', 'เพิ่มสินค้าสำเร็จ');
+    }
+
+    public function contact_success(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+      $data['cat1'] = $obj1;
+      
+      return view('contact_success', $data);
+    }
+
+
+    public function add_contact(Request $request){
+
+      $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+            'g-recaptcha-response' => 'required'
+        ]);
+        $token = $request->input('g-recaptcha-response');
+
+        if ($token) {
+
+
+          $package = new comtact();
+          $package->name = $request['name'];
+          $package->email = $request['email'];
+          $package->message = $request['message'];
+          $package->save();
+
+
+          // send email
+            $data_toview = array();
+          //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
+            date_default_timezone_set("Asia/Bangkok");
+            $data_toview['name'] = $request['name'];
+            $data_toview['email'] = $request['email'];
+            $data_toview['message'] = $request['message'];
+            $data_toview['datatime'] = date("d-m-Y H:i:s");
+
+            $email_sender   = 'fulryumail@gmail.com';
+            $email_pass     = 'aeychingking';
+
+        /*    $email_sender   = 'info@acmeinvestor.com';
+            $email_pass     = 'Iaminfoacmeinvestor';  */
+          //  $email_to       =  'siri@sirispace.com';
+          $email_to       =  'fulryumail@gmail.com';
+            //echo $admins[$idx]['email'];
+            // Backup your default mailer
+            $backup = \Mail::getSwiftMailer();
+
+            try{
+
+                        //https://accounts.google.com/DisplayUnlockCaptcha
+                        // Setup your gmail mailer
+                        $transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'SSL');
+                        $transport->setUsername($email_sender);
+                        $transport->setPassword($email_pass);
+
+                        // Any other mailer configuration stuff needed...
+                        $gmail = new Swift_Mailer($transport);
+
+                        // Set the mailer as gmail
+                        \Mail::setSwiftMailer($gmail);
+
+                        $data['emailto'] = $email_to;
+
+                        //dd($data['emailto']);
+                        $data['sender'] = $email_sender;
+                        //Sender dan Reply harus sama
+
+                        Mail::send('mail.contact', $data_toview, function($message) use ($data)
+                        {
+                            $message->from($data['sender'], 'มีข้อความจาก fulryu');
+                            $message->to($data['emailto'])
+                            ->replyTo($data['emailto'], 'มีข้อความจาก fulryu.')
+                            ->subject('มีข้อความจาก fulryu.com เข้าสู่ะบบ');
+
+                            //echo 'Confirmation email after registration is completed.';
+                        });
+
+
+
+            }catch(\Swift_TransportException $e){
+                $response = $e->getMessage() ;
+                echo $response;
+
+            }
+
+
+            // Restore your original mailer
+            Mail::setSwiftMailer($backup);
+            // send email
+
+
+
+
+
+
+
+          return redirect(url('contact_success'));
+
+        } else {
+        echo "No";
+      }
+
     }
 
     public function post_subscribe(Request $request){
