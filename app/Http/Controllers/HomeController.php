@@ -303,7 +303,9 @@ class HomeController extends Controller
             $data_toview = array();
           //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
             date_default_timezone_set("Asia/Bangkok");
-            $data_toview['contact'] = $packages;
+             $data_toview['name'] = $request['name'];
+             $data_toview['email'] = $request['email'];
+             $data_toview['message'] = $request['message'];
 
             $data_toview['datatime'] = date("d-m-Y H:i:s");
 
