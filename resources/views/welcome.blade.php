@@ -27,10 +27,32 @@
     padding: 0px 0 18px;
 }
 .tour_title{
- background: #979799; padding: 8px 15px 8px 15px; color: #fff;
+ background: #979799; padding: 8px 10px 8px 10px; color: #fff;
+ position: relative;
+ font-weight: 300;
 }
 .text_title{
-  color: #fff; font-size:13px;     font-weight: 300;
+  color: #fff; font-size:13px;
+  font-weight: 100;
+  text-align: left;
+}
+.price_product {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 100;
+}
+.tour_title h3 {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 5px;
+    color: #fff;
+    text-transform: uppercase;
+   font-weight: 100;
 }
 </style>
 
@@ -69,7 +91,7 @@
                         <a class="banner-image" href="{{url('blog/'.$u->id)}}">
                           <img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="">
                           <div class="tour_title" >
-							                 <h3 class="text_title">{{str_limit($u->blog_title, 60, '..')}} </h3>
+							                 <p class="text_title" style="margin-bottom: 0rem;">{{str_limit($u->blog_title, 60, '..')}} </p>
 						              </div>
                         </a>
 	                </div>
@@ -115,7 +137,7 @@
                                    <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <div class="tour_title" >
-             							                 <h3 class="text_title">{{str_limit($u->pro_title, 40, '..')}}</h3>
+             							                 <p class="text_title" style="margin-bottom: 0rem;">{{str_limit($u->pro_name, 38, '..')}}</p>
              						              </div>
                                    </a>
 
@@ -158,7 +180,11 @@
                       <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                         <img src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                         <div class="tour_title" >
-                            <h3 class="text_title">{{substr($u->pro_title, 0, 120)}}</h3>
+                          <h3> {{str_limit($u->pro_name, 38, '..')}}</h3>
+                          <div class="price_product">
+                            {{$u->pro_price}}
+                          </div>
+                            <p class="text_title" style="font-family: 'Prompt script=all rev=3', 'Adobe Blank'; font-weight: 100; font-style: normal; margin-top:10px;margin-bottom: 0rem;" >{{str_limit($u->pro_title, 150, '..')}}</p>
                        </div>
                       </a>
                 </div>
