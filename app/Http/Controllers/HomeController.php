@@ -288,15 +288,15 @@ class HomeController extends Controller
           $package->save();
 
           $id = $package->id;
-          $package = comtact::find($id)->get();
+          $packages = comtact::find($id)->first();
 
-
+        //  dd($packages);
 
           // send email
             $data_toview = array();
           //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
             date_default_timezone_set("Asia/Bangkok");
-            $data_toview['contact'] = $package;
+            $data_toview['contact'] = $packages;
 
             $data_toview['datatime'] = date("d-m-Y H:i:s");
 
