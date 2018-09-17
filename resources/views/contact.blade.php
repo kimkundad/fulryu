@@ -43,7 +43,7 @@
                           {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" name="name"  placeholder="Your Name*">
+                                    <input type="text" name="name" value="{{old('name')}}" placeholder="Your Name*">
                                     @if ($errors->has('name'))
                                   <span class="help-block">
                                       <strong>Please enter your name</strong>
@@ -51,7 +51,7 @@
                                   @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="email"  placeholder="Mail*">
+                                    <input type="text" name="email" value="{{old('email')}}" placeholder="Mail*">
                                     @if ($errors->has('email'))
                                   <span class="help-block">
                                       <strong>Please enter your email address</strong>
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <textarea name="message"  cols="30" rows="10" name="detail" placeholder="Type Your Message......."></textarea>
+                            <textarea name="message"  cols="30" rows="10" placeholder="Type Your Message.......">{{old('message')}}</textarea>
                             @if ($errors->has('message'))
                                   <span class="help-block">
                                       <strong>Please enter your message!</strong>
