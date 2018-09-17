@@ -305,7 +305,7 @@ class HomeController extends Controller
             date_default_timezone_set("Asia/Bangkok");
             $data_toview['name'] = $packages->name;
             $data_toview['email'] = $packages->email;
-            $data_toview['message'] = $packages->message;
+            $data_toview['messagess'] = $packages->message;
 
             $data_toview['datatime'] = date("d-m-Y H:i:s");
 
