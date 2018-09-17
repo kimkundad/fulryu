@@ -291,11 +291,11 @@ class HomeController extends Controller
 
           $packages = DB::table('comtacts')
               ->select(
-              'comtacts'
+              'comtacts.*'
               )
               ->where('id', $the_id)
               ->first();
-          
+
 
         //  dd($packages);
 
