@@ -115,7 +115,7 @@
                                    <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <div class="tour_title" >
-             							                 <h3 class="text_title">{{str_limit($u->pro_title, 30, '..')}}</h3>
+             							                 <h3 class="text_title">{{str_limit($u->pro_title, 45, '..')}}</h3>
              						              </div>
                                    </a>
 
