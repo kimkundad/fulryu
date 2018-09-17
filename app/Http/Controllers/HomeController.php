@@ -277,7 +277,7 @@ class HomeController extends Controller
             'g-recaptcha-response' => 'required'
         ]);
         $token = $request->input('g-recaptcha-response');
-        dd($token);
+      //  dd($token);
         if ($token) {
 
 
