@@ -287,8 +287,15 @@ class HomeController extends Controller
           $package->message = $request['message'];
           $package->save();
 
-          $id = $package->id;
-          $packages = comtact::find($id)->first();
+          $the_id = $package->id;
+
+          $packages = DB::table('comtacts')
+              ->select(
+              'comtacts'
+              )
+              ->where('id', $the_id)
+              ->first();
+          
 
         //  dd($packages);
 
