@@ -20,10 +20,15 @@
                             <div class="single-footer-widget">
                                 <h4>ABOUT US</h4>
                                 <ul class="footer-widget-list">
+																		<li>
+																			<a href="{{url('about')}}">About</a>
+																		</li>
+																		<li>
+																			<a href="{{url('contact')}}">Contact</a>
+																		</li>
+                                    <li><a href="{{url('delivery_information')}}">Delivery Information</a></li>
 
-                                    <li><a href="#">Delivery Information</a></li>
-
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="{{url('privacy_policy')}}">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -99,6 +99,48 @@ class HomeController extends Controller
     }
 
 
+    public function delivery_information(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+            $data['cat1'] = $obj1;
+
+      return view('delivery_information', $data);
+    }
+
+
+    public function privacy_policy(){
+
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+            $data['cat1'] = $obj1;
+
+      return view('privacypolicy', $data);
+
+    }
+
+
     public function get_blog(){
 
       $obj1 = DB::table('categories')->select(

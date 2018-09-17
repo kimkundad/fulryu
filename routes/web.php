@@ -38,6 +38,10 @@ Route::post('update_cart', 'HomeController@update_cart')->name('update_cart');
 Route::post('/post_coupon','HomeController@post_coupon');
 Route::post('/post_subscribe','HomeController@post_subscribe');
 
+
+Route::get('/privacy_policy', 'HomeController@privacy_policy');
+Route::get('/delivery_information', 'HomeController@delivery_information');
+
 // Social Auth del_cart
 
 Route::get('oauth/{driver}', 'Auth\SocialAuthController@redirectToProvider')->name('social.oauth');
