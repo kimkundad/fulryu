@@ -119,7 +119,8 @@
 @section('scripts')
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9EQg4yj-fplDQ4q4RX9X61Vu4HSa6yYI"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC9EQg4yj-fplDQ4q4RX9X61Vu4HSa6yYI&sensor=false&amp;language=th"></script>
+
         <script>
             google.maps.event.addDomListener(window, 'load', init);
             function init() {
