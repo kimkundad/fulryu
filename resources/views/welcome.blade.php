@@ -27,10 +27,10 @@
     padding: 0px 0 18px;
 }
 .tour_title{
-  height:60px; background: #979799; padding: 12px 15px 10px 15px; color: #fff;
+ background: #979799; padding: 8px 15px 8px 15px; color: #fff;
 }
 .text_title{
-  color: #fff; font-size:14px;     font-weight: 500;
+  color: #fff; font-size:13px;     font-weight: 300;
 }
 </style>
 
@@ -69,7 +69,7 @@
                         <a class="banner-image" href="{{url('blog/'.$u->id)}}">
                           <img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="">
                           <div class="tour_title" >
-							                 <h3 class="text_title">{{$u->blog_title}}</h3>
+							                 <h3 class="text_title">{{substr($u->blog_title, 0, 120)}} </h3>
 						              </div>
                         </a>
 	                </div>
@@ -112,11 +112,10 @@
                         <div class="product-item">
                            <!-- <span class="hot-sale black">sale</span> -->
                                <div class="product-image-hover">
-                                   <a href="{{url('product/'.$u->id_p)}}">
+                                   <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
-                                       <img class="hover-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <div class="tour_title" >
-             							                 <h3 class="text_title">{{substr($u->pro_title, 0, 170)}}</h3>
+             							                 <h3 class="text_title">{{substr($u->pro_title, 0, 120)}}</h3>
              						              </div>
                                    </a>
 
@@ -159,7 +158,7 @@
                       <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                         <img src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                         <div class="tour_title" >
-                            <h3 class="text_title">{{substr($u->pro_title, 0, 170)}}</h3>
+                            <h3 class="text_title">{{substr($u->pro_title, 0, 120)}}</h3>
                        </div>
                       </a>
                 </div>
