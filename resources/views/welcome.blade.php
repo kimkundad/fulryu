@@ -69,7 +69,7 @@
                         <a class="banner-image" href="{{url('blog/'.$u->id)}}">
                           <img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="">
                           <div class="tour_title" >
-							                 <h3 class="text_title">{{substr($u->blog_title, 0, 120)}} </h3>
+							                 <h3 class="text_title">{{str_limit($u->blog_title, 120, '..')}} </h3>
 						              </div>
                         </a>
 	                </div>
@@ -115,7 +115,7 @@
                                    <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <div class="tour_title" >
-             							                 <h3 class="text_title">{{str_limit($u->pro_title, 45, '..')}}</h3>
+             							                 <h3 class="text_title">{{str_limit($u->pro_title, 40, '..')}}</h3>
              						              </div>
                                    </a>
 
