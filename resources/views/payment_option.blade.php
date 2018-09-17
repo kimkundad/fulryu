@@ -1,0 +1,181 @@
+@extends('layouts.template')
+
+@section('title')
+Payment Options
+@stop
+
+@section('stylesheet')
+
+<style>
+.product-text {
+    padding-top: 20px;
+}
+.tour_title{
+ background: #979799; padding: 8px 15px 8px 15px; color: #fff;
+}
+.text_title{
+  color: #fff; font-size:13px;     font-weight: 300;
+}
+</style>
+
+@stop('stylesheet')
+@section('content')
+
+<!-- Breadcrumb Area Start -->
+        <div class="breadcrumb-area bg-dark">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Payment Options</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End -->
+	    <!-- Blog Section Start -->
+	    <div class="about-skill-area pt-80 pb-50">
+	        <div class="container">
+	            <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+                  <h3>Payment Options</h3>
+                  <p style="font-size:15px;"><b>ช่องทางการชำระเงิน </b></p>
+                  <p>
+                    ณ ปัจจุบันท่านสามารถชำระเงินได้โดยผ่านทางธนาคาร จากนั้นกรุณาแจ้งการชำระเงินผ่านทาง Website ในหน้า account ของท่าน
+                    และเลือกยืนยันการชำระเงินพร้อมกรอกข้อมูลให้ครบถ้วน หรือท่านสามารถโทรศัพท์มาแจ้งทางเราได้ที่เบอร์ เบอร์ +(66)639911075 <br /> ระหว่างเวลา 8.00 - 22.00 น. ทุกวัน
+                  </p>
+
+
+                  <div class="checkout-buttons">
+                    <div class="table-responsive">
+
+                        <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>ชื่อบัญชี</th>
+                            <th>เลขที่บัญชี</th>
+                            <th>สาขา</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <img src="{{url('assets/image/bank/icon-bankbbl.png')}}" height="35">
+                            </td>
+                            <td class="p_top">
+                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
+                            </td>
+                            <td class="p_top">
+                              129-5-51893-8 (ออมทรัพย์)
+                            </td>
+                            <td class="p_top">
+                              ลาดพร้าว
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <img src="{{url('assets/image/bank/icon-bankscb.png')}}" height="35">
+                            </td>
+                            <td class="p_top">
+                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
+                            </td>
+                            <td class="p_top">
+                               041-270703-6 (ออมทรัพย์)
+                            </td>
+                            <td class="p_top">
+                              บางเขน
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <img src="{{url('assets/image/bank/icon-bankktc.png')}}" height="35">
+                            </td>
+                            <td class="p_top">
+                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
+                            </td>
+                            <td class="p_top">
+                               477-0-10789-7 (ออมทรัพย์)
+                            </td>
+                            <td class="p_top">
+                              ยูเนี่ยนมอลล์
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <img src="{{url('assets/image/bank/icon-bankkrugsri.png')}}" height="35">
+                            </td>
+                            <td class="p_top">
+                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
+                            </td>
+                            <td class="p_top">
+                               106-1-35383-5 (ออมทรัพย์)
+                            </td>
+                            <td class="p_top">
+                              ยูเนี่ยนมอลล์ ลาดพร้าว
+                            </td>
+                          </tr>
+
+
+                          <tr>
+                            <td>
+                              <img src="{{url('assets/image/bank/icon-bankkbank.png')}}" height="35">
+                            </td>
+                            <td class="p_top">
+                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
+                            </td>
+                            <td class="p_top">
+                               752-229-3029 (ออมทรัพย์)
+                            </td>
+                            <td class="p_top">
+                              ลาดพร้าว 10
+                            </td>
+                          </tr>
+
+                        </tbody>
+                        </table>
+                        </div>
+                                          </div>
+
+
+                                          <br />
+
+                                          <h4>บัตรเครดิต</h4>
+                                          <p style="font-size:15px;"><b>ยินดีรับการชำระเงินผ่านบัตรเครดิตและบัตรเดบิต </b></p>
+
+                                          <p>
+                                            ทุกธุรกรรมผ่านบัตรเครดิตและบัตรเดบิตได้รับการรับรองความปลอดภัยด้วยเทคโนโลยี 2c2p Payment gateway api, Paypal
+                                            ที่ได้รับการรับรองแล้ว คุณจะได้รับการยืนยันและตั๋วอิเล็กทรอนิกส์ผ่านทางอีเมล์ภายใน 60 นาที ภายหลังจากที่ชำระเงินเสร็จสิ้น
+                                          </p>
+                                          <img src="{{url('assets/image/logo-master-card2.png')}}" height="29">
+                                          <img src="{{url('assets/image/paypal_bt.png')}}" height="29">
+                                          <br />
+                                          <hr />
+                                          <br />
+
+
+
+
+
+                </div>
+
+
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Blog Section End -->
+
+
+
+@endsection
+
+@section('scripts')
+
+
+
+@stop('scripts')

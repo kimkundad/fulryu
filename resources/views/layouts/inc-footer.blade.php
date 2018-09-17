@@ -39,6 +39,7 @@
                                     <li><a href="{{url('term_of_service')}}">Terms of Service</a></li>
 
                                     <li><a href="{{url('return_policy')}}">Return Policy</a></li>
+																		<li><a href="{{url('payment_option')}}">Payment Options</a></li>
 
 
                                 </ul>
