@@ -115,7 +115,7 @@
                                    <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                        <div class="tour_title" >
-             							                 <h3 class="text_title">{{substr($u->pro_title, 0, 170)}}</h3>
+             							                 <h3 class="text_title">{{substr($u->pro_title, 0, 120)}}</h3>
              						              </div>
                                    </a>
 
