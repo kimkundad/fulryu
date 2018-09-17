@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-md-6">
                         <h4>GET IN TOUCH</h4>
-                        <form action="{{url('/contact')}}" id="contact-form"  method="post">
+                        <form action="{{url('/add_contact')}}" id="contact-form"  method="post">
                           {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
