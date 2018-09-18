@@ -34,6 +34,7 @@
 
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
+
     .header-submenu > li > a {padding: 0 12px;}
     .account-wishlist > a {padding: 0 12px;}
     .header-search {width: 205px;}
@@ -113,6 +114,9 @@
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
+  .header-two-area .logo{
+    text-align: center;
+  }
     .header-top-links {display: block; justify-content: flex-start;}
     .header-submenu {float: left; padding-top: 5px;}
     .account-wishlist {display: block; float: left; padding: 0px 0 11px;}
