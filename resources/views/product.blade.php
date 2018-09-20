@@ -199,34 +199,19 @@
                                   <div class="product-image-hover">
                                       <a href="{{url('product/'.$u->id_p)}}">
                                           <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
-                                          <img class="hover-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
+                                          <div class="tour_title" >
+                                            <h3> {{str_limit($u->pro_name, 38, '..')}}</h3>
+                                            <div class="price_product">
+                                              {{$u->pro_price}}
+                                            </div>
+                                              <p class="text_title" style="font-family: 'Prompt script=all rev=3', 'Adobe Blank'; font-weight: 100; font-style: normal; margin-top:10px;margin-bottom: 0rem;" >
+                                                {{str_limit($u->pro_title, 150, '..')}}
+                                              </p>
+                                         </div>
                                       </a>
 
                                   </div>
-                                  <div class="product-text">
-                                      <div class="product-rating">
-                                          <?php
-                                          for($i=1;$i <= $u->pro_rating;$i++){
-                                          ?>
-                                          <i class="fa fa-star color"></i>
-                                          <?php
-                                          }
-                                          ?>
-                                          <?php
-                                          $total = 5;
-                                          $total -= $u->pro_rating;
 
-                                          for($i=1;$i <= $total;$i++){
-                                          ?>
-                                          <i class="fa fa-star"></i>
-                                          <?php
-                                          }
-                                          ?>
-
-                                      </div>
-                                      <h4><a href="shop.html">{{$u->pro_name}}</a></h4>
-                                      <div class="product-price"><span>฿{{number_format($u->pro_price)}}</span></div>
-                                  </div>
   	                        </div>
   	                    </div>
 
