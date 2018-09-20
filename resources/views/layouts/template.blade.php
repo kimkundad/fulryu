@@ -5,9 +5,11 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title> @yield('title')</title>
-        <meta name="description" content="">
+        <meta name="description" content="@yield('description')">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google-site-verification" content="gTOa4oa2Jc03e709DurE10EmzoYcNRABZmWrpgeC5wk" />
+
+        @yield('og_tag')
 
 
         @include('layouts.inc-style')
