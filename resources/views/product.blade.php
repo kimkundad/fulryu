@@ -57,6 +57,34 @@
     margin: 0 13px 0 0;
     text-transform: capitalize;
 }
+.tour_title{
+ background: #979799; padding: 8px 10px 8px 10px; color: #fff;
+ position: relative;
+ font-weight: 300;
+}
+.text_title{
+  color: #fff; font-size:13px;
+  font-weight: 100;
+  text-align: left;
+}
+.price_product {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 100;
+}
+.tour_title h3 {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 5px;
+    color: #fff;
+    text-transform: uppercase;
+   font-weight: 100;
+}
 </style>
 @stop('stylesheet')
 @section('content')
