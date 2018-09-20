@@ -1,7 +1,23 @@
 @extends('layouts.template')
 
 @section('title')
+{{$objs->pro_name}} | Fulryu
+@stop
 
+@section('description')
+{{str_limit($objs->pro_title, 150, '..')}}
+@stop
+
+@section('og_tag')
+<meta property="og:url"           content="https://fulryu.com" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{$objs->pro_name}}" />
+<meta property="og:image"         content="{{url('assets/image/product/'.$objs->pro_image)}}" />
+<meta property="og:description"   content="{{str_limit($objs->pro_title, 150, '..')}}" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="314" />
+<meta property="fb:app_id" content="1916660355081132">
+<meta property="fb:admins" content="100002037238809">
 @stop
 
 @section('stylesheet')

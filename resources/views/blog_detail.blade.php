@@ -1,7 +1,24 @@
 @extends('layouts.template')
 
+
 @section('title')
-{{$blog_new->blog_title}}
+{{$blog_new->blog_title}} | Fulryu
+@stop
+
+@section('description')
+ลม และ การไหลไป ความงามชั่วคราวซึ่งต้องมีประสบการณ์ตรง ณ ขณะนี้เท่านั้น เพราะในห้วงเวลาถัดไปความรู้สึกนั้นก็จะจางหายไปเหมือนหมอกเช้า
+@stop
+
+@section('og_tag')
+<meta property="og:url"           content="https://fulryu.com" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{$blog_new->blog_title}}" />
+<meta property="og:image"         content="{{url('assets/image/blog/'.$blog_new->blog_img)}}" />
+<meta property="og:description"   content="ลม และ การไหลไป ความงามชั่วคราวซึ่งต้องมีประสบการณ์ตรง ณ ขณะนี้เท่านั้น เพราะในห้วงเวลาถัดไปความรู้สึกนั้นก็จะจางหายไปเหมือนหมอกเช้า" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="314" />
+<meta property="fb:app_id" content="1916660355081132">
+<meta property="fb:admins" content="100002037238809">
 @stop
 
 @section('stylesheet')
