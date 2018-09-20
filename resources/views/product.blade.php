@@ -9,7 +9,7 @@
 @stop
 
 @section('og_tag')
-<meta property="og:url"           content="https://fulryu.com" />
+<meta property="og:url"           content="https://fulryu.com/product/{{$objs->id}}" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{$objs->pro_name}}" />
 <meta property="og:image"         content="{{url('assets/image/product/'.$objs->pro_image)}}" />
