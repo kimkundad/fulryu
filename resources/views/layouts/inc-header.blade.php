@@ -50,7 +50,7 @@
                                 @if (Auth::guest())
                                 <a href="{{url('login')}}"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> Login</a>
                                 @else
-                                <a href="#"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> {{ substr(Auth::user()->name,0,8) }}</a>
+                                <a href="#"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> {{str_limit(Auth::user()->name, 10, '.')}} </a>
                                 <ul>
                                       <li><a href="#">My Account</a></li>
                                       <li><a href="#">My Wishlist</a></li>
