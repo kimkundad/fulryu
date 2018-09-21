@@ -946,6 +946,8 @@ return response()->json($response);
            'date_transfer' => 'required'
        ]);
 
+       $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+
        $destinationPath = asset('assets/image/slip_image/');
        $img = Image::make($image->getRealPath());
        $img->resize(800, 533, function ($constraint) {
