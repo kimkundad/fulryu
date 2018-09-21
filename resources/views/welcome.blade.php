@@ -136,7 +136,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
         <div class="container">
             <div class="section-title">
 
-                <h2><span>RECOMMENDED ITEM!</span></h2>
+                <h2><span style="font-weight: 500;">RECOMMENDED ITEM!</span></h2>
             </div>
         </div>
         <div class="container">
@@ -182,7 +182,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
     <div class="container">
         <div class="section-title">
 
-            <h2><span>NEW ITEM!</span></h2>
+            <h2><span style="font-weight: 500;">NEW ITEM!</span></h2>
         </div>
     </div>
 

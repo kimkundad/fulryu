@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-Check out | Fulryu 
+Check out | Fulryu
 @stop
 
 @section('description')
@@ -32,7 +32,7 @@ Check out | Fulryu
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                     </ul>
                 </nav>

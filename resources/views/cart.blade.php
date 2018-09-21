@@ -51,7 +51,7 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Cart</li>
                     </ul>
                 </nav>
