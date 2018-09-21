@@ -52,8 +52,8 @@
                                 @else
                                 <a href="#"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> {{str_limit(Auth::user()->name, 10, '.')}} </a>
                                 <ul>
-                                      <li><a href="#">My Account</a></li>
-                                      <li><a href="#">My Wishlist</a></li>
+                                      <li><a href="{{url('user_profile')}}">My Account</a></li>
+
                                       <li><a href="{{url('logout')}}">Sign Out</a></li>
 
                                   </ul>

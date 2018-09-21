@@ -44,12 +44,15 @@ Route::get('/return_policy', 'HomeController@return_policy');
 Route::get('/privacy_policy', 'HomeController@privacy_policy');
 Route::get('/delivery_information', 'HomeController@delivery_information');
 
+
+
 // Social Auth del_cart
 
 Route::get('oauth/{driver}', 'Auth\SocialAuthController@redirectToProvider')->name('social.oauth');
 Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderCallback')->name('social.callback');
 
 Route::group(['middleware' => 'auth'], function () {
+  Route::get('/user_profile', 'HomeController@user_profile');
 
   Route::get('checkout', 'HomeController@checkout')->name('checkout');
   Route::post('add_shipping', 'HomeController@add_shipping')->name('add_shipping');

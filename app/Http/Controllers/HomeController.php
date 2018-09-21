@@ -159,6 +159,27 @@ class HomeController extends Controller
     }
 
 
+    public function user_profile(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+            $data['cat1'] = $obj1;
+
+      return view('user_profile', $data);
+
+    }
+
+
     public function return_policy(){
 
       $obj1 = DB::table('categories')->select(

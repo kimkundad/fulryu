@@ -183,7 +183,7 @@
                     <div class="p-tab-btn">
                         <div class="nav" role="tablist">
                             <a class="active" href="#tab1" data-toggle="tab" role="tab" aria-selected="true" aria-controls="tab1">Details</a>
-                            <a href="#tab2" data-toggle="tab" role="tab" aria-selected="false" aria-controls="tab2">Reviews 1</a>
+                            <a href="#tab2" data-toggle="tab" role="tab" aria-selected="false" aria-controls="tab2">Reviews </a>
                         </div>
                     </div>
                     <div class="p-d-tab tab-content">

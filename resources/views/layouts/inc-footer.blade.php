@@ -55,7 +55,7 @@
 																	<li><a href="{{url('login')}}">Login</a></li>
 																	@else
 
-																		<li><a href="#">My Account</a></li>
+																		<li><a href="{{url('user_profile')}}">My Account</a></li>
 																		<li><a href="{{url('logout')}}">Sign Out</a></li>
 																	@endif
 
