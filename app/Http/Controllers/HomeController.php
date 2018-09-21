@@ -983,7 +983,7 @@ return response()->json($response);
         //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
 
         date_default_timezone_set("Asia/Bangkok");
-        $data_toview['data_detail'] = $order_detail;
+
         $data_toview['data'] = $package;
         $data_toview['datatime'] = date("d-m-Y H:i:s");
 
