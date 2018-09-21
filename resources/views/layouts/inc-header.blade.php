@@ -32,6 +32,13 @@
                                     <li ><a href="{{url('/contact')}}">Contact</a>
                                     </li>
 
+                                    <li ><a href="{{url('/confirm_payment')}}">Payment</a>
+                                    </li>
+
+
+
+
+
 
                                 </ul>
                             </nav>

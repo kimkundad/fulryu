@@ -43,6 +43,9 @@ Route::get('/term_of_service', 'HomeController@term_of_service');
 Route::get('/return_policy', 'HomeController@return_policy');
 Route::get('/privacy_policy', 'HomeController@privacy_policy');
 Route::get('/delivery_information', 'HomeController@delivery_information');
+Route::get('/confirm_payment', 'HomeController@confirm_payment');
+
+Route::post('/confirm_payment_update','HomeController@confirm_payment_update');
 
 
 

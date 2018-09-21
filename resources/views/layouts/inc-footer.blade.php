@@ -40,7 +40,8 @@
 
                                     <li><a href="{{url('return_policy')}}">Return Policy</a></li>
 																		<li><a href="{{url('payment_option')}}">Payment Options</a></li>
-
+																		<li ><a href="{{url('/confirm_payment')}}">Payment</a>
+                                    </li>
 
                                 </ul>
                             </div>

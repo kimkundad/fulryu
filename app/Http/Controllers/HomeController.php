@@ -17,6 +17,8 @@ use Swift_Transport;
 use Swift_Message;
 use Swift_Mailer;
 use App\comtact;
+use App\confirm_payment;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class HomeController extends Controller
 {
@@ -219,6 +221,28 @@ class HomeController extends Controller
                 //  dd($order);
 
       return view('my_order', $data);
+
+    }
+
+
+
+    public function confirm_payment(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+            $data['cat1'] = $obj1;
+
+      return view('confirm_payment', $data);
 
     }
 
@@ -906,6 +930,127 @@ return response()->json($response);
 
 
       return view('checkout', $data);
+    }
+
+
+    public function confirm_payment_update(Request $request){
+
+      $image = $request->file('slip_image');
+      $this->validate($request, [
+           'slip_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           'name' => 'required',
+           'phone' => 'required',
+           'order_id' => 'required',
+           'money' => 'required',
+           'bank' => 'required',
+           'date_transfer' => 'required'
+       ]);
+
+       $destinationPath = asset('assets/image/slip_image/');
+       $img = Image::make($image->getRealPath());
+       $img->resize(800, 533, function ($constraint) {
+       $constraint->aspectRatio();
+     })->save('assets/image/slip_image/'.$input['imagename']);
+
+
+     $package = new confirm_payment();
+     $package->name = $request['name'];
+     $package->phone = $request['phone'];
+     $package->order_id = $request['order_id'];
+     $package->money = $request['money'];
+     $package->bank = $request['bank'];
+     $package->date_transfer = $request['date_transfer'];
+     $package->time_transfer = $request['time_transfer'];
+     $package->note = $request['note'];
+     $package->slip_image = $input['imagename'];
+     $package->save();
+
+     $the_id = $package->id;
+
+
+
+
+
+
+     date_default_timezone_set("Asia/Bangkok");
+     $data_date = date("Y-m-d H:i:s");
+
+
+     // send email
+          $data_toview = array();
+        //  $data_toview['pathToImage'] = "assets/image/email-head.jpg";
+
+        date_default_timezone_set("Asia/Bangkok");
+        $data_toview['data_detail'] = $order_detail;
+        $data_toview['data'] = $package;
+        $data_toview['datatime'] = date("d-m-Y H:i:s");
+
+          $email_sender   = 'fulryumail@gmail.com';
+          $email_pass     = 'aeychingking';
+
+      /*    $email_sender   = 'info@acmeinvestor.com';
+          $email_pass     = 'Iaminfoacmeinvestor';  */
+          $email_to       =  $request['email'];
+          //echo $admins[$idx]['email'];
+          // Backup your default mailer
+          $backup = \Mail::getSwiftMailer();
+
+          try{
+
+                      //https://accounts.google.com/DisplayUnlockCaptcha
+                      // Setup your gmail mailer
+                      $transport = new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL');
+                      $transport->setUsername($email_sender);
+                      $transport->setPassword($email_pass);
+
+                      // Any other mailer configuration stuff needed...
+                      $gmail = new Swift_Mailer($transport);
+
+                      // Set the mailer as gmail
+                      \Mail::setSwiftMailer($gmail);
+
+                      $data['emailto'] = $email_sender;
+                      $data['sender'] = $email_to;
+                      //Sender dan Reply harus sama
+
+                      Mail::send('mail.confirm_payment_admin', $data_toview, function($message) use ($data)
+                      {
+                          $message->from($data['sender'], 'fulryu แจ้งการโอนเงิน');
+                          $message->to($data['sender'])
+                          ->replyTo($data['sender'], 'fulryu แจ้งการโอนเงิน.')
+                          ->subject('แจ้งการโอนเงิน fulryu ');
+
+                          //echo 'Confirmation email after registration is completed.';
+                      });
+
+
+                      Mail::send('mail.confirm_payment_customer', $data_toview, function($message) use ($data)
+                      {
+                          $message->from($data['sender'], 'fulryu แจ้งการโอนเงิน');
+                          $message->to($data['emailto'])
+                          ->replyTo($data['sender'], 'fulryu แจ้งการโอนเงิน.')
+                          ->subject('แจ้งการโอนเงิน fulryu');
+
+                          //echo 'Confirmation email after registration is completed.';
+                      });
+
+          }catch(\Swift_TransportException $e){
+              $response = $e->getMessage() ;
+              echo $response;
+
+          }
+
+
+          // Restore your original mailer
+          Mail::setSwiftMailer($backup);
+          // send email
+
+
+
+
+          return redirect(url('contact_success'))->with('send_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+
     }
 
     public function add_shipping(Request $request){
