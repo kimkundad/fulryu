@@ -180,6 +180,7 @@
 ---------------------------------------- */
     $('.related-product-carousel').owlCarousel({
         items:4,
+        loop:true,
         mouseDrag: false,
         nav:false,
         navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
