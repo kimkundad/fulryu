@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{{url('home/assets/css/meanmenu.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/animate.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/bundle.css')}}">
-        <link rel="stylesheet" href="{{url('home/assets/css/style.css')}}">
+        <link rel="stylesheet" href="{{url('home/assets/css/style.css')}}?v1.1">
         <link rel="stylesheet" href="{{url('home/assets/css/responsive.css')}}?v4">
         <script src="{{url('home/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
         <style>
