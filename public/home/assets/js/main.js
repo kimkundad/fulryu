@@ -152,6 +152,10 @@
     $('.product-carousel-two').owlCarousel({
         loop:true,
         items:4,
+        smartSpeed: 2500,
+        autoplay:true,
+        autoplayTimeout:4000,
+        autoplayHoverPause:true,
         nav:true,
         navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
         responsive:{
