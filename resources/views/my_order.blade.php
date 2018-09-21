@@ -51,7 +51,7 @@
         </div>
         <!-- Breadcrumb Area End -->
 	    <!-- Blog Section Start -->
-	    <div class="checkout-area pt-80 pb-50">
+	    <div class="checkout-area cart-main-area pt-80 pb-50">
 	        <div class="container">
 	            <div class="row ">
 
@@ -71,9 +71,53 @@
                                     <div class="panel-body">
 
                                       <h3 class="login-title">แสดงรายการสั่งซื้อสินค้าที่มีในระบบ</h3>
-                                      <div style="height:500px;">
-sdsd
-                                      </div>
+                                      <div class="cart-table table-responsive">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="p-image"></th>
+                                                    <th class="p-name">Product Name</th>
+                                                    <th class="p-amount">Date</th>
+                                                    <th class="p-quantity">Qty</th>
+                                                    <th class="p-total">SubTotal</th>
+                                                    <th class="p-edit">สถานะ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                              @if($order)
+                                                @foreach($order as $u)
+
+                                                @if($u->option)
+                                                  @foreach($u->option as $j)
+                                                <tr>
+                                                    <td class="p-image">
+                                                        <img alt="{{$j->pro_name}}" src="{{url('assets/image/product/'.$j->pro_image)}}">
+                                                    </td>
+                                                    <td class="p-name">{{$j->pro_name}}</td>
+                                                    <td class="p-amount">{{$j->created_at}}</td>
+                                                    <td class="p-quantity"><input maxlength="12" type="text" value="{{$j->sum_item}}" name="quantity"></td>
+                                                    <td class="p-total"><span>฿{{$j->pro_price*$j->sum_item}}.00</span></td>
+                                                    <td class="edit">
+                                                      @if($u->order_status == 0)
+                                                      รอการตรวจสอบ
+                                                      @else
+                                                      รอการจัดส่ง
+                                                      @endif
+
+                                                    </td>
+                                                </tr>
+                                                      @endforeach
+                                                    @endif
+
+
+                                                @endforeach
+                                              @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+
 
                                     </div>
                                 </div>

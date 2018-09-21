@@ -196,6 +196,28 @@ class HomeController extends Controller
             }
             $data['cat1'] = $obj1;
 
+
+            $order = DB::table('orders')->select(
+                  'orders.*'
+                  )
+                  ->where('user_id', Auth::user()->id)
+                  ->get();
+
+                  foreach($order as $u){
+
+                    $options = DB::table('order_details')->select(
+                          'order_details.*',
+                          'products.*'
+                          )
+                          ->leftjoin('products', 'products.id',  'order_details.product_id')
+                          ->where('order_details.order_id', $u->id)
+                          ->get();
+                    $u->option = $options;
+
+                  }
+                  $data['order'] = $order;
+                //  dd($order);
+
       return view('my_order', $data);
 
     }
