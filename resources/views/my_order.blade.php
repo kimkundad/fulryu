@@ -44,7 +44,7 @@
                 <nav aria-label="breadcrumb">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">User profile</li>
+                        <li class="breadcrumb-item active" aria-current="page">รายการสั่งซื้อสินค้า</li>
                     </ul>
                 </nav>
             </div>
@@ -61,7 +61,7 @@
                   <div class="panel-heading" id="headingOne">
                                     <h4 class="panel-title">
                                         <a>
-                                            User Profile
+                                            รายการสั่งซื้อสินค้า
                                         </a>
                                     </h4>
                                 </div>
@@ -70,31 +70,11 @@
                                 <div id="checkout" class="collapse show">
                                     <div class="panel-body">
 
-                                      <h3 class="login-title">{{Auth::user()->name}}</h3>
-                                      <h4>Edit Profile?</h4>
-                                      <p>แก้ไขข้อมูลส่วนตัว :</p>
-                                      <div class="login-form">
-                                          <form action="{{url('user_profile_update')}}" method="post" enctype="multipart/form-data">
-                                            {{ csrf_field() }}
-                                              <p>ชื่อ-สกุล*</p>
-                                              <input type="text" name="name" value="{{Auth::user()->name}}" required="">
-                                              <p>Email Adress*</p>
-                                              <input type="email" name="email" value="{{Auth::user()->email}}" required="">
-                                              <p>Mobile*</p>
-                                              <input type="text" name="phone" value="{{Auth::user()->phone}}" >
-
-                                              <p>วันเกิด*</p>
-                                              <input type="text" class="datepicker" name="hbd" placeholder="__/__/____" value="{{Auth::user()->birthday}}" >
-
-                                              <p>ที่อยู่ในการจัดส่ง*</p>
-                                              <textarea name="address" rows="4" placeholder="Type Your Message......." required="">{{Auth::user()->address}}</textarea>
-
-                                              <br />
-                                              <br />
-
-                                              <button type="submit" class="default-btn pull-right">SAVE CHANGES</button>
-                                          </form>
+                                      <h3 class="login-title">แสดงรายการสั่งซื้อสินค้าที่มีในระบบ</h3>
+                                      <div style="height:500px;">
+sdsd
                                       </div>
+
                                     </div>
                                 </div>
 

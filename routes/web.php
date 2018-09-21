@@ -53,6 +53,9 @@ Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderC
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/user_profile', 'HomeController@user_profile');
+  Route::post('/user_profile_update', 'HomeController@user_profile_update');
+
+  Route::get('my_order', 'HomeController@my_order');
 
   Route::get('checkout', 'HomeController@checkout')->name('checkout');
   Route::post('add_shipping', 'HomeController@add_shipping')->name('add_shipping');

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Session;
 use Auth;
 use App\blog;
+use App\User;
 use App\order;
 use App\order_detail;
 use App\coupon_user;
@@ -176,6 +177,50 @@ class HomeController extends Controller
             $data['cat1'] = $obj1;
 
       return view('user_profile', $data);
+
+    }
+
+    public function my_order(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+            $data['cat1'] = $obj1;
+
+      return view('my_order', $data);
+
+    }
+
+
+    public function user_profile_update(Request $request){
+
+      $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required'
+        ]);
+
+        $id=Auth::user()->id;
+        $package = User::find($id);
+        $package->name = $request['name'];
+        $package->email = $request['email'];
+        $package->phone = $request['phone'];
+        $package->birthday = $request['hbd'];
+        $package->address = $request['address'];
+        $package->save();
+
+
+
+        return redirect(url('user_profile'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
 
     }
 
