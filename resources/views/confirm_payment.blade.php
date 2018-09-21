@@ -126,7 +126,7 @@
                                                   <input type="text" name="date_transfer" placeholder="__/__/____" value="{{old('date_transfer')}}" >
                                                   </div>
                                                   <div class="last-name">
-                                                    <p>ยอดโอน*</p>
+                                                    <p>เวลา*</p>
                                                     <input type="text" name="time_transfer" value="{{old('time_transfer')}}" >
                                                   </div>
                                                 </div>
