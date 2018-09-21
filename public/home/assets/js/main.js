@@ -98,6 +98,7 @@
 ---------------------------------------- */
     $('.feature-product-carousel').owlCarousel({
         items:5,
+        loop:true,
         mouseDrag: false,
         responsive:{
             0:{
