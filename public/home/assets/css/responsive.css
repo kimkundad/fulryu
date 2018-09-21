@@ -5,6 +5,12 @@
     .slider-three-area .single-slide {height: 417px;}
     .slider-four-area .single-slide {height: 466px;}
 }
+@media (min-width: 1400px) {
+    .single-slide {height: 496px}
+    .slider-two-area .single-slide {height: 300px;}
+    .slider-three-area .single-slide {height: 417px;}
+    .slider-four-area .single-slide {height: 466px;}
+}
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1200px) {
     .single-slide {height: 376px}
