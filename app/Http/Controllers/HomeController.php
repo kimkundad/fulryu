@@ -940,6 +940,7 @@ return response()->json($response);
            'slip_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
            'name' => 'required',
            'phone' => 'required',
+           'email' => 'required',
            'order_id' => 'required',
            'money' => 'required',
            'bank' => 'required',
@@ -958,6 +959,7 @@ return response()->json($response);
      $package = new confirm_payment();
      $package->name = $request['name'];
      $package->phone = $request['phone'];
+     $package->email = $request['email'];
      $package->order_id = $request['order_id'];
      $package->money = $request['money'];
      $package->bank = $request['bank'];

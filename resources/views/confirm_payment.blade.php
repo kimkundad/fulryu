@@ -92,6 +92,10 @@
                                                 <input type="text" name="order_id" value="{{old('order_id')}}" placeholder="หมายเลขสั่งซื้อ จะแจ้งไปยังอีเมล." required="">
                                                 </div>
                                                 <div class="last-name">
+                                                  <p>email*</p>
+                                                  <input type="email" name="email" value="{{old('email')}}" >
+                                                </div>
+                                                <div class="last-name">
                                                   <p>ยอดโอน*</p>
                                                   <input type="number" name="money" value="{{old('money')}}" >
                                                 </div>

@@ -17,6 +17,7 @@ class CreateConfirmPaymentsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('phone');
+            $table->string('email');
             $table->integer('order_id');
             $table->float('money', 8, 2)->default('0');
             $table->integer('bank');
