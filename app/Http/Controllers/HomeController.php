@@ -60,7 +60,7 @@ class HomeController extends Controller
                   'blogs.*'
                   )
                   ->where('blogs.blog_status', 1)
-                  ->limit(3)
+                  ->limit(6)
                   ->get();
 
 
