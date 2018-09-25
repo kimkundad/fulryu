@@ -61,11 +61,12 @@
                             </div>
                             <div class="shop-content-wrapper">
                                 <div class="shop-results"><span>Sort By</span>
-                                    <select name="number" id="number">
-                                        <option value="position">position</option>
+
+                                    <select name="Sort_by" id="number">
                                         <option value="p-name">product name</option>
                                         <option value="p-price">price</option>
                                     </select>
+
                                 </div>
                                 <div class="shop-items">
                                     <a href="#"><i class="fa fa-long-arrow-up"></i></a>
@@ -133,7 +134,7 @@
                                  <div class="product-item">
                                     <div class="product-image-hover">
                                         <a href="{{url('product/'.$u->id)}}">
-                                            <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
+                                            <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" style="width:175px" alt="">
 
                                         </a>
                                     <!--    <div class="product-hover">
