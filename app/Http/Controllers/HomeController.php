@@ -706,7 +706,9 @@ return response()->json($response);
     }
 
 
-    public function category($id){
+    public function category(Request $request, $id){
+
+      $Sort_by = $request['Sort_by'];
 
       $obj1 = DB::table('categories')->select(
             'categories.*'
@@ -734,10 +736,19 @@ return response()->json($response);
             ->where('id', $id)
             ->first();
 
+            if($Sort_by == null){
               $product = DB::table('products')
                 ->where('pro_category', $category->id)
                 ->orderBy('pro_name', 'asc')
                 ->paginate(16);
+            }else{
+              $product = DB::table('products')
+                ->where('pro_category', $category->id)
+                ->orderBy('pro_price', 'asc')
+                ->paginate(16);
+            }
+
+
 
       $data['category_count'] = $category_count;
       $data['category'] = $category;
