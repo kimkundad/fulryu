@@ -214,10 +214,9 @@
                                         @foreach($cat1 as $j)
                                         <div class="single-widget-opt">
 
-
-                                              <input type="checkbox" id="tables">
-                                              <label style="cursor: pointer;" for="tables">{{$j->name_cat}} <span>({{$j->count}})</span></label>
-                                          
+                                            <a href="{{url('category/'.$j->id)}}">
+                                              {{$j->name_cat}} <span>({{$j->count}})</span>
+                                            </a>
 
                                         </div>
                                         @endforeach
