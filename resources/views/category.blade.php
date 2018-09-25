@@ -132,7 +132,7 @@
                               @if($product)
                                  @foreach($product as $u)
                                  <div class="product-item">
-                                    <div class="product-image-hover">
+                                    <div class="" style="width:175px">
                                         <a href="{{url('product/'.$u->id)}}">
                                             <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" style="width:175px" alt="{{$u->pro_name}}">
 
