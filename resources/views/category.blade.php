@@ -61,12 +61,13 @@
                             </div>
                             <div class="shop-content-wrapper">
                                 <div class="shop-results"><span>Sort By</span>
-
-                                    <select name="Sort_by" id="number">
+                                  <form action="{{url('category/'.$category->id)}}" method="get" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <select name="Sort_by" id="number" onchange="this.form.submit()">
                                         <option value="p-name">product name</option>
                                         <option value="p-price">price</option>
                                     </select>
-
+                                    </form>
                                 </div>
                                 <div class="shop-items">
                                     <a href="#"><i class="fa fa-long-arrow-up"></i></a>
