@@ -230,7 +230,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
       <!-- Product Widget Area Start -->
-	    <div class="product-widget-area pt-90 pb-70">
+	    <div class="product-widget-area pt-50 pb-60">
 	        <div class="container">
 	            <div class="row">
 
