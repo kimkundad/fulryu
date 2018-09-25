@@ -29,6 +29,11 @@
 }
 .blog-details-text > p > span {
     font-family: 'Prompt', sans-serif !important;
+    font-size: 14px;
+}
+.blog-details-text > p {
+    font-family: 'Prompt', sans-serif !important;
+    font-size: 14px;
 }
 </style>
 
