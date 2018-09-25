@@ -96,7 +96,7 @@
                 </div>
 
 
-                
+
 
 
                 <div class="form-group">
@@ -220,7 +220,7 @@ $(document).ready(function() {
         });
   $('#summernote').summernote({
 
-    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+    fontNames: ['Prompt','Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
     disableDragAndDrop: true,            // set editor height
     placeholder: 'เนื้อหาบทความ',
     minHeight: 300,
