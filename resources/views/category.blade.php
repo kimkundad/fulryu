@@ -215,6 +215,7 @@
                                         <div class="single-widget-opt">
 
                                             <a href="{{url('category/'.$j->id)}}">
+                                              <input type="checkbox" id="tables">
                                               <label style="cursor: pointer;" for="tables">{{$j->name_cat}} <span>({{$j->count}})</span></label>
                                             </a>
 
