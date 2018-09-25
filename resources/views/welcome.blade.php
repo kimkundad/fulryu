@@ -138,11 +138,11 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
      <!-- Product Area Start -->
-    <div class="product-area text-center pt-90 ">
+    <div class="product-area text-center pt-50 ">
         <div class="container">
             <div class="section-title">
 
-                <h2><span style="font-weight: 500;">RECOMMENDED ITEM!</span></h2>
+                <h2><span style="font-weight: 500;">RECOMMENDED ITEMS</span></h2>
             </div>
         </div>
         <div class="container">
@@ -184,11 +184,11 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
     <!-- Banner Area Start -->
-    <div class="product-area text-center pt-90 ">
+    <div class="product-area text-center pt-50 ">
     <div class="container">
         <div class="section-title">
 
-            <h2><span style="font-weight: 500;">NEW ITEM!</span></h2>
+            <h2><span style="font-weight: 500;">NEW ITEMS</span></h2>
         </div>
     </div>
 
