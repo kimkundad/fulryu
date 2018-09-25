@@ -27,6 +27,9 @@
 .product-text {
     padding-top: 20px;
 }
+.blog-details-text > p > span {
+    font-family: 'Prompt', sans-serif !important;
+}
 </style>
 
 @stop('stylesheet')
