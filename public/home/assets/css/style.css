@@ -1127,7 +1127,7 @@ ul.header-menu-list {
     transition: all 0.3s ease 0s
 }
 .widget-option a.collapsed:after {content: ""}
-.widget-option a:after {content: ""}
+/*.widget-option a:after {content: ""} */
 .collapse-content {border-top: 1px solid #f1f1f1; padding: 18px 0 22px;}
 .single-widget-opt > label {
     color: #444444;
