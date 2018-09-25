@@ -166,7 +166,7 @@
                                         <h4><a href="product-details.html">{{$u->pro_name}}</a></h4>
                                         <div class="product-price"><span>฿{{$u->pro_price}}</span></div>
                                         <p>{{$u->pro_title}}</p>
-                                        <a href="{{url('product/'.$u->id)}}">Learn More</a>
+                                        <a href="{{url('product/'.$u->id)}}">ดูรายละเอียด</a>
                                     </div>
                                 </div>
 
