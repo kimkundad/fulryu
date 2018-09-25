@@ -60,7 +60,7 @@
                                 <a href="#list" data-toggle="tab" role="tab" aria-selected="false" aria-controls="list"><i class="fa fa-th-list" aria-hidden="true"></i></a>
                             </div>
                             <div class="shop-content-wrapper">
-                                <div class="shop-results"><span>Sort By</span>
+                                <div class="shop-results" style="float: left;"><span>Sort By</span>
                                   <form action="{{url('category/'.$category->id)}}" method="get" enctype="multipart/form-data" style="float: left;">
                                     {{ csrf_field() }}
                                     <select name="Sort_by" id="number" onchange="this.form.submit()">
