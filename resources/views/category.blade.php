@@ -214,7 +214,7 @@
                                         @foreach($cat1 as $j)
                                         <div class="single-widget-opt">
 
-                                            <a href="{{url('category/'.$j->id)}}">
+                                            <a href="{{url('category/'.$j->id)}}" style="color: #666; font-weight: 700; font-size: 12px;">
                                               {{$j->name_cat}} <span>({{$j->count}})</span>
                                             </a>
 
