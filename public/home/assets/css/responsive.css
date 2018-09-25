@@ -1,11 +1,17 @@
 /* large desktop :1366px. */
 @media (min-width: 1200px) and (max-width: 1400px) {
+    .blog-pad{
+      padding-top: 28px;
+    }
     .single-slide {height: 496px}
     .slider-two-area .single-slide {height: 300px;}
     .slider-three-area .single-slide {height: 417px;}
     .slider-four-area .single-slide {height: 466px;}
 }
 @media (min-width: 1400px) {
+    .blog-pad{
+      padding-top: 28px;
+    }
     .single-slide {height: 496px}
     .slider-two-area .single-slide {height: 300px;}
     .slider-three-area .single-slide {height: 417px;}
@@ -13,6 +19,9 @@
 }
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1200px) {
+  .blog-pad{
+    padding-top: 28px;
+  }
     .single-slide {height: 376px}
     .header-search {width: 360px;}
     .cart-dropdown {width: 300px;}
@@ -40,6 +49,9 @@
 
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
+  .blog-pad{
+    padding-top: 28px;
+  }
 
     .header-submenu > li > a {padding: 0 12px;}
     .account-wishlist > a {padding: 0 12px;}
@@ -120,6 +132,9 @@
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
+  .blog-pad{
+    padding-top: 0px;
+  }
   .header-two-area .logo{
     text-align: center;
   }
@@ -370,6 +385,9 @@
 
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+  .blog-pad{
+    padding-top: 0px;
+  }
     .account-wishlist {float: left;}
     .header-submenu > li > a {padding: 0 11px;}
     .header-submenu:last-of-type > li > a {border-right: 1px solid #c0cace;}

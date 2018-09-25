@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{{url('home/assets/css/animate.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/bundle.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/style.css')}}?v1.1">
-        <link rel="stylesheet" href="{{url('home/assets/css/responsive.css')}}?v4">
+        <link rel="stylesheet" href="{{url('home/assets/css/responsive.css')}}?v4.1">
         <script src="{{url('home/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
         <style>
         body, body, h1, h2, h3, h4, h5, h6, p {

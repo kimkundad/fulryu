@@ -95,7 +95,9 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 	    </div>
 	    <!-- Slider Two Area End -->
 
-
+      <?php
+      $s = 1;
+       ?>
 	    <!-- Banner Area Start -->
 
       <div class="banner-area mt-30 style-1">
@@ -104,13 +106,17 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
                 @if($blog_new)
                   @foreach($blog_new as $u)
 	                <div class="col-lg-4 col-md-6">
-                        <a class="banner-image" href="{{url('blog/'.$u->id)}}">
+                        <a class="banner-image
+                        @if($s > 3)
+                        blog-pad
+                        @endif
+                        " href="{{url('blog/'.$u->id)}}">
                           <img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="">
                           <div class="tour_title" >
 							                 <p class="text_title" style="margin-bottom: 0rem;">{{str_limit($u->blog_title, 60, '..')}} </p>
 						              </div>
                         </a>
-	                </div>
+	                </div {{$s++}}>
                   @endforeach
   	            @endif
 	        </div>
