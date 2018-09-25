@@ -207,7 +207,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
                             {{$u->pro_price}}
                           </div>
                             <p class="text_title" style="font-family: 'Prompt script=all rev=3', 'Adobe Blank'; font-weight: 100; font-style: normal; margin-top:10px;margin-bottom: 0rem;" >
-                              {{str_limit($u->pro_title, 250, '..')}}
+                              {{str_limit($u->pro_title, 260, '..')}}
                             </p>
                        </div>
                       </a>
