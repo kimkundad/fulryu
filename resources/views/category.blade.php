@@ -210,15 +210,17 @@
                                 <div class="collapse show" id="category">
                                     <div class="collapse-content">
 
+                                      @if($cat1)
+                                        @foreach($cat1 as $j)
                                         <div class="single-widget-opt">
-                                          @if($cat1)
-                                            @foreach($cat1 as $j)
+
                                             <a href="{{url('category/'.$j->id)}}">
                                               <label style="cursor: pointer;" for="tables">{{$j->name_cat}} <span>({{$j->count}})</span></label>
                                             </a>
-                                            @endforeach
-                                          @endif
+
                                         </div>
+                                        @endforeach
+                                      @endif
 
 
                                     </div>
