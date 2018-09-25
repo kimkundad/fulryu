@@ -206,17 +206,23 @@
                         <div class="sidebar-widget widget-style-1 panel-group" id="widget-parent" aria-multiselectable="true" role="tablist">
                             <h4>Shop By</h4>
                             <div class="panel widget-option">
-                              <!--  <a data-toggle="collapse" href="#category" data-parent="#widget-parent">Category</a>
+                                <a data-toggle="collapse" href="#category" data-parent="#widget-parent">Category</a>
                                 <div class="collapse show" id="category">
                                     <div class="collapse-content">
 
                                         <div class="single-widget-opt">
-                                            <input type="checkbox" id="tables">
-                                            <label for="tables">Dining tables <span>(4)</span></label>
+                                          @if($cat1)
+                                            @foreach($cat1 as $j)
+                                            <a href="{{url('category/'.$j->id)}}">
+                                              <label style="cursor: pointer;" for="tables">{{$j->name_cat}} <span>({{$j->count}})</span></label>
+                                            </a>
+                                            @endforeach
+                                          @endif
                                         </div>
 
+
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
 
                           <!--  <div class="panel widget-option">

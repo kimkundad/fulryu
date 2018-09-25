@@ -723,8 +723,18 @@ return response()->json($response);
                 ->limit(2)
                 ->get();
               $u->options = $options;
+
+              $get_count = DB::table('products')->select(
+                    'products.*'
+                    )
+                    ->where('pro_category', $u->id)
+                    ->count();
+            $u->count = $get_count;
+
             }
       $data['cat1'] = $obj1;
+
+    //  dd($obj1);
 
       $category_count = DB::table('categories')->select(
             'categories.*'
