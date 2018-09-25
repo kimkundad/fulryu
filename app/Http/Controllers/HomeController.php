@@ -736,17 +736,19 @@ return response()->json($response);
 
     //  dd($obj1);
 
-      $category_count = DB::table('categories')->select(
-            'categories.*'
-            )
-            ->where('id', $id)
-            ->count();
+
 
       $category = DB::table('categories')->select(
             'categories.*'
             )
             ->where('id', $id)
             ->first();
+
+            $category_count = DB::table('products')->select(
+                  'products.*'
+                  )
+                  ->where('pro_category', $category->id)
+                  ->count();
 
             if($Sort_by == null){
               $sort_set = 1;
