@@ -736,7 +736,7 @@ return response()->json($response);
 
               $product = DB::table('products')
                 ->where('pro_category', $category->id)
-                ->orderBy('pro_name', 'desc')
+                ->orderBy('pro_name', 'asc')
                 ->paginate(16);
 
       $data['category_count'] = $category_count;
