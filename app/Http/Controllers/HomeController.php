@@ -737,18 +737,31 @@ return response()->json($response);
             ->first();
 
             if($Sort_by == null){
+              $sort_set = 1;
               $product = DB::table('products')
                 ->where('pro_category', $category->id)
                 ->orderBy('pro_name', 'asc')
                 ->paginate(16);
             }else{
-              $product = DB::table('products')
-                ->where('pro_category', $category->id)
-                ->orderBy('pro_price', 'asc')
-                ->paginate(16);
+              $sort_set = 2;
+
+              if($Sort_by == 'p-name'){
+                $product = DB::table('products')
+                  ->where('pro_category', $category->id)
+                  ->orderBy('pro_name', 'asc')
+                  ->paginate(16);
+
+              }else{
+                $product = DB::table('products')
+                  ->where('pro_category', $category->id)
+                  ->orderBy('pro_price', 'asc')
+                  ->paginate(16);
+
+              }
+
             }
 
-
+      $data['sort_set'] = $sort_set;
 
       $data['category_count'] = $category_count;
       $data['category'] = $category;
