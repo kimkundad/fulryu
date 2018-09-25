@@ -262,16 +262,52 @@
                         </div>
 
 
-
-
-
-
-
                         <div class="sidebar-widget">
-                            <a href="product-details.html" class="banner-image">
-                              <!--   <img src="{{url('assets/image/advertising-s2.jpg')}}" alt=""> -->
-                            </a>
+                            <h4>Most viewed</h4>
+
+                          @if($hot)
+                            @foreach($hot as $k)
+	                        <div class="product-widget-item">
+	                            <div class="product-wid-img">
+	                                <a href="{{url('product/'.$k->id)}}"><img src="{{url('assets/image/product/'.$k->pro_image)}}" alt=""></a>
+	                            </div>
+                                <div class="product-text">
+                                    <h4><a href="product-details.html">{{$k->pro_name}}</a></h4>
+                                    <div class="product-rating">
+                                      <?php
+                                      for($i=1;$i <= $k->pro_rating;$i++){
+                                      ?>
+                                      <i class="fa fa-star color"></i>
+                                      <?php
+                                      }
+                                      ?>
+                                      <?php
+                                      $total = 5;
+                                      $total -= $k->pro_rating;
+
+                                      for($i=1;$i <= $total;$i++){
+                                      ?>
+                                      <i class="fa fa-star"></i>
+                                      <?php
+                                      }
+                                      ?>
+                                    </div>
+                                    <div class="product-price"><span>฿{{$u->pro_price}}</span></div>
+                                </div>
+	                        </div>
+                          @endforeach
+                        @endif
+
                         </div>
+
+
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>

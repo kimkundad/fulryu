@@ -785,6 +785,14 @@ return response()->json($response);
       $data['category'] = $category;
       $data['product'] = $product;
 
+      $hot = DB::table('products')->select(
+            'products.*'
+            )
+            ->where('pro_category', $category->id)
+            ->limit(4)
+            ->orderBy('views', 'desc')
+            ->get();
+      $data['hot'] = $hot;
 
 
 
