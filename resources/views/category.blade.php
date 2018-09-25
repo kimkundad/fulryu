@@ -61,7 +61,7 @@
                             </div>
                             <div class="shop-content-wrapper">
                                 <div class="shop-results"><span>Sort By</span>
-                                  <form action="{{url('category/'.$category->id)}}" method="get" enctype="multipart/form-data">
+                                  <form action="{{url('category/'.$category->id)}}" method="get" enctype="multipart/form-data" style="float: left;">
                                     {{ csrf_field() }}
                                     <select name="Sort_by" id="number" onchange="this.form.submit()">
                                         <option value="p-name" @if($sort_set == 1) selected='selected'
