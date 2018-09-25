@@ -66,7 +66,7 @@
                                     <select name="Sort_by" id="number" onchange="this.form.submit()">
                                         <option value="p-name" @if($sort_set == 1) selected='selected'
                                         @endif>product name</option>
-                                        <option value="p-price" @if($sort_set == 1) selected='selected'
+                                        <option value="p-price" @if($sort_set == 2) selected='selected'
                                         @endif>price</option>
                                     </select>
                                     </form>

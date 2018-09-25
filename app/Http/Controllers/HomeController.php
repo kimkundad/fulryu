@@ -710,6 +710,8 @@ return response()->json($response);
 
       $Sort_by = $request['Sort_by'];
 
+    //  dd($Sort_by);
+
       $obj1 = DB::table('categories')->select(
             'categories.*'
             )
@@ -743,15 +745,19 @@ return response()->json($response);
                 ->orderBy('pro_name', 'asc')
                 ->paginate(16);
             }else{
-              $sort_set = 2;
+
 
               if($Sort_by == 'p-name'){
+                $sort_set = 1;
+
                 $product = DB::table('products')
                   ->where('pro_category', $category->id)
                   ->orderBy('pro_name', 'asc')
                   ->paginate(16);
 
               }else{
+                $sort_set = 2;
+
                 $product = DB::table('products')
                   ->where('pro_category', $category->id)
                   ->orderBy('pro_price', 'asc')
