@@ -115,9 +115,16 @@ class OrderController extends Controller
                     ->where('order_id', $id)
                     ->first();
 
-                    $bank= DB::table('banks')
-                    ->where('id', $confirm->bank)
-                    ->first();
+                    if($confirm != null){
+
+                      $bank= DB::table('banks')
+                      ->where('id', $confirm->bank)
+                      ->first();
+
+                    }else{
+                      $bank = null;
+                    }
+
 
         //dd($order);
         $data['bank'] = $bank;
