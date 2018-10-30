@@ -138,6 +138,13 @@
           												</div>
 
                                   <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">จำนวนสินค้าในคลัง*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="total_product" value="{{ old('total_product')}}">
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">คำอธิบาย*</label>
           													<div class="col-md-8">
           														<textarea class="form-control" name="pro_title" rows="5">{{ old('pro_title') }}</textarea>

@@ -73,6 +73,13 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										</a>
 									</li>
 
+                  <li {{ (Request::is('admin/bank*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/bank/')}}" >
+											<i class="fa fa-bank" aria-hidden="true"></i>
+											<span>ธนาคาร</span>
+										</a>
+									</li>
+
                   <li {{ (Request::is('admin/slide*') ? 'class=nav-expanded' : '') }} >
 										<a href="{{url('admin/slide/')}}"  >
 											<i class="fa fa-camera" aria-hidden="true"></i>

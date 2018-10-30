@@ -83,9 +83,16 @@
                                                     <th class="p-edit">สถานะ</th>
                                                 </tr>
                                             </thead>
+                                            @if($order)
+                                              @foreach($order as $u)
+
                                             <tbody>
-                                              @if($order)
-                                                @foreach($order as $u)
+                                              <tr>
+                                                <td>
+                                                  <h6>หมายเลขคำสั่งซื้อ # {{$u->id}}</h6>
+                                                  <br />
+                                                </td>
+                                              </tr>
 
                                                 @if($u->option)
                                                   @foreach($u->option as $j)
@@ -98,10 +105,14 @@
                                                     <td class="p-quantity"><input maxlength="12" type="text" value="{{$j->sum_item}}" name="quantity"></td>
                                                     <td class="p-total"><span>฿{{$j->pro_price*$j->sum_item}}.00</span></td>
                                                     <td class="edit">
-                                                      @if($u->order_status == 0)
+                                                      @if($u->order_status_show == 0)
+                                                      <p style="color: #ffc107;">
                                                       รอการตรวจสอบ
+                                                      </p>
                                                       @else
-                                                      รอการจัดส่ง
+                                                      <p style="color: #02b3e4;">
+                                                        รอการจัดส่ง
+                                                      </p>
                                                       @endif
 
                                                     </td>
@@ -110,9 +121,10 @@
                                                     @endif
 
 
-                                                @endforeach
-                                              @endif
+
                                             </tbody>
+                                            @endforeach
+                                          @endif
                                         </table>
                                     </div>
 

@@ -92,7 +92,7 @@
                               $set_num_date = count(Session::get('cart'));
                              ?>
                             <div class="cart-box-wrapper">
-                                <a class="cart-info" href="{{url('/')}}">
+                                <a class="cart-info" >
                                     <img src="{{url('home/assets/img/icon/cart-2.png')}}" alt="">
                                     <span>{{$set_num_date}}</span>
                                 </a>

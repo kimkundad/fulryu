@@ -89,7 +89,7 @@
                                               <div class="customer-name">
                                                 <div class="first-name">
                                                 <p>หมายเลขสั่งซื้อ*</p>
-                                                <input type="text" name="order_id" value="{{old('order_id')}}" placeholder="หมายเลขสั่งซื้อ จะแจ้งไปยังอีเมล." required="">
+                                                <input type="number" name="order_id" value="{{old('order_id')}}" placeholder="หมายเลขสั่งซื้อ จะแจ้งไปยังอีเมล." required="">
                                                 </div>
                                                 <div class="last-name">
                                                   <p>email*</p>
@@ -103,24 +103,18 @@
                                               <hr />
                                               <div class="ship-wrap">
                                                   <p>ธนาคารที่โอน*</p>
+
+                                                  @if($bank)
+                                                  @foreach($bank as $u)
                                                     <div class="ship-address">
                                                         <label>
-                                                            <input type="radio" name="bank" value="1" checked="checked">
-                                                            <img src="{{url('assets/image/bank/icon-bankbbl.png')}}" height="35"> บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด, 129-5-51893-8 (ออมทรัพย์)
+                                                            <input type="radio" name="bank" value="{{$u->id}}" >
+                                                            <img src="{{url('assets/images/bank/'.$u->bank_img)}}" height="35"> {{$u->name_b}} {{$u->name_no_b}} {{$u->major_name_b}}
                                                         </label>
                                                     </div>
-                                                     <div class="ship-address">
-                                                       <label>
-                                                            <input type="radio" name="bank" value="2" >
-                                                            <img src="{{url('assets/image/bank/icon-bankscb.png')}}" height="35"> บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด, 477-0-10789-7 (ออมทรัพย์)
-                                                        </label>
-                                                    </div>
-                                                    <div class="ship-address">
-                                                      <label>
-                                                           <input type="radio" name="bank" value="3" >
-                                                           <img src="{{url('assets/image/bank/icon-bankkrugsri.png')}}" height="35"> บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด, 106-1-35383-5 (ออมทรัพย์)
-                                                       </label>
-                                                   </div>
+                                                    @endforeach
+                                                    @endif
+
                                                 </div>
 
 

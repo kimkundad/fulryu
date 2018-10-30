@@ -77,81 +77,28 @@ Payment Options | Fulryu
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>
-                              <img src="{{url('assets/image/bank/icon-bankbbl.png')}}" height="35">
-                            </td>
-                            <td class="p_top">
-                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
-                            </td>
-                            <td class="p_top">
-                              129-5-51893-8 (ออมทรัพย์)
-                            </td>
-                            <td class="p_top">
-                              ลาดพร้าว
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>
-                              <img src="{{url('assets/image/bank/icon-bankscb.png')}}" height="35">
-                            </td>
-                            <td class="p_top">
-                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
-                            </td>
-                            <td class="p_top">
-                               041-270703-6 (ออมทรัพย์)
-                            </td>
-                            <td class="p_top">
-                              บางเขน
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>
-                              <img src="{{url('assets/image/bank/icon-bankktc.png')}}" height="35">
-                            </td>
-                            <td class="p_top">
-                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
-                            </td>
-                            <td class="p_top">
-                               477-0-10789-7 (ออมทรัพย์)
-                            </td>
-                            <td class="p_top">
-                              ยูเนี่ยนมอลล์
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>
-                              <img src="{{url('assets/image/bank/icon-bankkrugsri.png')}}" height="35">
-                            </td>
-                            <td class="p_top">
-                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
-                            </td>
-                            <td class="p_top">
-                               106-1-35383-5 (ออมทรัพย์)
-                            </td>
-                            <td class="p_top">
-                              ยูเนี่ยนมอลล์ ลาดพร้าว
-                            </td>
-                          </tr>
 
 
+                          @if($bank)
+                          @foreach($bank as $u)
                           <tr>
                             <td>
-                              <img src="{{url('assets/image/bank/icon-bankkbank.png')}}" height="35">
+                              <img src="{{url('assets/images/bank/'.$u->bank_img)}}" height="35">
                             </td>
                             <td class="p_top">
-                              บริษัท มาสเตอร์ โฟโต้ เน็ตเวิร์ค จำกัด
+                              {{$u->name_b}}
                             </td>
                             <td class="p_top">
-                               752-229-3029 (ออมทรัพย์)
+                              {{$u->name_no_b}}
                             </td>
                             <td class="p_top">
-                              ลาดพร้าว 10
+                              {{$u->major_name_b}}
                             </td>
                           </tr>
+                          @endforeach
+                          @endif
+
+
 
                         </tbody>
                         </table>

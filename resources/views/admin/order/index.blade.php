@@ -73,7 +73,14 @@
                       <td>{{$u->fname}} {{$u->lname}}</td>
                       <td >{{$u->phone}}</td>
                       <td>{{number_format($u->total_money)}} บาท</td>
-                      <th>รอการตรวจสอบ</th>
+                      <th>
+                        @if($u->order_status_show == 0)
+
+                        <span style="color: #dc3545;">รอการตรวจสอบ</span>
+                        @else
+                        <span style="color: #02b3e4;">ส่งสินค้าแล้ว</span>
+                        @endif
+                      </th>
                       <td>
                         <div class="switch switch-sm switch-success">
                           <input type="checkbox" name="switch" data-plugin-ios-switch

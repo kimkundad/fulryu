@@ -143,6 +143,11 @@ class HomeController extends Controller
 
     public function payment_option(){
 
+      $bank = DB::table('banks')
+          ->get();
+
+      $data['bank'] = $bank;
+
       $obj1 = DB::table('categories')->select(
             'categories.*'
             )
@@ -227,6 +232,11 @@ class HomeController extends Controller
 
 
     public function confirm_payment(){
+
+      $bank = DB::table('banks')
+          ->get();
+
+      $data['bank'] = $bank;
 
       $obj1 = DB::table('categories')->select(
             'categories.*'
@@ -1299,6 +1309,12 @@ return response()->json($response);
 
 
     public function payment($id){
+
+
+      $bank = DB::table('banks')
+          ->get();
+
+      $data['bank'] = $bank;
 
       $obj = DB::table('orders')->select(
             'orders.*'

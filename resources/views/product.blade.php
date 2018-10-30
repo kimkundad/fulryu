@@ -154,7 +154,7 @@
                                 <a href="#" class="scroll-down">Add your review</a>
                             </div>
                             <span class="p-d-price">฿{{number_format($objs->pro_price)}}.00</span>
-                            <span class="model-stock">In stock <span><span>รหัสสินค้า</span>{{$objs->pro_code}}</span></span>
+                            <span class="model-stock">In stock : {{$objs->total_product}} pcs , <span><span>รหัสสินค้า</span>{{$objs->pro_code}}</span></span>
                             <div class="qty-cart-add">
 
                                 <form action="{{url('add_cart/')}}" id="my_form" method="POST">
@@ -167,7 +167,7 @@
 
                             </div>
                             <div class="p-d-buttons">
-                                <a href="#">Add to wish list</a>
+                                <a >รายละเอียดสินค้า</a>
 
 
                             </div>
@@ -182,8 +182,8 @@
                 <div class="p-d-tab-container">
                     <div class="p-tab-btn">
                         <div class="nav" role="tablist">
-                            <a class="active" href="#tab1" data-toggle="tab" role="tab" aria-selected="true" aria-controls="tab1">Details</a>
-                            <a href="#tab2" data-toggle="tab" role="tab" aria-selected="false" aria-controls="tab2">Reviews </a>
+                            <a class="active" href="#tab1" data-toggle="tab" role="tab" aria-selected="true" aria-controls="tab1">รายละเอียดเพิ่มเติม</a>
+                            <a href="#tab2" data-toggle="tab" role="tab" aria-selected="false" aria-controls="tab2">รีวิวของ {{$objs->pro_name}} </a>
                         </div>
                     </div>
                     <div class="p-d-tab tab-content">
@@ -196,8 +196,14 @@
                         </div>
                         <div class="tab-pane fade scroll-area" id="tab2" role="tabpanel">
                             <div class="tab-items">
+                              <style>
+                              .fb_iframe_widget_fluid_desktop iframe {
+                                    min-width: 100% !important;
+                                    position: relative;
+                                }
+                              </style>
 
-                              <div class="fb-comments" data-href="https://fulryu.com/product/{{$objs->id_p}}" data-width="100%" data-numposts="5"></div>
+                              <div class="fb-comments" data-href="https://fulryu.com/product/{{$objs->id_p}}" data-width="100%" data-numposts="10"></div>
 
                             </div>
                         </div>

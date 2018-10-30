@@ -93,6 +93,7 @@ class ProductController extends Controller
        $package->pro_status_show = $request['pro_status_show'];
        $package->pro_image = $input['imagename'];
        $package->pro_status = 1;
+       $package->total_product = $request['total_product'];
        $package->save();
 
        $the_id = $package->id;
@@ -220,6 +221,7 @@ class ProductController extends Controller
           $package->pro_status_show = $request['pro_status_show'];
           $package->pro_code = $request['pro_code'];
           $package->pro_rating = $request['pro_rating'];
+          $package->total_product = $request['total_product'];
           $package->save();
 
 
@@ -254,6 +256,7 @@ class ProductController extends Controller
           $package->pro_status_show = $request['pro_status_show'];
           $package->pro_rating = $request['pro_rating'];
           $package->pro_image = $input['imagename'];
+          $package->total_product = $request['total_product'];
           $package->save();
 
         }

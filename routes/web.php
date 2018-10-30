@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'admin'], function() {
 
+  Route::resource('admin/bank', 'BankController');
   Route::get('admin/dashboard', 'DashboardController@index')->name('dashboard');
   Route::resource('admin/user', 'StudentController');
   Route::resource('admin/product', 'ProductController');
