@@ -80,8 +80,14 @@
                                 </div>
                             </div>
                             <br /><br /><br />
-
+                            <style>
+                            .fb_iframe_widget_fluid_desktop iframe {
+                                  min-width: 100% !important;
+                                  position: relative;
+                              }
+                            </style>
                             <div class="fb-comments" data-href="{{url('blog/'.$blog_new->id)}}" data-width="100%" data-numposts="10"></div>
+
                         </div>
 
 
