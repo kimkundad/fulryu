@@ -355,6 +355,15 @@ class ProductController extends Controller
           ->where('id', $id)
           ->first();
 
+          DB::table('blog_products')
+              ->select(
+                 'blog_products.*'
+                 )
+              ->where('product_id', $id)
+              ->delete();
+
+
+
       $file_path = 'assets/image/product/'.$objs->pro_image;
       unlink($file_path);
 
