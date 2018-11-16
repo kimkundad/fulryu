@@ -72,6 +72,10 @@ Route::group(['middleware' => 'admin'], function() {
   Route::resource('admin/bank', 'BankController');
   Route::get('admin/dashboard', 'DashboardController@index')->name('dashboard');
   Route::resource('admin/user', 'StudentController');
+  Route::resource('admin/option_product', 'Option_productController');
+  Route::post('admin/option_product_item/', 'Option_productController@option_product_item');
+  Route::post('admin/option_product_item_edit/{id}', 'Option_productController@option_product_item_edit');
+  Route::post('admin/option_product_item_del/{id}', 'Option_productController@option_product_item_del');
   Route::resource('admin/product', 'ProductController');
   Route::resource('admin/category', 'CategoryController');
   Route::get('admin/product_gallery/{id}', 'ProductController@product_gallery');

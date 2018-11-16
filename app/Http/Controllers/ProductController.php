@@ -9,6 +9,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use App\product;
 use App\category;
 use App\gallery;
+use App\product_item;
 
 class ProductController extends Controller
 {
@@ -163,6 +164,26 @@ class ProductController extends Controller
             ->where('pro_id', $id)
             ->get();
 
+            $option_product = DB::table('option_products')
+              ->get();
+
+
+          foreach ($option_product as $obj) {
+
+            $options = DB::table('product_items')->select(
+                'product_items.*'
+                )
+                ->where('product_set_id', $id)
+                ->where('option_set_id', $obj->id)
+                ->count();
+
+//product_items
+
+            $obj->options = $options;
+
+          }
+          $data['option_product'] = $option_product;
+
             $data['img_all'] = $img_all;
             $sub_category = category::all();
             $data['category'] = $sub_category;
@@ -197,6 +218,7 @@ class ProductController extends Controller
         //
 
         $image = $request->file('image');
+        $gallary = $request['option'];
 
         //dd($gallary);
         $this->validate($request, [
@@ -223,6 +245,23 @@ class ProductController extends Controller
           $package->pro_rating = $request['pro_rating'];
           $package->total_product = $request['total_product'];
           $package->save();
+
+          DB::table('product_items')->where('product_set_id', $id)->delete();
+
+          if($gallary != null){
+
+        //  dd($gallary);
+          if (sizeof($gallary) > 0) {
+             for ($i = 0; $i < sizeof($gallary); $i++) {
+               $admins[] = [
+                   'option_set_id' => $gallary[$i],
+                   'product_set_id' => $id
+               ];
+             }
+             product_item::insert($admins);
+           }
+
+        }
 
 
 
@@ -258,6 +297,25 @@ class ProductController extends Controller
           $package->pro_image = $input['imagename'];
           $package->total_product = $request['total_product'];
           $package->save();
+
+          $objs = DB::table('product_items')
+        ->select(
+           'product_items.*'
+           )
+        ->where('product_set_id', $id)
+        ->delete();
+
+        if($gallary != null){
+        if (sizeof($gallary) > 0) {
+           for ($i = 0; $i < sizeof($gallary); $i++) {
+             $admins[] = [
+                 'option_set_id' => $gallary[$i],
+                 'product_set_id' => $id
+             ];
+           }
+           product_item::insert($admins);
+         }
+       }
 
         }
 

@@ -232,6 +232,30 @@
                                   </div>
 
 
+                                  <hr />
+                                  <div class="col-md-12">
+                                    <p>
+                                      เลือก option ได้มากกว่า 1 ทางเลือก
+                                      <br />
+                                    </p>
+                                  </div>
+
+
+
+                                  @foreach($option_product as $option_products)
+                                  <div class="form-group">
+                                    <label class="col-md-3 control-label" for="exampleInputEmail1"></label>
+                                      <div class="col-md-8">
+                                  <div class="checkbox-custom checkbox-primary">
+                                   <input type="checkbox" name="option[]" id="checkboxExample2" @if($option_products->options == 1) checked="" @endif value="{{$option_products->id}}">
+                                   <label for="checkboxExample2">{{$option_products->option_name}} </label>
+                                 </div>
+                                 </div>
+                                   </div>
+                                  @endforeach
+                                  <br />
+
+
 
 
 
