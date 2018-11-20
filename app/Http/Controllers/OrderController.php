@@ -25,7 +25,8 @@ class OrderController extends Controller
         $cat = DB::table('orders')->select(
               'orders.*'
               )
-              ->get();
+              ->orderBy('id', 'DESC')
+              ->paginate(15);
 
               $data['objs'] = $cat;
               $data['datahead'] = "order สั่งสินค้า";
@@ -111,6 +112,34 @@ class OrderController extends Controller
                     ->where('order_details.order_id', $id)
                     ->get();
 
+                    foreach($order as $k){
+
+                      if($k->size != 0){
+
+                        $get_size = DB::table('option_items')
+                        ->where('id', $k->size)
+                        ->first();
+
+                        $k->get_size = $get_size->item_name;
+
+                        $get_color = DB::table('option_items')
+                        ->where('id', $k->color)
+                        ->first();
+
+                        $k->get_color = $get_color->item_name;
+
+                      }else{
+                        $k->get_size = null;
+                        $k->get_color = null;
+
+                      }
+
+
+
+                    }
+
+
+
                     $confirm = DB::table('confirm_payments')
                     ->where('order_id', $id)
                     ->first();
@@ -127,6 +156,8 @@ class OrderController extends Controller
 
 
         //dd($order);
+
+
         $data['bank'] = $bank;
         $data['confirm'] = $confirm;
         $data['order'] = $order;

@@ -155,22 +155,48 @@
                             </div>
                             <span class="p-d-price">฿{{number_format($objs->pro_price)}}.00</span>
                             <span class="model-stock">In stock : {{$objs->total_product}} pcs , <span><span>รหัสสินค้า</span>{{$objs->pro_code}}</span></span>
+                            <form action="{{url('add_cart/')}}" id="my_form" method="POST">
                             <div class="qty-cart-add">
 
-                                <form action="{{url('add_cart/')}}" id="my_form" method="POST">
+
                                   {{ csrf_field() }}
                                   <label for="qty">qty</label>
                                   <input type="text" name="qty" value="1" placeholder="1" >
                                   <input type="hidden" name="pro_id" value="{{$objs->id_p}}" >
                                   <a href="javascript:$('#my_form').submit();" >Add to cart</a>
-                                  </form>
+
 
                             </div>
+
+                            @if($get_option != null)
+                            @foreach($get_option as $k)
+                            <div >
+                              <p class="model-stock">
+                                {{$k->head_label}}
+                              </p>
+
+                              @foreach($k->get_option_product as $j)
+
+                              <label style="width: 100%; display: inline-flex; margin-bottom: 10px;">
+                                <input type="radio" name="{{$k->head_var}}" value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                                <span style="font-size:13px"> {{$j->item_name}}</span>
+                              </label>
+                              @endforeach
+
+                            </div>
+                            @endforeach
+                            @endif
+                            </form>
+
                             <div class="p-d-buttons">
                                 <a >รายละเอียดสินค้า</a>
 
 
+
                             </div>
+
+
+
                             <p>
                               {{$objs->pro_title}}
                             </p>

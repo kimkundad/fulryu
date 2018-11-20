@@ -59,6 +59,7 @@ class Option_productController extends Controller
         //
         $this->validate($request, [
          'option_name' => 'required',
+         'option_title' => 'required',
          'option_type' => 'required'
         ]);
 
@@ -67,6 +68,7 @@ class Option_productController extends Controller
 
           $package = new option_product();
           $package->option_name = $request['option_name'];
+          $package->option_title = $request['option_title'];
           $package->option_type = $request['option_type'];
           $package->save();
 
@@ -128,6 +130,7 @@ class Option_productController extends Controller
         //
         $this->validate($request, [
          'option_name' => 'required',
+         'option_title' => 'required',
          'option_type' => 'required'
         ]);
 
@@ -137,6 +140,7 @@ class Option_productController extends Controller
 
           $package = option_product::find($id);
           $package->option_name = $request['option_name'];
+          $package->option_title = $request['option_title'];
           $package->option_type = $request['option_type'];
           $package->save();
 

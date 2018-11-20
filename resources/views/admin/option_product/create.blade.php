@@ -73,7 +73,19 @@
           														</div>
           												</div>
 
-                                  
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">ชนิดข้อมูล*</label>
+          													<div class="col-md-8">
+                                      <select name="option_title" class="form-control mb-md" required>
+
+          								             <option value="size"> size </option>
+          								             <option value="color"> color </option>
+          								            </select>
+          														</div>
+          												</div>
+
+
 
 
                                   <div class="form-group">

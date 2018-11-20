@@ -74,6 +74,22 @@
           												</div>
 
 
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">ชนิดข้อมูล*</label>
+          													<div class="col-md-8">
+                                      <select name="option_title" class="form-control mb-md" required>
+
+          								             <option value="size" @if($objs->option_title == 'size')
+                                       selected='selected'
+                                       @endif> size </option>
+          								             <option value="color" @if($objs->option_title == 'color')
+                                       selected='selected'
+                                       @endif> color </option>
+          								            </select>
+          														</div>
+          												</div>
+
+
 
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileAddress">option type*</label>

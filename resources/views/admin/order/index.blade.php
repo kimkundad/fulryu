@@ -51,7 +51,7 @@
 
 
 
-                <table class="table table-responsive-lg table-striped table-sm mb-0" id="datatable-default">
+                <table class="table table-responsive-lg table-striped table-sm mb-0" >
                   <thead>
                     <tr>
                       <th>เลขสั่งซื้อ</th>
@@ -115,6 +115,7 @@
 
                   </tbody>
                 </table>
+                {{ $objs->links() }}
               </div>
             </section>
 

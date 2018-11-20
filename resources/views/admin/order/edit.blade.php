@@ -182,11 +182,12 @@
           													<label class="col-md-4 control-label" for="profileFirstName"><a href="{{url('admin/product/'.$k->id_p.'/edit')}}" target="_blank">{{$k->product_name}}
 
                                     </a></label>
-                                    <div class="col-md-2"><img src="{{url('assets/image/product/'.$k->pro_image)}}" class="img-responsive" style="height:150px;" /></div>
+                                    <div class="col-md-2"><img src="{{url('assets/image/product/'.$k->pro_image)}}" class="img-responsive" style=" width:100%" /></div>
           													<div class="col-md-6">
                                       สั่งจำนวน : {{$k->sum_item}} PCS / ฿ {{$k->pro_price}}<br />
-                                      ราคารวม : {{$k->sum_money}}<br /><br />
-
+                                      ราคารวม : {{$k->sum_money}}<br />
+                                      color : {{$k->get_color}} <br />
+                                      size : {{$k->get_size}} <br /><br />
           														</div>
 
           												</div>

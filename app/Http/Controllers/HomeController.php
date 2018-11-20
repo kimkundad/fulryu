@@ -856,6 +856,8 @@ return response()->json($response);
 
     public function cart(){
 
+    //  dd(Session::get('cart'));
+
       $obj1 = DB::table('categories')->select(
             'categories.*'
             )
@@ -884,10 +886,13 @@ return response()->json($response);
 
     public function checkout(){
 
+
+
       $set_cart = count(Session::get('cart'));
       if($set_cart == 0){
         return redirect('/');
       }else{
+
 
 
         $total = 0;
@@ -967,12 +972,54 @@ return response()->json($response);
 
 
         }
+
+        $size = $u['data']['size'];
+        $color = $u['data']['color'];
+
+        if($size != null && $color != null){
+
+
+          $get_name_size = DB::table('option_items')->select(
+            'option_items.*'
+            )
+            ->where('id', $size)
+            ->first();
+
+
+            $get_name_color = DB::table('option_items')->select(
+              'option_items.*'
+              )
+              ->where('id', $color)
+              ->first();
+
+              $size = $get_name_size->item_name;
+              $color = $get_name_color->item_name;
+
+              $size1 = $get_name_size->id;
+              $color1 = $get_name_color->id;
+
+
+
+        }else{
+
+          $size = 0;
+          $color = 0;
+          $size1 = 0;
+          $color1 = 0;
+
+        }
+
         $total_price = $total+$price_s;
         $data['sum_weight'] = $sum_weight;
         $data['price_s'] = $price_s;
         $data['total_price'] = $total_price;
         $data['total'] = $total;
         $data['num_order'] = $set_cart;
+
+        $data['size'] = $size;
+        $data['color'] = $color;
+        $data['size1'] = $size1;
+        $data['color1'] = $color1;
 
 
       }
@@ -1202,6 +1249,9 @@ return response()->json($response);
          $obj = new order_detail();
          $obj->order_id = $the_id;
          $obj->product_id = $product->id;
+         $obj->size = $request['size'];
+         $obj->color = $request['color'];
+         $obj->product_id = $product->id;
          $obj->product_name = $product->pro_name;
          $obj->sum_item = $u['data'][1]['sum_item'];
          $obj->sum_money = $u['data'][2]['sum_price'];
@@ -1210,11 +1260,8 @@ return response()->json($response);
        }
 
 
-
-
-
-
-       $order_detail = DB::table('order_details')->select(
+       $order_detail = DB::table('order_details')
+              ->select(
               'order_details.*'
               )
               ->where('order_id', $package->id)
@@ -1374,6 +1421,9 @@ return response()->json($response);
 
        $id = $request['pro_id'];
 
+       $size = $request['size'];
+       $color = $request['color'];
+
       $obj = DB::table('products')->select(
             'products.*'
             )
@@ -1385,6 +1435,8 @@ return response()->json($response);
           'image' => $obj->pro_image,
           'code' => $obj->pro_code,
           'name' => $obj->pro_name,
+          'size' => $size,
+          'color' => $color,
           'price' => $obj->pro_price,
           ['status' => 0],
           ['sum_item' => $request['qty']],
@@ -1449,6 +1501,62 @@ return response()->json($response);
     }
 
     public function product($id){
+
+      $check_option = DB::table('product_items')
+        ->where('product_set_id', $id)
+        ->count();
+
+      //  dd($check_option);
+
+    if($check_option > 0){
+
+      $get_option = DB::table('product_items')
+        ->where('product_set_id', $id)
+        ->get();
+
+        foreach ($get_option as $k) {
+
+          $get_option_product = DB::table('option_items')
+            ->where('item_option_id', $k->option_set_id)
+            ->get();
+
+            $k->get_option_product = $get_option_product;
+
+            $get_option_head = DB::table('option_products')
+              ->where('id', $k->option_set_id)
+              ->first();
+
+            $k->head_label = $get_option_head->option_name;
+            $k->head_var = $get_option_head->option_title;
+
+        }
+
+    }else{
+
+      $get_option = null;
+
+    }
+
+  //  dd($get_option);
+
+
+  /*  foreach ($option_product as $obj) {
+
+      $options = DB::table('product_items')->select(
+          'product_items.*'
+          )
+          ->where('product_set_id', $id)
+          ->where('option_set_id', $obj->id)
+          ->count();
+
+
+      $obj->options = $options;
+
+    }
+    $data['option_product'] = $option_product;*/
+
+      $data['get_option'] = $get_option;
+
 
       $img_all = DB::table('galleries')->select(
           'galleries.*'

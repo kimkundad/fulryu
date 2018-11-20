@@ -189,6 +189,9 @@ Check out | Fulryu
                                                         <input type="hidden" name="shipping_price" value="{{$price_s}}" required>
                                                         <input type="hidden" name="discount" value="{{$discount}}" required>
                                                         <input type="hidden" name="sum_weight" value="{{$sum_weight}}" required>
+
+                                                        <input type="hidden" name="color" value="{{$color1}}" required>
+                                                        <input type="hidden" name="size" value="{{$size1}}" required>
                                                     </div>
 
                                                 </div>
@@ -239,6 +242,25 @@ Check out | Fulryu
                                                           <tr>
                                                               <td colspan="3" class="text-left">Weight</td>
                                                               <td>{{$sum_weight}} g.</td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td colspan="3" class="text-left">Size</td>
+                                                              <td>
+                                                                @if($size != 0)
+                                                                {{$size}}
+                                                                @else
+                                                                @endif
+
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td colspan="3" class="text-left">Color</td>
+                                                              <td>
+                                                                @if($color != 0)
+                                                                {{$color}}
+                                                                @else
+                                                                @endif
+                                                                 </td>
                                                           </tr>
                                                           <tr>
                                                               <td colspan="3" class="text-left">Shipping price    </td>
