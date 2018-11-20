@@ -6730,7 +6730,7 @@
 			var data = new FormData();
 		    data.append('files', files[0]);
 		    $.ajax({
-		        url: 'https://www.fulryu.com/admin/file/posts',
+		        url: 'https://fulryu.com/admin/file/posts',
 		        method: 'POST',
 		        data: data,
 		        processData: false,
