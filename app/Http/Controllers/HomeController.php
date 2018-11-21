@@ -915,7 +915,7 @@ return response()->json($response);
         return redirect('/');
       }else{
 
-        dd(Session::get('cart'));
+      //  dd(Session::get('cart'));
 
         $total = 0;
         $total_item = 0;
@@ -1021,6 +1021,40 @@ return response()->json($response);
               $color1 = $get_name_color->id;
 
 
+
+        }elseif($size == null && $color != null){
+
+
+
+
+            $get_name_color = DB::table('option_items')->select(
+              'option_items.*'
+              )
+              ->where('id', $color)
+              ->first();
+
+              $size = 0;
+              $color = $get_name_color->item_name;
+
+              $size1 = 0;
+              $color1 = $get_name_color->id;
+
+        }elseif($size != null && $color == null){
+
+          $get_name_size = DB::table('option_items')->select(
+            'option_items.*'
+            )
+            ->where('id', $size)
+            ->first();
+
+
+
+
+              $size = $get_name_size->item_name;
+              $color = 0;
+
+              $size1 = $get_name_size->id;
+              $color1 = 0;
 
         }else{
 
