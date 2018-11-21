@@ -486,7 +486,7 @@ class HomeController extends Controller
 
       session()->forget(['cart.'.$id]);
       return redirect(url('cart'))->with('success','คุณทำการเพิ่มอสังหา สำเร็จ');
-    
+
     }
 
 
@@ -915,7 +915,7 @@ return response()->json($response);
         return redirect('/');
       }else{
 
-
+        dd(Session::get('cart'));
 
         $total = 0;
         $total_item = 0;
