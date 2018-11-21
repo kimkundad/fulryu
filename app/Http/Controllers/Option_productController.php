@@ -280,6 +280,15 @@ class Option_productController extends Controller
                     ->where('item_option_id', $id)
                     ->delete();
 
+
+                    DB::table('product_items')->select(
+                                'product_items.*'
+                                )
+                                ->where('option_set_id', $id)
+                                ->delete();
+
+
+
                     $obj = option_product::find($id);
                     $obj->delete();
                     return redirect(url('admin/option_product/'))->with('delete','คุณทำการลบอสังหา สำเร็จ');

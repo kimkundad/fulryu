@@ -30,6 +30,9 @@ Route::post('/add_contact', 'HomeController@add_contact');
 
 Route::get('/contact_success', 'HomeController@contact_success');
 
+Route::get('/paypal_success', 'HomeController@paypal_success');
+
+
 Route::get('category/{id}', 'HomeController@category')->name('category');
 Route::get('clear_cart', 'HomeController@clear_cart')->name('clear_cart');
 Route::get('about', 'HomeController@about')->name('about');
@@ -46,6 +49,9 @@ Route::get('/delivery_information', 'HomeController@delivery_information');
 Route::get('/confirm_payment', 'HomeController@confirm_payment');
 
 Route::post('/confirm_payment_update','HomeController@confirm_payment_update');
+
+Route::post('paypal', 'PaymentController@payWithpaypal')->name('payWithpaypal');
+Route::get('status', 'PaymentController@getPaymentStatus');
 
 
 

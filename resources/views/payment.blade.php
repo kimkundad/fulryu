@@ -72,6 +72,32 @@ Payment | Fulryu
                                     <div class="checkout-buttons">
                                       <div class="table-responsive">
 
+                                        <h4>บัตรเครดิต</h4>
+                                        <p style="font-size:15px;"><b>ยินดีรับการชำระเงินผ่านบัตรเครดิตและบัตรเดบิต </b></p>
+
+                                        <p>
+                                          ทุกธุรกรรมผ่านบัตรเครดิตและบัตรเดบิตได้รับการรับรองความปลอดภัยด้วยเทคโนโลยี Paypal
+                                          ที่ได้รับการรับรองแล้ว คุณจะได้รับการยืนยันและตั๋วอิเล็กทรอนิกส์ผ่านทางอีเมล์ภายใน 10 นาที ภายหลังจากที่ชำระเงินเสร็จสิ้น
+                                        </p>
+                                        <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="{{url('paypal')}}">
+                                            {{ csrf_field() }}
+
+                                            <p>
+                                            <label class="w3-text-blue"><b>จำนวนเงินที่ท่านต้องชำระคือ</b></label>
+                                            <input class="w3-input w3-border" name="amount" value="{{$order->total_money}}" type="text"></p>
+                                            <input class="hidden" name="id_order" value="{{$id_order}}" type="hidden">
+                                            <button class="default-btn" style="color:#fff">Pay with PayPal</button></p>
+                                          </form>
+                                        <br />
+                                        <img src="{{url('assets/image/logo-master-card2.png')}}" height="29">
+                                        <img src="{{url('assets/image/paypal_bt.png')}}" height="29">
+                                        <br />
+                                        <br />
+                                        <br />
+
+                                        <h4>ชำระผ่านบัญชีธนาคาร</h4>
+                                        <p style="font-size:15px;"><b>สามารถแจ้งชำระผ่านบัญชีธนาคาร ตามหมายเลขที่ระบุไว้ จากนั้นแจ้งการชำระเงินที่ <a href="{{url('confirm_payment')}}" target="_blank">แจ้งชำระเงิน</a></b></p>
+
                 <table class="table">
                   <thead>
                     <tr>

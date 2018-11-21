@@ -69,7 +69,11 @@
              @if($objs)
                 @foreach($objs as $u)
                     <tr id="{{$u->id}}">
-                      <td >{{$u->id}}</td>
+                      <td >{{$u->id}}
+                        @if($u->paypal_status == 1)
+                        <img src="{{url('assets/image/paypal-512.png')}}" height="25">
+                        @endif
+                      </td>
                       <td>{{$u->fname}} {{$u->lname}}</td>
                       <td >{{$u->phone}}</td>
                       <td>{{number_format($u->total_money)}} บาท</td>

@@ -302,6 +302,27 @@ class HomeController extends Controller
     }
 
 
+    public function paypal_success(){
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->get();
+
+            foreach($obj1 as $u){
+              $options = DB::table('products')
+                ->where('pro_category', $u->id)
+                ->limit(2)
+                ->get();
+              $u->options = $options;
+            }
+            $data['cat1'] = $obj1;
+
+      return view('paypal_success', $data);
+
+    }
+
+
     public function privacy_policy(){
 
 
@@ -1015,7 +1036,7 @@ return response()->json($response);
         $data['total_price'] = $total_price;
         $data['total'] = $total;
         $data['num_order'] = $set_cart;
-
+      //  dd($size);
         $data['size'] = $size;
         $data['color'] = $color;
         $data['size1'] = $size1;
@@ -1601,7 +1622,8 @@ return response()->json($response);
                     $u->options = $options;
                   }
             $data['cat1'] = $obj1;
-
+          //  dd($check_option);
+            $data['check_option'] = $check_option;
       $data['objs'] = $cat;
 
       return view('product', $data);

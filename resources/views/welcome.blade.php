@@ -93,7 +93,9 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 	            @endif
 	        </div>
 	    </div>
-	    <!-- Slider Two Area End -->
+	    <!-- Slider Two Area End    -->
+
+    
 
       <?php
       $s = 1;

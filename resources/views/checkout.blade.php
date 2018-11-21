@@ -246,7 +246,7 @@ Check out | Fulryu
                                                           <tr>
                                                               <td colspan="3" class="text-left">Size</td>
                                                               <td>
-                                                                @if($size != 0)
+                                                                @if($size != null)
                                                                 {{$size}}
                                                                 @else
                                                                 @endif
@@ -256,7 +256,7 @@ Check out | Fulryu
                                                           <tr>
                                                               <td colspan="3" class="text-left">Color</td>
                                                               <td>
-                                                                @if($color != 0)
+                                                                @if($color != null)
                                                                 {{$color}}
                                                                 @else
                                                                 @endif

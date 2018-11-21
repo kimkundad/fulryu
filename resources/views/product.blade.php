@@ -163,7 +163,9 @@
                                   <label for="qty">qty</label>
                                   <input type="text" name="qty" value="1" placeholder="1" >
                                   <input type="hidden" name="pro_id" value="{{$objs->id_p}}" >
-                                  <a href="javascript:$('#my_form').submit();" >Add to cart</a>
+
+                                  <a href="javascript:$('#my_form').submit();" id="subtip_to" style="display:none">Add to cart</a>
+                                  <a  id="subtip_weit" data-toggle="modal" data-target="#exampleModalCenter" style="display:none">Add to cart</a>
 
 
                             </div>
@@ -178,7 +180,7 @@
                               @foreach($k->get_option_product as $j)
 
                               <label style="width: 100%; display: inline-flex; margin-bottom: 10px;">
-                                <input type="radio" name="{{$k->head_var}}" value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                                <input type="radio" name="{{$k->head_var}}" value="{{$j->id}}" class="get_var_option" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
                                 <span style="font-size:13px"> {{$j->item_name}}</span>
                               </label>
                               @endforeach
@@ -187,6 +189,26 @@
                             @endforeach
                             @endif
                             </form>
+
+
+
+                            <!-- Modal -->
+                          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">แจ้งเตือน</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  กรุณาเลือก สี, ขนาด ของสินค้าที่มีอยู่ด้วยค่ะ
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
 
                             <div class="p-d-buttons">
                                 <a >รายละเอียดสินค้า</a>
@@ -304,5 +326,46 @@
   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.1&appId=203219603796007&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script>
+
+$(document).ready(function () {
+
+  var val_op = {{$check_option}};
+
+  if(val_op == 1){
+        var x = document.getElementById("subtip_to");
+        x.style.display = "none";
+        var y = document.getElementById("subtip_weit");
+        y.style.display = "block";
+      }else{
+        var x = document.getElementById("subtip_to");
+        x.style.display = "block";
+        var y = document.getElementById("subtip_weit");
+        y.style.display = "none";
+      }
+
+
+$(".get_var_option").change(function () {
+
+   val_op = $('.get_var_option:checked').val();
+   if(val_op != 0){
+         var x = document.getElementById("subtip_to");
+         x.style.display = "block";
+         var y = document.getElementById("subtip_weit");
+         y.style.display = "none";
+       }
+  //  alert(val);
+  console.log(val_op);
+});
+
+console.log(val_op);
+
+});
+
+
+
+</script>
 
 @stop('scripts')
