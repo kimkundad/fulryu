@@ -104,9 +104,9 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
                                   <form id="myform-{{$u['data']['id']}}" name="myform-{{$u['data']['id']}}" action="{{ url('update_cart/') }}" method="POST" >
                                     {{ csrf_field() }}
                                     <td class="p-image">
-                                        <a href="product-details.html"><img alt="" src="{{url('assets/image/product/'.$u['data']['image'])}}"></a>
+                                        <a href="{{url('product/'.$u['data']['id'])}}"><img alt="" src="{{url('assets/image/product/'.$u['data']['image'])}}"></a>
                                     </td>
-                                    <td class="p-name"><a href="product-details.html">{{$u['data']['name']}}</a></td>
+                                    <td class="p-name"><a href="{{url('product/'.$u['data']['id'])}}">{{$u['data']['name']}}</a></td>
                                     <td class="p-amount">฿{{$u['data']['price']}}.00</td>
                                     <td class="p-quantity"><input maxlength="12" type="text" value="{{$u['data'][1]['sum_item']}}" name="qty">
                                     <input type="hidden" value="{{$u['data']['id']}}" name="pro_id">
