@@ -485,7 +485,8 @@ class HomeController extends Controller
     public function del_cart($id){
 
       session()->forget(['cart.'.$id]);
-      return redirect()->back()->with('success', 'เพิ่มสินค้าสำเร็จ');
+      return redirect(url('cart'))->with('success','คุณทำการเพิ่มอสังหา สำเร็จ');
+    
     }
 
 
