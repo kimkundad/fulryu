@@ -81,7 +81,7 @@
                             @endif
 
                             <div class="social-tags">
-                                <span>TAGS :</span>
+                                <span>Facebook Share :</span>
                                 <div class="blog-links">
                                     <div class="fb-share-button" data-href="https://fulryu.com/blog/{{$blog_new->id}}" data-layout="box_count" data-size="large" data-mobile-iframe="true">
                                       <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffulryu.com%2Fblog%2F{{$blog_new->id}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
