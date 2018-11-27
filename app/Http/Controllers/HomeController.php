@@ -41,7 +41,8 @@ class HomeController extends Controller
     {
 
       $obj1 = DB::table('categories')->select(
-            'categories.*'
+            'categories.*',
+            'categories.id as cat_id'
             )
             ->get();
 

@@ -95,7 +95,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 	    </div>
 	    <!-- Slider Two Area End    -->
 
-    
+
 
       <?php
       $s = 1;
@@ -244,7 +244,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 	                    <div class="single-product-widget">
 	                        <div class="product-widget-title">
 
-	                            <h4>{{$j->name_cat}}</h4>
+	                            <h4><a href="{{url('category/'.$j->cat_id)}}">{{$j->name_cat}}</a></h4>
 	                        </div>
 
 													@if($j->options)
