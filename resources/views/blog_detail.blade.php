@@ -14,7 +14,7 @@
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{$blog_new->blog_title}}" />
 <meta property="og:image"         content="{{url('assets/image/blog/'.$blog_new->blog_img)}}" />
-<meta property="og:description"   content="ลม และ การไหลไป ความงามชั่วคราวซึ่งต้องมีประสบการณ์ตรง ณ ขณะนี้เท่านั้น เพราะในห้วงเวลาถัดไปความรู้สึกนั้นก็จะจางหายไปเหมือนหมอกเช้า" />
+<meta property="og:description"   content="{{$blog_new->blog_title}}" />
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="314" />
 <meta property="fb:app_id" content="1916660355081132">
@@ -69,14 +69,25 @@
                         <div class="blog-details-text">
                             {!!$blog_new->blog_detail!!}
 
+
+                            @if($get_product_show != null)
+                            <h1>{{$get_product_show->pro_name}}</h1>
+                            <span class="model-stock">In stock : {{$get_product_show->total_product}} pcs , <span><span>รหัสสินค้า</span>{{$get_product_show->pro_code}}</span></span>
+                            <br />
+                            <a href="{{url('product/'.$get_product_show->id)}}" class="default-btn submit-btn">กดซื้อสินค้า</a>
+                            <br /><br />
+                            @else
+
+                            @endif
+
                             <div class="social-tags">
                                 <span>TAGS :</span>
                                 <div class="blog-links">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-vimeo"></i></a>
-                                    <a href="#"><i class="fa fa-tumblr"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <div class="fb-share-button" data-href="https://fulryu.com/blog/{{$blog_new->id}}" data-layout="box_count" data-size="large" data-mobile-iframe="true">
+                                      <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffulryu.com%2Fblog%2F{{$blog_new->id}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                                        แชร์
+                                      </a>
+                                    </div>
                                 </div>
                             </div>
                             <br /><br /><br />
@@ -252,6 +263,15 @@
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.1&appId=1512869072370249&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.2&appId=1916660355081132&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 

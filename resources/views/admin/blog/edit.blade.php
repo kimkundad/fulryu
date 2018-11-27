@@ -134,6 +134,23 @@
 
 
                 <div class="form-group">
+                  <label >สินค้าของ บทความ</label>
+                    <select name="set_product" class="form-control mb-md" required="required">
+                      <option value="" >สินค้าของ บทความ</option>
+                        @if($product)
+                          @foreach($product as $u)
+                          <option value="{{$u->id}}" @if($blog->set_product == $u->id)
+                                      selected='selected'
+                                      @endif>{{$u->pro_name}}
+                          </option>
+                        @endforeach
+                      @endif
+
+                    </select>
+                </div>
+
+
+                <div class="form-group">
 												<label class=" control-label text-lg-right pt-2">สินค้าที่เกี่ยวข้อง</label>
 
 													<select multiple data-plugin-selectTwo name="product[]" class="form-control populate">

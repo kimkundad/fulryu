@@ -97,6 +97,7 @@ class BlogController extends Controller
        $package->blog_type = $request['blog_type'];
        $package->blog_url = $request['blog_url'];
        $package->blog_img = $input['imagename'];
+       $package->set_product = $request['set_product'];
        $package->blog_detail = $request['blog_detail'];
        $package->save();
 
@@ -200,6 +201,7 @@ class BlogController extends Controller
            $package->blog_cat = $request['blog_cat'];
            $package->blog_type = $request['blog_type'];
            $package->blog_url = $request['blog_url'];
+           $package->set_product = $request['set_product'];
            $package->blog_detail = $request['blog_detail'];
            $package->save();
 
@@ -235,6 +237,7 @@ class BlogController extends Controller
            $package->blog_type = $request['blog_type'];
            $package->blog_url = $request['blog_url'];
            $package->blog_img = $input['imagename'];
+           $package->set_product = $request['set_product'];
            $package->blog_detail = $request['blog_detail'];
            $package->save();
 

@@ -448,6 +448,7 @@ class HomeController extends Controller
 
       $blog_cat = DB::table('category_blogs')
             ->get();
+
       foreach($blog_cat as $u){
 
         $blog_get = DB::table('blogs')->select(
@@ -458,12 +459,22 @@ class HomeController extends Controller
         $u->count_blog = $blog_get;
       }
 
-      $blog_new = DB::table('blogs')->select(
+      $blog_product_set = DB::table('blogs')->select(
             'blogs.*'
             )
             ->where('blogs.id', $id)
             ->first();
 
+
+
+            $get_product_show = DB::table('products')->select(
+                  'products.*'
+                  )
+                  ->where('id', $blog_product_set->set_product)
+                  ->first();
+
+        //    dd($blog_new->set_product);
+      $data['get_product_show'] = $get_product_show;
 
       $home_list = DB::table('blogs')
       ->select(
@@ -478,7 +489,7 @@ class HomeController extends Controller
       $data['home_list'] = $home_list;
       $data['product'] = $product;
       $data['blog_cat'] = $blog_cat;
-      $data['blog_new'] = $blog_new;
+      $data['blog_new'] = $blog_product_set;
       return view('blog_detail', $data);
     }
 
