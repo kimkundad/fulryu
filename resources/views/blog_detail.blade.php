@@ -10,7 +10,7 @@
 @stop
 
 @section('og_tag')
-<meta property="og:url"           content="https://fulryu.com" />
+<meta property="og:url"           content="https://fulryu.com/{{$blog_new->id}}" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{$blog_new->blog_title}}" />
 <meta property="og:image"         content="{{url('assets/image/blog/'.$blog_new->blog_img)}}" />
