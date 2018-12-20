@@ -7,6 +7,34 @@
         <script src="{{url('home/assets/js/plugins.js')}}"></script>
         <script src="{{url('home/assets/js/main.js')}}?v1.3"></script>
 
+
+
+        <!-- Load Facebook SDK for JavaScript -->
+        <div id="fb-root"></div>
+        <script>window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '1916660355081132', // app id สามารถหาได้จากการสร้าง fb apps ดูลิงค์ด้านล่าง
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v3.2'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <!-- Your customer chat code -->
+        <div class="fb-customerchat"
+          attribution=setup_tool
+          page_id="1158775890929640"
+          theme_color="#6699cc">
+        </div>
+
         <script>
                 $(document).ready(function(){
                     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
