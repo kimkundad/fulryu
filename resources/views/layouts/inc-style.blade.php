@@ -38,4 +38,7 @@
     color: #fff;
     content: ">";
 }
+#scrollUp{
+  display: none !important;
+}
         </style>
