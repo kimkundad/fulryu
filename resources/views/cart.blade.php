@@ -177,7 +177,7 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
                                       ฿{{Session::get('coupon.price')}}
                                       @endif
                                     </span></p>
-                                    <p class="total">Grandtotal <span>฿{{($total*$total_item)-Session::get('coupon.price')}} </span></p>
+                                    <p class="total">Grandtotal <span>฿{{($total)-Session::get('coupon.price')}} </span></p>
                                     <a class="buttons" href="{{url('/checkout')}}"><span>Procced to checkout</span></a>
                                     <div class="clearfix"></div>
 
