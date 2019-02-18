@@ -90,11 +90,13 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
                                   $total_item = 0;
                                   $i = 1 ;
                                   $total_sum = 0;
+                                  $total_sum_all = 0;
 
                                   foreach(Session::get('cart') as $u){
                                     $total += $u['data'][2]['sum_price'];
                                     $total_sum = $u['data']['price']*$u['data'][1]['sum_item'];
                                     $total_item += $u['data'][1]['sum_item'];
+                                    $total_sum_all += $total_sum;
                                ?>
 
 
@@ -177,7 +179,7 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
                                       ฿{{Session::get('coupon.price')}}
                                       @endif
                                     </span></p>
-                                    <p class="total">Grandtotal <span>฿{{($total)-Session::get('coupon.price')}} </span></p>
+                                    <p class="total">Grandtotal <span>฿{{($total_sum_all)-Session::get('coupon.price')}} </span></p>
                                     <a class="buttons" href="{{url('/checkout')}}"><span>Procced to checkout</span></a>
                                     <div class="clearfix"></div>
 
