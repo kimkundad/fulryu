@@ -57,7 +57,7 @@
                                 @if (Auth::guest())
                                 <a href="{{url('login')}}"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> Login</a>
                                 @else
-                                <a href="#"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> {{str_limit(Auth::user()->name, 10, '.')}} </a>
+                                <a href="#"><img src="{{url('home/assets/img/users-512.png')}}" style="height:19px;" alt=""> {{str_limit(Auth::user()->name, 8, '.')}} </a>
                                 <ul>
                                   @if(Auth::user()->is_admin == 1)
                                     <li><a href="{{url('admin/dashboard')}}"><i class="im im-icon-Alien-2"></i>Controller</a></li>
