@@ -1000,7 +1000,7 @@ return response()->json($response);
 
 
 
-          $total += $u['data'][2]['sum_price'];
+          $total += $u['data'][2]['sum_price']*$u['data'][1]['sum_item'];
         //  $total_sum = $u['data']['price']*$u['data'][1]['sum_item'];
           $total_item += $u['data'][1]['sum_item'];
 
