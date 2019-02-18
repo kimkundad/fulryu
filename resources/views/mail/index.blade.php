@@ -46,7 +46,7 @@ repeat-y;width:100%;display:block">
         <span>{{$u->product_name}}</span>
       </td>
       <td style="text-align:right;font-size:12px">
-        <span>THB{{$u->sum_money}}</span>
+        <span>THB{{$u->sum_money}} x {{$u->sum_item}}</span>
         <span></span>
       </td>
     </tr>
