@@ -220,7 +220,7 @@
 
 
                             <p>
-                              {{$objs->pro_title}}
+                              {! $objs->pro_title !}
                             </p>
                         </div>
                     </div>
