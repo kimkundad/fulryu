@@ -1,5 +1,5 @@
 @extends('admin.layouts.template')
-
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 @section('admin.stylesheet')
 <link href="{{URL::asset('assets/upload_image/css/fileinput.css')}}" rel="stylesheet">
@@ -486,7 +486,11 @@
 <script src="{{URL::asset('assets/text/dist/summernote.js?v4')}}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-
+  $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
   $('#summernote').summernote({
 
     fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
@@ -495,6 +499,18 @@ $(document).ready(function() {
     minHeight: 300,
     focus: true                // set focus to editable area after initializing summernote
   });
+});
+var postForm = function() {
+var content = $('textarea[name="pro_title"]').html($('#summernote').code());
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
   $('#summernote2').summernote({
 
     fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
@@ -504,7 +520,9 @@ $(document).ready(function() {
     focus: true                // set focus to editable area after initializing summernote
   });
 });
-
+var postForm = function() {
+var content = $('textarea[name="pro_name_detail"]').html($('#summernote2').code());
+}
 </script>
 
 @stop('scripts')
