@@ -504,25 +504,6 @@ var postForm = function() {
 var content = $('textarea[name="pro_title"]').html($('#summernote').code());
 }
 </script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-  $('#summernote2').summernote({
 
-    fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-    disableDragAndDrop: true,            // set editor height
-    placeholder: 'เนื้อหาบทความ',
-    minHeight: 300,
-    focus: true                // set focus to editable area after initializing summernote
-  });
-});
-var postForm = function() {
-var content = $('textarea[name="pro_name_detail"]').html($('#summernote2').code());
-}
-</script>
 
 @stop('scripts')
