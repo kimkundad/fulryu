@@ -1,12 +1,10 @@
 @extends('admin.layouts.template')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
+<link href="{{url('assets/text/dist/summernote.css')}}?v2" rel="stylesheet">
 
 @section('admin.stylesheet')
 <link href="{{URL::asset('assets/upload_image/css/fileinput.css')}}" rel="stylesheet">
 @stop('admin.stylesheet')
-
-
-<link href="{{url('assets/text/dist/summernote.css')}}?v2" rel="stylesheet">
 
 @section('admin.content')
 <style>
@@ -442,6 +440,35 @@
 <script src="{{asset('/assets/javascripts/tables/examples.datatables.default.js')}}"></script>
 <script src="{{URL::asset('assets/upload_image/js/fileinput.js')}}"></script>
 
+<script src="{{URL::asset('assets/text/dist/summernote.js?v4')}}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('#summernote').summernote({
+
+    fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+    disableDragAndDrop: true,            // set editor height
+    placeholder: 'เนื้อหาบทความ',
+    minHeight: 300,
+    focus: true                // set focus to editable area after initializing summernote
+  });
+  $('#summernote2').summernote({
+
+    fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+    disableDragAndDrop: true,            // set editor height
+    placeholder: 'เนื้อหาบทความ',
+    minHeight: 300,
+    focus: true                // set focus to editable area after initializing summernote
+  });
+});
+var postForm = function() {
+var content = $('textarea[name="blog_detail"]').html($('#summernote').code());
+}
+</script>
+
+
+
+
 @if ($message = Session::get('add_success_img'))
 <script type="text/javascript">
 
@@ -483,27 +510,7 @@
 @endif
 
 
-<script src="{{URL::asset('assets/text/dist/summernote.js?v4')}}"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-  $('#summernote').summernote({
 
-    fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-    disableDragAndDrop: true,            // set editor height
-    placeholder: 'เนื้อหาบทความ',
-    minHeight: 300,
-    focus: true                // set focus to editable area after initializing summernote
-  });
-});
-var postForm = function() {
-var content = $('textarea[name="pro_title"]').html($('#summernote').code());
-}
-</script>
 
 
 @stop('scripts')
