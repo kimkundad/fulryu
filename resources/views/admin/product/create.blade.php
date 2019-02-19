@@ -291,11 +291,7 @@ var notice = new PNotify({
 <script src="{{URL::asset('assets/text/dist/summernote.js?v4')}}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-  $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+
   $('#summernote').summernote({
 
     fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
