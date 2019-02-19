@@ -26,12 +26,7 @@
     font-weight: bold;
 }
 </style>
-<style>
-.note-editor.note-frame .note-editing-area .note-editable {
-    padding-left: 50px;
-    padding-right: 50px;
-}
-</style>
+
 
 
 
