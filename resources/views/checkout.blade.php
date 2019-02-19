@@ -48,12 +48,6 @@ Check out | Fulryu
                         <div class="panel-group" id="headingTwo" role="tablist" aria-multiselectable="true">
 
 
-
-
-
-
-
-
                             <div class="panel">
                                 <div class="panel-heading" id="headingTwo">
                                     <h4 class="panel-title">
