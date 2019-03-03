@@ -114,7 +114,7 @@ return "$strDay $strMonthThai $strYear";
 
 
 
-                    
+
 
 
                          {{$u->name}}</td>
@@ -125,9 +125,9 @@ return "$strDay $strMonthThai $strYear";
 
 
                       <td>
-                        <a style="float:left; margin-right:8px;" title="แก้ไขบทความ" class="btn btn-primary btn-xs" href="{{url('admin/envelope/'.$u->id.'/edit')}}" role="button"><i class="fa fa-cog "></i> </a>
+                        <a style="float:left; margin-right:8px;" title="แก้ไขบทความ" class="btn btn-primary btn-xs" href="{{url('admin/contact_admin/'.$u->id.'/edit')}}" role="button"><i class="fa fa-cog "></i> </a>
 
-                          <form  action="{{url('admin/envelope/'.$u->id)}}" method="post" onsubmit="return(confirm('Do you want Delete'))">
+                          <form  action="{{url('admin/contact_admin/'.$u->id)}}" method="post" onsubmit="return(confirm('Do you want Delete'))">
                             <input type="hidden" name="_method" value="DELETE">
                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button type="submit" title="ลบบทความ" class="btn btn-danger btn-xs"><i class="fa fa-times "></i></button>
