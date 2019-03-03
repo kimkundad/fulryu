@@ -112,9 +112,9 @@ return "$strDay $strMonthThai $strYear";
                         <i class="fa fa-star ap-questions-featured2"></i>
                         @endif
 
-                      
 
-                        @endif
+
+                    
 
 
                          {{$u->name}}</td>
