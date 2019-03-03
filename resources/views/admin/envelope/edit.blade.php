@@ -82,7 +82,7 @@ return "$strDay $strMonthThai $strYear";
                       <tr><td><b>ชื่อผู้ส่ง</b> : </td><td>{{$u->name}}</td></tr>
                       <tr><td><b>อีเมล์</b> : </td><td>{{$u->email}}</td></tr>
 
-                      <tr><td><b>รายละเอียด</b> : </td><td>{{$u->detail}}</td></tr>
+                      <tr><td><b>รายละเอียด</b> : </td><td>{{$u->message}}</td></tr>
                       <tr><td><b>วันที่ส่งข้อความ</b> : </td><td><?php echo DateThai($u->created_at); ?></td></tr>
 
 
