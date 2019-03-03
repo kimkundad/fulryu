@@ -63,7 +63,7 @@ class PaymentController extends Controller
             'banks.*'
             )
             ->leftjoin('banks', 'banks.id',  'confirm_payments.bank')
-            ->where('confirm_payments.order_id', $id)
+            ->where('confirm_payments.id', $id)
             ->first();
 
             $data['objs'] = $cat;
