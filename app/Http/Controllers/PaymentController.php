@@ -40,6 +40,21 @@ class PaymentController extends Controller
         $this->_api_context->setConfig($paypal_conf['settings']);
     }
 
+    public function get_pay_info(){
+
+      $cat = DB::table('confirm_payments')->select(
+            'confirm_payments.*',
+            'confirm_payments.id as ids',
+            'banks.*'
+            )
+            ->leftjoin('banks', 'banks.id',  'confirm_payments.bank')
+            ->get();
+
+            $data['objs'] = $cat;
+            $data['datahead'] = "แจ้งการชำระเงิน";
+            return view('admin.get_pay_info.index', $data);
+    }
+
     public function payWithpaypal(Request $request)
     {
         $payer = new Payer();
