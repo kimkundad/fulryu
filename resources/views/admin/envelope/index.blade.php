@@ -117,7 +117,7 @@ return "$strDay $strMonthThai $strYear";
 
 
 
-                         {{$u->name}}</td>
+                         <a href="{{url('admin/contact_admin/'.$u->id.'/edit')}}">{{$u->name}}</a></td>
                       <td>{{$u->email}}</td>
 
                       <td><?php echo DateThai($u->created_at); ?></td>
