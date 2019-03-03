@@ -65,19 +65,95 @@
           									<div id="edit" class="tab-pane active">
 
 
-                              <form  method="POST" action="{{url('/')}}" enctype="multipart/form-data">
+                              <form  method="POST" action="{{url('admin/uodate_pay_user')}}" enctype="multipart/form-data">
                                           {{ csrf_field() }}
-
-          											<h4 class="mb-xlg">คำสั่งซื้อที่ {{ $objs->ids }}</h4>
+                                <input type="hidden" class="form-control" name="id" value="{{$objs->ids}}">
+          											<h4 class="mb-xlg">แจ้งการชำระเงิน ออเดอร์ #{{ $objs->order_id }}</h4>
 
           											<fieldset>
 
                                   <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">ชื่อลูกค้า*</label>
+          													<label class="col-md-3 control-label" for="profileFirstName">ชื่อผู้แจ้งเรื่อง*</label>
           													<div class="col-md-8">
                                       <p>
-
+                                        {{$objs->name}}
                                       </p>
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">เบอร์ติดต่อ*</label>
+          													<div class="col-md-8">
+                                      <p>
+                                        {{$objs->phone}}
+                                      </p>
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">อีเมล*</label>
+          													<div class="col-md-8">
+                                      <p>
+                                        {{$objs->email}}
+                                      </p>
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">จำนวนที่โอนเข้ามา*</label>
+          													<div class="col-md-8">
+                                      <p>
+                                        {{$objs->money}}
+                                      </p>
+          														</div>
+          												</div>
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">เข้าธนาคาร*</label>
+          													<div class="col-md-8">
+                                      <p>
+                                        {{$objs->name_bank}}
+                                      </p>
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">วันเวลาที่แจ้งโอน*</label>
+          													<div class="col-md-8">
+                                      <p>
+                                        {{$objs->date_transfer}} {{$objs->time_transfer}}
+                                      </p>
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">หลักฐานการโอนเงิน</label>
+          													<div class="col-md-8">
+          														<img src="{{url('assets/image/slip_image/'.$objs->slip_image)}}" class="img-responsive" style="width:70%">
+          														</div>
+          												</div>
+
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">*หมายเหตุ</label>
+          													<div class="col-md-8">
+          														<textarea class="form-control" name="note_detail"  rows="6">{{ $objs->note }}</textarea>
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">สถานะ</label>
+          													<div class="col-md-8">
+                                      <select name="confirm_status" class="form-control mb-md" required>
+
+                                        <option value="0" @if( $objs->confirm_status == 0)
+                                        selected='selected'
+                                        @endif>ยังไม่ตรวจสอบ</option>
+
+                                        <option value="1" @if( $objs->confirm_status == 1)
+                                        selected='selected'
+                                        @endif>ตรวจสอบแล้ว</option>
+
+  								                    </select>
           														</div>
           												</div>
 

@@ -103,5 +103,6 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/get_pay_info', 'PaymentController@get_pay_info');
   Route::post('admin/del_pay_info', 'PaymentController@del_pay_info');
   Route::get('admin/edit_pay_info/{id}/edit', 'PaymentController@edit_pay_info');
+  Route::post('admin/uodate_pay_user', 'PaymentController@uodate_pay_user');
 
   });
