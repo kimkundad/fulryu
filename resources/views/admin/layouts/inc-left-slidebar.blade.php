@@ -27,12 +27,7 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 							<nav id="menu" class="nav-main" role="navigation">
 								<ul class="nav nav-main">
 
-                  <li {{ (Request::is('admin/dashboard*') ? 'class=nav-expanded' : '') }} >
-										<a href="{{url('admin/dashboard/')}}"  >
-											<i class="fa fa-home" aria-hidden="true"></i>
-											<span>Dashboard</span>
-										</a>
-									</li>
+
 
 
                   <li {{ (Request::is('admin/user*') ? 'class=nav-expanded' : '') }} >
