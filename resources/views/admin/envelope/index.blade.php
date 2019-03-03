@@ -112,9 +112,7 @@ return "$strDay $strMonthThai $strYear";
                         <i class="fa fa-star ap-questions-featured2"></i>
                         @endif
 
-                        @if($u->type_contact == 2)
-                        <i class="fa fa-paper-plane "></i>
-                        @else
+                      
 
                         @endif
 
